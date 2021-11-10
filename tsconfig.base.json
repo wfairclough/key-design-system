@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@keyds/key": ["dist/packages/key-design-system"],
-      "@keyds/key/loader": ["dist/packages/key-design-system/loader"]
+      "@keyds/key-design-system": ["dist/packages/key-design-system"],
+      "@keyds/key-design-system/loader": ["dist/packages/key-design-system/loader"]
     }
   },
   "exclude": ["node_modules", "tmp"]

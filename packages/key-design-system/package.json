@@ -1,6 +1,7 @@
 {
-  "name": "@keyds/key",
-  "version": "0.0.1",
+  "name": "@keyds/key-design-system",
+  "version": "0.0.1-1",
+  "private": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.js",
   "es2015": "./dist/esm/index.mjs",
@@ -12,5 +13,8 @@
   "files": [
     "dist/",
     "loader/"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
