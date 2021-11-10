@@ -1,0 +1,12 @@
+:host {
+  button {
+    display: var(--key-button-display, inline-block);
+    width: var(--key-button-width, fit-content);
+  }
+}
+
+:host(.key-expanded) {
+  --key-button-display: block;
+  --key-button-width: 100%;
+  display: var(--key-button-display);
+}

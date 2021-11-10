@@ -1,4 +1,6 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "key-design-system": "packages/key-design-system"
+  }
 }

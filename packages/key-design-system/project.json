@@ -1,0 +1,68 @@
+{
+  "root": "packages/key-design-system",
+  "sourceRoot": "packages/key-design-system/src",
+  "projectType": "library",
+  "generators": {
+    "@nxext/stencil:component": {
+      "style": "scss"
+    }
+  },
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "@nxext/stencil:test",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "projectType": "library",
+        "tsConfig": "packages/key-design-system/tsconfig.lib.json",
+        "configPath": "packages/key-design-system/stencil.config.ts",
+        "outputPath": "dist/packages/key-design-system"
+      }
+    },
+    "build": {
+      "executor": "@nxext/stencil:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "projectType": "library",
+        "tsConfig": "packages/key-design-system/tsconfig.lib.json",
+        "configPath": "packages/key-design-system/stencil.config.ts",
+        "outputPath": "dist/packages/key-design-system"
+      },
+      "configurations": {
+        "production": {
+          "dev": false,
+          "prod": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nxext/stencil:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "projectType": "library",
+        "tsConfig": "packages/key-design-system/tsconfig.lib.json",
+        "configPath": "packages/key-design-system/stencil.config.ts",
+        "outputPath": "dist/packages/key-design-system",
+        "serve": true,
+        "watch": true
+      }
+    },
+    "e2e": {
+      "executor": "@nxext/stencil:e2e",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "projectType": "library",
+        "tsConfig": "packages/key-design-system/tsconfig.lib.json",
+        "configPath": "packages/key-design-system/stencil.config.ts",
+        "outputPath": "dist/packages/key-design-system"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": "packages/key-design-system/**/*.{ts,tsx}"
+      }
+    }
+  }
+}
