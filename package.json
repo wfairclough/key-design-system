@@ -2,7 +2,10 @@
   "name": "keyds",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "format": "prettier --write \"**/*.(js|ts|jsx|tsx)\"",
+    "hooks:pre-commit": "node tools/hooks/pre-commit.mjs"
+  },
   "private": true,
   "dependencies": {
     "tslib": "^2.0.0"
@@ -18,9 +21,12 @@
     "@stencil/sass": "^1.5.2",
     "@types/jest": "^26.0.24",
     "@types/node": "14.14.33",
+    "chalk": "^4.1.2",
+    "husky": "^7.0.4",
     "jest": "26.6.3",
     "jest-cli": "^26.6.3",
     "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.1",
     "ts-jest": "26.5.6",
     "typescript": "~4.3.5"
   }

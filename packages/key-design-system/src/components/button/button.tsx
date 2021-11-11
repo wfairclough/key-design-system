@@ -48,7 +48,14 @@ export class Button implements ComponentInterface {
   }
 
   render() {
-    const { disabled, expanded, inheritedAttributes, onBlur, onFocus, variation } = this;
+    const {
+      disabled,
+      expanded,
+      inheritedAttributes,
+      onBlur,
+      onFocus,
+      variation,
+    } = this;
     return (
       <Host
         onClick={this.handleClick}
