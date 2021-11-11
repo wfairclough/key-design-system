@@ -8,22 +8,6 @@ import { Component, h, Host, Prop } from '@stencil/core';
 export class ListItem {
   @Prop() labelSize: number = 33;
 
-  get dtFlexBasisStyle(): string {
-    return `${this.labelSize}%`;
-  }
-
-  get ddFlexBasisStyle(): string {
-    const ddSize = 100 - this.labelSize;
-    return `${ddSize}%`;
-  }
-
-  private get styles() {
-    return {
-      '--key-list-item-dt-flex-basis': this.dtFlexBasisStyle,
-      '--key-list-item-dd-flex-basis': this.ddFlexBasisStyle,
-    };
-  }
-
   render() {
     return <Host style={this.styles}>
       <dt class="key-label">
@@ -33,5 +17,21 @@ export class ListItem {
         <slot name="value" />
       </dd>
     </Host>
+  }
+
+  private get styles() {
+    return {
+      '--key-list-item-dt-flex-basis': this.dtFlexBasisStyle,
+      '--key-list-item-dd-flex-basis': this.ddFlexBasisStyle,
+    };
+  }
+
+  private get dtFlexBasisStyle(): string {
+    return `${this.labelSize}%`;
+  }
+
+  private get ddFlexBasisStyle(): string {
+    const ddSize = 100 - this.labelSize;
+    return `${ddSize}%`;
   }
 }
