@@ -2,7 +2,9 @@
   font-size: 62.5%;
 
   // --key-font-family: localtapiola-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --key-font-family: font-family: 'Source Sans Pro', sans-serif;
+  // --key-font-family: font-family: 'Source Sans Pro', sans-serif;
+  // --key-font-family: 'Work Sans', sans-serif;
+  --key-font-family: 'Encode Sans', sans-serif;
   
   --key-background: rgba(246, 246, 247, 1);
   --key-background-hovered: rgba(241, 242, 243, 1);
@@ -54,11 +56,24 @@
   --key-surface-selected-pressed: rgba(229, 239, 253, 1);
   --key-icon-on-interactive: rgba(255, 255, 255, 1);
   --key-text-on-interactive: rgba(255, 255, 255, 1);
-  --key-action-secondary: rgba(255, 255, 255, 1);
-  --key-action-secondary-disabled: rgba(255, 255, 255, 1);
-  --key-action-secondary-hovered: rgba(246, 246, 247, 1);
-  --key-action-secondary-pressed: rgba(241, 242, 243, 1);
-  --key-action-secondary-depressed: rgba(109, 113, 117, 1);
+  --key-text-on-plain: var(--key-text, black);
+  --key-action-plain: rgba(255, 255, 255, 1);
+  --key-action-plain-disabled: rgba(255, 255, 255, 1);
+  --key-action-plain-hovered: rgba(246, 246, 247, 1);
+  --key-action-plain-pressed: rgba(241, 242, 243, 1);
+  --key-action-plain-depressed: rgba(109, 113, 117, 1);
+  --key-text-on-secondary: rgba(255, 255, 255, 1);
+  --key-action-secondary: rgb(230, 99, 23);
+  --key-action-secondary-disabled: rgb(148, 102, 75);
+  --key-action-secondary-hovered: rgb(252, 107, 24);
+  --key-action-secondary-pressed: rgb(173, 83, 30);
+  --key-action-secondary-depressed: rgb(119, 58, 22);
+  --key-text-on-tertiary: rgba(255, 255, 255, 1);
+  --key-action-tertiary: rgb(10, 65, 96);
+  --key-action-tertiary-disabled: rgb(87, 134, 161);
+  --key-action-tertiary-hovered: rgb(10, 57, 85);
+  --key-action-tertiary-pressed: rgb(5, 31, 46);
+  --key-action-tertiary-depressed: rgb(5, 33, 49);
   --key-action-primary: rgba(0, 137, 137, 1);
   --key-action-primary-disabled: rgba(241, 241, 241, 1);
   --key-action-primary-hovered: rgba(0, 110, 110, 1);
@@ -82,7 +97,7 @@
   --key-surface-critical-subdued-pressed: rgba(255, 233, 232, 1);
   --key-surface-critical-subdued-depressed: rgba(254, 188, 185, 1);
   --key-text-critical: rgba(215, 44, 13, 1);
-  --key-action-critical: rgba(216, 44, 13, 1);
+  --key-action-critical: rgba(190, 75, 55, 1);
   --key-action-critical-disabled: rgba(241, 241, 241, 1);
   --key-action-critical-hovered: rgba(188, 34, 0, 1);
   --key-action-critical-pressed: rgba(162, 27, 0, 1);

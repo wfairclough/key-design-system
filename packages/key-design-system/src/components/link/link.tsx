@@ -8,14 +8,8 @@ import { Component, h, Host, Prop } from '@stencil/core';
 export class Link {
   @Prop() url: string;
 
-  get classes(): string {
-    return [
-      'key-link',
-    ].join(' ');
-  }
-
   render() {
-    return <Host class={this.classes}>
+    return <Host class={{ 'key-link': true }}>
       <a href={this.url}>
         <slot />
       </a>

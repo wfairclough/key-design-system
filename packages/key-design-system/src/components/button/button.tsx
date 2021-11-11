@@ -11,17 +11,13 @@ export class Button {
 
   @Prop() expanded: boolean = false;
 
-  private get classes(): string {
-    return [
-      'key-button',
-      `key-button-${this.variation}`,
-      ...(this.expanded ? ['key-expanded'] : []),
-    ].join(' ');
-  }
-
   render() {
     console.log(`Render key-button`, this.expanded);
-    return <Host class={this.classes}>
+    return <Host class={{
+      'key-button': true,
+      [`key-button-${this.variation}`]: true,
+      'key-expanded': this.expanded,
+    }}>
       <button part="native">
         <slot name="leading" />
         <span class="content">

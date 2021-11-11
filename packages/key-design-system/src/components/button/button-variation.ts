@@ -3,4 +3,5 @@ export enum ButtonVariation {
   Plain = 'plain',
   Primary = 'primary',
   Secondary = 'secondary',
+  Tertiary = 'tertiary',
 }

@@ -46,12 +46,12 @@
   }
 
   button:hover {
-    background: var(--key-action-secondary-hovered);
+    background: var(--key-action-plain-hovered);
     outline: .1rem solid transparent;
   }
 
   button:active {
-    background: var(--key-action-secondary-pressed);
+    background: var(--key-action-plain-pressed);
     box-shadow: var(--key-button-drop-shadow);
   }
 
@@ -105,3 +105,99 @@
     box-shadow: var(--key-button-drop-shadow),var(--key-button-inner-shadow);
   }
 }
+
+:host(.key-button-destructive) {
+  --key-button-color: var(--key-action-critical);
+  --key-button-text: var(--key-text-on-critical);
+  --key-button-color-hover: var(--key-action-critical-hovered);
+  --key-button-color-active: var(--key-action-critical-pressed);
+  --key-button-color-depressed: var(--key-action-critical-depressed);
+  button {
+    position: relative;
+    background: var(--key-button-color);
+    border-width: 0;
+    border-color: transparent;
+    box-shadow: var(--key-button-drop-shadow),var(--key-button-inner-shadow);
+    color: var(--key-button-text);
+  }
+
+  button:hover {
+    background: var(--key-button-color-hover);
+    border-color: transparent;
+    color: var(--key-button-text);
+  }
+
+  button:active {
+    background: var(--key-button-color-active);
+  }
+
+  button:focus {
+    border-color: transparent;
+    box-shadow: var(--key-button-drop-shadow),var(--key-button-inner-shadow);
+  }
+}
+
+:host(.key-button-secondary) {
+  --key-button-color: var(--key-action-secondary);
+  --key-button-text: var(--key-text-on-secondary);
+  --key-button-color-hover: var(--key-action-secondary-hovered);
+  --key-button-color-active: var(--key-action-secondary-pressed);
+  --key-button-color-depressed: var(--key-action-secondary-depressed);
+  button {
+    position: relative;
+    background: var(--key-button-color);
+    border-width: 0;
+    border-color: transparent;
+    box-shadow: var(--key-button-drop-shadow),var(--key-button-inner-shadow);
+    color: var(--key-button-text);
+  }
+
+  button:hover {
+    background: var(--key-button-color-hover);
+    border-color: transparent;
+    color: var(--key-button-text);
+  }
+
+  button:active {
+    background: var(--key-button-color-active);
+  }
+
+  button:focus {
+    border-color: transparent;
+    box-shadow: var(--key-button-drop-shadow),var(--key-button-inner-shadow);
+  }
+}
+
+
+:host(.key-button-tertiary) {
+  --key-button-color: var(--key-action-tertiary);
+  --key-button-text: var(--key-text-on-tertiary);
+  --key-button-color-hover: var(--key-action-tertiary-hovered);
+  --key-button-color-active: var(--key-action-tertiary-pressed);
+  --key-button-color-depressed: var(--key-action-tertiary-depressed);
+  button {
+    position: relative;
+    background: var(--key-button-color);
+    border-width: 0;
+    border-color: transparent;
+    box-shadow: var(--key-button-drop-shadow),var(--key-button-inner-shadow);
+    color: var(--key-button-text);
+  }
+
+  button:hover {
+    background: var(--key-button-color-hover);
+    border-color: transparent;
+    color: var(--key-button-text);
+  }
+
+  button:active {
+    background: var(--key-button-color-active);
+  }
+
+  button:focus {
+    border-color: transparent;
+    box-shadow: var(--key-button-drop-shadow),var(--key-button-inner-shadow);
+  }
+}
+
+
