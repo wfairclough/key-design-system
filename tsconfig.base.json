@@ -16,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@keyds/key-design-system": ["dist/packages/key-design-system"],
-      "@keyds/key-design-system/loader": ["dist/packages/key-design-system/loader"]
+      "@keyds/key-design-system/loader": [
+        "dist/packages/key-design-system/loader"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

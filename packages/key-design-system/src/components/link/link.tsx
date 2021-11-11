@@ -9,10 +9,12 @@ export class Link {
   @Prop() url: string;
 
   render() {
-    return <Host class={{ 'key-link': true }}>
-      <a href={this.url}>
-        <slot />
-      </a>
-    </Host>
+    return (
+      <Host class={{ 'key-link': true }}>
+        <a href={this.url}>
+          <slot />
+        </a>
+      </Host>
+    );
   }
 }

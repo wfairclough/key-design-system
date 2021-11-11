@@ -9,14 +9,16 @@ export class ListItem {
   @Prop() labelSize: number = 33;
 
   render() {
-    return <Host style={this.styles}>
-      <dt class="key-label">
-        <slot name="label" />
-      </dt>
-      <dd class="key-value">
-        <slot name="value" />
-      </dd>
-    </Host>
+    return (
+      <Host style={this.styles}>
+        <dt class="key-label">
+          <slot name="label" />
+        </dt>
+        <dd class="key-value">
+          <slot name="value" />
+        </dd>
+      </Host>
+    );
   }
 
   private get styles() {

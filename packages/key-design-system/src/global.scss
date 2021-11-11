@@ -5,7 +5,7 @@
   // --key-font-family: font-family: 'Source Sans Pro', sans-serif;
   // --key-font-family: 'Work Sans', sans-serif;
   --key-font-family: 'Encode Sans', sans-serif;
-  
+
   --key-background: rgba(246, 246, 247, 1);
   --key-background-hovered: rgba(241, 242, 243, 1);
   --key-background-pressed: rgba(237, 238, 239, 1);
@@ -150,9 +150,12 @@
   --key-border-radius-base: 0.4rem;
   --key-border-radius-wide: 0.8rem;
   --key-border-radius-full: 50%;
-  --key-card-shadow: 0px 0px 5px var(--key-shadow-from-ambient-light), 0px 1px 2px var(--key-shadow-from-direct-light);
-  --key-popover-shadow: -1px 0px 20px var(--key-shadow-from-ambient-light), 0px 1px 5px var(--key-shadow-from-direct-light);
-  --key-modal-shadow: 0px 26px 80px var(--key-shadow-from-dim-light), 0px 0px 1px var(--key-shadow-from-dim-light);
+  --key-card-shadow: 0px 0px 5px var(--key-shadow-from-ambient-light),
+    0px 1px 2px var(--key-shadow-from-direct-light);
+  --key-popover-shadow: -1px 0px 20px var(--key-shadow-from-ambient-light),
+    0px 1px 5px var(--key-shadow-from-direct-light);
+  --key-modal-shadow: 0px 26px 80px var(--key-shadow-from-dim-light),
+    0px 0px 1px var(--key-shadow-from-dim-light);
   --key-top-bar-shadow: 0 2px 2px -1px var(--key-shadow-from-direct-light);
   --key-button-drop-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
   --key-button-inner-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.2);
@@ -164,16 +167,26 @@
   --key-override-zero: 0;
   --key-override-loading-z-index: 514;
   --key-button-font-weight: 500;
-  --key-non-null-content: "";
+  --key-non-null-content: '';
   --key-choice-size: 2rem;
   --key-icon-size: 1rem;
   --key-choice-margin: 0.1rem;
   --key-control-border-width: 0.2rem;
-  --key-banner-border-default: inset 0 0.1rem 0 0 var(--key-border-neutral-subdued), inset 0 0 0 0.1rem var(--key-border-neutral-subdued);
-  --key-banner-border-success: inset 0 0.1rem 0 0 var(--key-border-success-subdued), inset 0 0 0 0.1rem var(--key-border-success-subdued);
-  --key-banner-border-highlight: inset 0 0.1rem 0 0 var(--key-border-highlight-subdued), inset 0 0 0 0.1rem var(--key-border-highlight-subdued);
-  --key-banner-border-warning: inset 0 0.1rem 0 0 var(--key-border-warning-subdued), inset 0 0 0 0.1rem var(--key-border-warning-subdued);
-  --key-banner-border-critical: inset 0 0.1rem 0 0 var(--key-border-critical-subdued), inset 0 0 0 0.1rem var(--key-border-critical-subdued);
+  --key-banner-border-default: inset 0 0.1rem 0 0
+      var(--key-border-neutral-subdued),
+    inset 0 0 0 0.1rem var(--key-border-neutral-subdued);
+  --key-banner-border-success: inset 0 0.1rem 0 0
+      var(--key-border-success-subdued),
+    inset 0 0 0 0.1rem var(--key-border-success-subdued);
+  --key-banner-border-highlight: inset 0 0.1rem 0 0
+      var(--key-border-highlight-subdued),
+    inset 0 0 0 0.1rem var(--key-border-highlight-subdued);
+  --key-banner-border-warning: inset 0 0.1rem 0 0
+      var(--key-border-warning-subdued),
+    inset 0 0 0 0.1rem var(--key-border-warning-subdued);
+  --key-banner-border-critical: inset 0 0.1rem 0 0
+      var(--key-border-critical-subdued),
+    inset 0 0 0 0.1rem var(--key-border-critical-subdued);
   --key-badge-mix-blend-mode: luminosity;
   --key-thin-border-subdued: 0.1rem solid var(--key-border-subdued);
   --key-text-field-spinner-offset: 0.2rem;

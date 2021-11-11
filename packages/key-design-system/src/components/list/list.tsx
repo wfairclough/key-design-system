@@ -23,10 +23,11 @@ export class List {
    */
   @Prop() last: string;
 
-
   render() {
-    return <dl class={ `key-list key-list-${this.variation}` }>
-      <slot />
-    </dl>;
+    return (
+      <dl class={`key-list key-list-${this.variation}`}>
+        <slot />
+      </dl>
+    );
   }
 }

@@ -1,4 +1,13 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core';
 import { hasShadowDom, inheritAttributes } from '../../utils/helpers';
 import { ButtonVariation } from './button-variation';
 
@@ -12,7 +21,7 @@ export class Button implements ComponentInterface {
   private inheritedAttributes: { [k: string]: any } = {};
 
   @Element() el!: HTMLElement;
-  
+
   @Prop() variation: ButtonVariation = ButtonVariation.Plain;
 
   @Prop() expanded: boolean = false;
@@ -22,7 +31,7 @@ export class Button implements ComponentInterface {
   @Prop() download: string | undefined;
 
   @Prop() rel: string | undefined;
-  
+
   @Prop() autofocus: boolean | undefined;
 
   @Prop({ reflect: true }) size?: 'small' | 'default' | 'large' = 'default';
@@ -39,34 +48,32 @@ export class Button implements ComponentInterface {
   }
 
   render() {
-    const {
-      disabled,
-      expanded,
-      inheritedAttributes,
-      onBlur,
-      onFocus,
-      variation
-    } = this;
-    return <Host
-    onClick={this.handleClick}
-    class={{
-      'key-button': true,
-      [`key-button-${variation}`]: true,
-      'key-expanded': expanded,
-    }}>
-      <button class="button-native" part="native"
-        disabled={disabled}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        {...inheritedAttributes}
+    const { disabled, expanded, inheritedAttributes, onBlur, onFocus, variation } = this;
+    return (
+      <Host
+        onClick={this.handleClick}
+        class={{
+          'key-button': true,
+          [`key-button-${variation}`]: true,
+          'key-expanded': expanded,
+        }}
       >
-        <slot name="leading" />
-        <span class="content">
-          <slot />
-        </span>
-        <slot name="trailing" />
-      </button>
-    </Host>;
+        <button
+          class="button-native"
+          part="native"
+          disabled={disabled}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          {...inheritedAttributes}
+        >
+          <slot name="leading" />
+          <span class="content">
+            <slot />
+          </span>
+          <slot name="trailing" />
+        </button>
+      </Host>
+    );
   }
 
   private handleClick(ev: Event) {
@@ -90,9 +97,9 @@ export class Button implements ComponentInterface {
 
   private onFocus = () => {
     this.keyFocus.emit();
-  }
+  };
 
   private onBlur = () => {
     this.keyBlur.emit();
-  }
+  };
 }
