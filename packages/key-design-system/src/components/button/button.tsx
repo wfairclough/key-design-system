@@ -3,10 +3,10 @@ import { ButtonVariation } from './button-variation';
 
 @Component({
   tag: 'key-button',
-  styleUrl: 'key-button.scss',
+  styleUrl: 'button.scss',
   shadow: true,
 })
-export class KeyButton {
+export class Button {
   @Prop() variation: ButtonVariation = ButtonVariation.Plain;
 
   @Prop() expanded: boolean = false;
@@ -24,7 +24,9 @@ export class KeyButton {
     return <Host class={this.classes}>
       <button part="native">
         <slot name="leading" />
-        <slot />
+        <span class="content">
+          <slot />
+        </span>
         <slot name="trailing" />
       </button>
     </Host>;

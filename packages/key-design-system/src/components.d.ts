@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariation } from "./components/key-button/button-variation";
+import { ButtonVariation } from "./components/button/button-variation";
 export namespace Components {
     interface KeyButton {
         "expanded": boolean;

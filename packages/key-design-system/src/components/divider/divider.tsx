@@ -4,10 +4,10 @@ type KeyDividerMargin = 'auto' | 'none' | 'small';
 
 @Component({
   tag: 'key-divider',
-  styleUrl: 'key-divider.scss',
+  styleUrl: 'divider.scss',
   shadow: true,
 })
-export class KeyDivider {
+export class Divider {
   @Prop() margin: KeyDividerMargin = 'auto';
 
   render() {

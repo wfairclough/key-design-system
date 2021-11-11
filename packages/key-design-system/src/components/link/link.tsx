@@ -2,10 +2,10 @@ import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'key-link',
-  styleUrl: 'key-link.scss',
+  styleUrl: 'link.scss',
   shadow: true,
 })
-export class KeyLink {
+export class Link {
   @Prop() url: string;
 
   get classes(): string {

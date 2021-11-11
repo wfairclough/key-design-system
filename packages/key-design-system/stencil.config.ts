@@ -6,6 +6,7 @@ export const config: Config = {
   namespace: 'key-design-system',
   taskQueue: 'async',
   plugins: [sass()],
+  globalStyle: 'src/global.scss',
   outputTargets: [
     {
       type: 'dist',

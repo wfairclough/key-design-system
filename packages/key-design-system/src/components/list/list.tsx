@@ -4,10 +4,10 @@ type KeyListVariation = 'default' | 'stripped';
 
 @Component({
   tag: 'key-list',
-  styleUrl: 'key-list.scss',
+  styleUrl: 'list.scss',
   shadow: true,
 })
-export class KeyList {
+export class List {
   /**
    * The first name
    */

@@ -2,10 +2,10 @@ import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'key-list-item',
-  styleUrl: 'key-list-item.scss',
+  styleUrl: 'list-item.scss',
   shadow: true,
 })
-export class KeyListItem {
+export class ListItem {
   @Prop() labelSize: number = 33;
 
   get dtFlexBasisStyle(): string {
@@ -26,10 +26,10 @@ export class KeyListItem {
 
   render() {
     return <Host style={this.styles}>
-      <dt>
+      <dt class="key-label">
         <slot name="label" />
       </dt>
-      <dd>
+      <dd class="key-value">
         <slot name="value" />
       </dd>
     </Host>

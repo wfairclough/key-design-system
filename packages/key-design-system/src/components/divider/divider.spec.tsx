@@ -1,36 +1,36 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { KeyButton } from './key-button';
+import { Divider } from './divider';
 
-describe('key-button', () => {
+describe('key-divider', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
-      components: [KeyButton],
-      html: '<key-button></key-button>',
+      components: [Divider],
+      html: '<key-divider></key-divider>',
     });
     expect(root).toEqualHtml(`
-      <key-button>
+      <key-divider>
         <mock:shadow-root>
           <div>
             Hello, World! I'm
           </div>
         </mock:shadow-root>
-      </key-button>
+      </key-divider>
     `);
   });
 
   it('renders with values', async () => {
     const { root } = await newSpecPage({
-      components: [KeyButton],
-      html: `<key-button first="Stencil" last="'Don't call me a framework' JS"></key-button>`,
+      components: [Divider],
+      html: `<key-divider first="Stencil" last="'Don't call me a framework' JS"></key-divider>`,
     });
     expect(root).toEqualHtml(`
-      <key-button first="Stencil" last="'Don't call me a framework' JS">
+      <key-divider first="Stencil" last="'Don't call me a framework' JS">
         <mock:shadow-root>
           <div>
             Hello, World! I'm Stencil 'Don't call me a framework' JS
           </div>
         </mock:shadow-root>
-      </key-button>
+      </key-divider>
     `);
   });
 });

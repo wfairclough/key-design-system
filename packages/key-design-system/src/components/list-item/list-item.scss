@@ -10,7 +10,7 @@
   width: 100%;
   overflow: visible;
   font-family: var(--key-font-family);
-  font-size: 1rem;
+  font-size: var(--key-font-size-default, 1.5rem);
   font-style: normal;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -18,13 +18,15 @@
   color: rgb(0, 41, 77);
 
   dt {
+    align-self: center;
     flex-basis: var(--key-list-item-dt-flex-basis, 33%);
     padding: var(--key-list-item-dt-padding, 8px 8px 8px 0);
   }
 
   dd {
+    align-self: center;
     flex-basis: var(--key-list-item-dd-flex-basis, 67%);
     margin-inline-start: 0px;
-    padding: var(--key-list-item-dd-padding, 0 8px 8px 0);
+    padding: var(--key-list-item-dd-padding, 8px 0 8px 8px);
   }
 }
