@@ -23,7 +23,7 @@
     />
   </head>
   <body>
-    <key-button variation="plain">Plain Button</key-button>
+    <key-button id="plain1" variation="plain">Plain Button</key-button>
     <key-button variation="primary">Primary Button</key-button>
     <key-button variation="secondary">Secondary Button</key-button>
     <key-button variation="tertiary">Tertiary Button</key-button>
@@ -60,5 +60,14 @@
         <span slot="value">Canucks</span>
       </key-list-item>
     </key-list>
+
+    <script>
+      (() => {
+        let plainBtn = document.getElementById('plain1');
+        plainBtn.addEventListener('click', function(ev) {
+          console.log(`Clicked`, ev);
+        });
+      })()
+    </script>
   </body>
 </html>

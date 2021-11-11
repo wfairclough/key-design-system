@@ -52,6 +52,7 @@ export class Button implements ComponentInterface {
       disabled,
       expanded,
       inheritedAttributes,
+      inButtonGroup,
       onBlur,
       onFocus,
       variation,
@@ -63,6 +64,7 @@ export class Button implements ComponentInterface {
           'key-button': true,
           [`key-button-${variation}`]: true,
           'key-expanded': expanded,
+          [`key-in-button-group`]: inButtonGroup,
         }}
       >
         <button
