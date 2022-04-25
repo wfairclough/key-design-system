@@ -57,24 +57,52 @@ export class Button implements ComponentInterface {
       onFocus,
       variation,
     } = this;
+    console.log({
+      disabled,
+      expanded,
+      inheritedAttributes,
+      inButtonGroup,
+      onBlur,
+      onFocus,
+      variation,
+    });
+
+    const common = {
+      'inline-flex': true,
+      'items-center': true,
+      'border': true,
+      'border-transparent': true,
+      'font-medium': true,
+      'shadow-sm': true,
+      'text-white': true,
+      'bg-suitespot-400': true,
+      'hover:bg-suitespot-600': true,
+      'focus:outline-none': true,
+      'focus:ring-2': true,
+      'focus:ring-offset-2': true,
+      'focus:ring-suitespot-300': true,
+    };
+
+    const med = {
+      ...common,
+      'px-4': true,
+      'py-2': true,
+      'text-base': true,
+      'rounded-md': true,
+    };
+
+    const xsm = {
+      ...common,
+      'px-2.5': true,
+      'py-1.5': true,
+      'text-xs': true,
+      'rounded': true,
+    };
+
     return (
-      <Host
-        onClick={this.handleClick}
-        class={{
-          'key-button': true,
-          [`key-button-${variation}`]: true,
-          'key-expanded': expanded,
-          [`key-in-button-group`]: inButtonGroup,
-        }}
-      >
-        <button
-          class="button-native"
-          part="native"
-          disabled={disabled}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          {...inheritedAttributes}
-        >
+
+      <Host onClick={this.handleClick}>
+        <button type="button" class={med || xsm}>
           <slot name="leading" />
           <span class="content">
             <slot />
@@ -84,6 +112,44 @@ export class Button implements ComponentInterface {
       </Host>
     );
   }
+
+  // render() {
+  //   const {
+  //     disabled,
+  //     expanded,
+  //     inheritedAttributes,
+  //     inButtonGroup,
+  //     onBlur,
+  //     onFocus,
+  //     variation,
+  //   } = this;
+  //   return (
+  //     <Host
+  //       onClick={this.handleClick}
+  //       class={{
+  //         'key-button': true,
+  //         [`key-button-${variation}`]: true,
+  //         'key-expanded': expanded,
+  //         [`key-in-button-group`]: inButtonGroup,
+  //       }}
+  //     >
+  //       <button
+  //         class="button-native"
+  //         part="native"
+  //         disabled={disabled}
+  //         onFocus={onFocus}
+  //         onBlur={onBlur}
+  //         {...inheritedAttributes}
+  //       >
+  //         <slot name="leading" />
+  //         <span class="content">
+  //           <slot />
+  //         </span>
+  //         <slot name="trailing" />
+  //       </button>
+  //     </Host>
+  //   );
+  // }
 
   private handleClick(ev: Event) {
     if (hasShadowDom(this.el) && this.type === 'submit') {
