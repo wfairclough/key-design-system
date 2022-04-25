@@ -67,6 +67,39 @@ export class Button implements ComponentInterface {
       variation,
     });
 
+    const variationColors = {
+      [ButtonVariation.Destructive]: {
+        'text-white': true,
+        'bg-red-600': true,
+        'hover:bg-red-700': true,
+        'focus:ring-red-500': true,
+      },
+      [ButtonVariation.Plain]: {
+        'text-primary-400': true,
+        'bg-primary-50': true,
+        'hover:bg-primary-100': true,
+        'focus:ring-primary-400': true,
+      },
+      [ButtonVariation.Primary]: {
+        'text-white': true,
+        'bg-primary-600': true,
+        'hover:bg-primary-700': true,
+        'focus:ring-primary-500': true,
+      },
+      [ButtonVariation.Secondary]: {
+        'text-white': true,
+        'bg-secondary-600': true,
+        'hover:bg-secondary-700': true,
+        'focus:ring-secondary-500': true,
+      },
+      [ButtonVariation.Tertiary]: {
+        'text-white': true,
+        'bg-tertiary-600': true,
+        'hover:bg-tertiary-700': true,
+        'focus:ring-tertiary-500': true,
+      },
+    };
+
     const common = {
       'inline-flex': true,
       'items-center': true,
@@ -74,13 +107,10 @@ export class Button implements ComponentInterface {
       'border-transparent': true,
       'font-medium': true,
       'shadow-sm': true,
-      'text-white': true,
-      'bg-suitespot-400': true,
-      'hover:bg-suitespot-600': true,
       'focus:outline-none': true,
       'focus:ring-2': true,
       'focus:ring-offset-2': true,
-      'focus:ring-suitespot-300': true,
+      ...variationColors[variation],
     };
 
     const med = {

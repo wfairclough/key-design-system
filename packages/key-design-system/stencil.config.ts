@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import postcssImport from 'postcss-import';
 import tailwindCss from 'tailwindcss';
-import colors from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
 import autoPrefixer from 'autoprefixer';
 
 import tailwind from 'stencil-tailwind-plugin';
@@ -22,25 +22,50 @@ export const config: Config = {
       },
       tailwindConf: {
         theme: {
-          colors: {
-            transparent: 'transparent',
-            current: 'currentColor',
-            black: colors.black,
-            white: colors.white,
-            gray: colors.gray,
-            emerald: colors.emerald,
-            indigo: colors.indigo,
-            yellow: colors.yellow,
-            suitespot: {
-              50: '#F0FDFA',
-              100: '#002F2F',
-              200: '#105454',
-              300: '#256E6E',
-              400: '#008989',
-              500: '#119693',
-              600: '#10A8A8',
-              700: '#0CBABA',
-              800: '#00C1C1',
+          extend: {
+            fontFamily: {
+              sans: ['Inter var', ...((defaultTheme.fontFamily as any)?.sans ?? [] )],
+            },
+            colors: {
+              ...defaultTheme.colors,
+              transparent: 'transparent',
+              current: 'currentColor',
+              primary: {
+                50: '#F0FDFA',
+                100: '#CCFBF1',
+                200: '#99F6E4',
+                300: '#5EEAD4',
+                400: '#2DD4BF',
+                500: '#14B8A6',
+                600: '#008989',
+                700: '#0F766E',
+                800: '#115E59',
+                900: '#134E4A',
+              },
+              secondary: {
+                50: '#FFFBEB',
+                100: '#FEF3C7',
+                200: '#FDE68A',
+                300: '#FCD34D',
+                400: '#FBBF24',
+                500: '#F59E0B',
+                600: '#D97706',
+                700: '#B45309',
+                800: '#92400E',
+                900: '#78350F',
+              },
+              tertiary: {
+                50: '#EEF2FF',
+                100: '#E0E7FF',
+                200: '#C7D2FE',
+                300: '#A5B4FC',
+                400: '#818CF8',
+                500: '#6366F1',
+                600: '#4F46E5',
+                700: '#4338CA',
+                800: '#3730A3',
+                900: '#312E81',
+              },
             }
           }
         }
