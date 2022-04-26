@@ -24,11 +24,39 @@
     />
   </head>
   <body>
+    <style>
+      key-button {
+        margin: 6px;
+      }
+    </style>
+
+    <key-navbar></key-navbar>
+
+    <key-button size="small" id="plain1" variation="plain">
+      <svg slot="leading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+      </svg>
+      Plain Button
+    </key-button>
+    <key-button size="small" variation="primary">Primary Button</key-button>
+    <key-button size="small" variation="secondary">Secondary Button</key-button>
+    <key-button size="small" variation="tertiary">Tertiary Button</key-button>
+    <key-button size="small" variation="destructive">Destructive Button</key-button>
+    <key-divider></key-divider>
     <key-button id="plain1" variation="plain">Plain Button</key-button>
-    <key-button variation="primary">Primary Button</key-button>
+    <key-button variation="primary">
+      Primary Button
+    </key-button>
     <key-button variation="secondary">Secondary Button</key-button>
     <key-button variation="tertiary">Tertiary Button</key-button>
     <key-button variation="destructive">Destructive Button</key-button>
+    <key-divider></key-divider>
+    <key-button size="large" id="plain1" variation="plain">Plain Button</key-button>
+    <key-button size="large" variation="primary">Primary Button</key-button>
+    <key-button size="large" variation="secondary">Secondary Button</key-button>
+    <key-button size="large" variation="tertiary">Tertiary Button</key-button>
+    <key-button size="large" variation="destructive">Destructive Button</key-button>
     <key-divider></key-divider>
     <key-list>
       <key-button variation="plain" expanded

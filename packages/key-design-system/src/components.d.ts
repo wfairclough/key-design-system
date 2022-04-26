@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonVariation } from "./components/button/button-variation";
+import { ButtonSize } from "./components/button/button-size";
 export namespace Components {
     interface KeyButton {
         "autofocus": boolean | undefined;
@@ -13,7 +14,8 @@ export namespace Components {
         "download": string | undefined;
         "expanded": boolean;
         "rel": string | undefined;
-        "size"?: 'small' | 'default' | 'large';
+        "rounded": boolean;
+        "size"?: ButtonSize;
         "type": 'submit' | 'reset' | 'button';
         "variation": ButtonVariation;
     }
@@ -39,6 +41,9 @@ export namespace Components {
     }
     interface KeyListItem {
         "labelSize": number;
+    }
+    interface KeyNavbar {
+        "color": string;
     }
 }
 declare global {
@@ -72,12 +77,19 @@ declare global {
         prototype: HTMLKeyListItemElement;
         new (): HTMLKeyListItemElement;
     };
+    interface HTMLKeyNavbarElement extends Components.KeyNavbar, HTMLStencilElement {
+    }
+    var HTMLKeyNavbarElement: {
+        prototype: HTMLKeyNavbarElement;
+        new (): HTMLKeyNavbarElement;
+    };
     interface HTMLElementTagNameMap {
         "key-button": HTMLKeyButtonElement;
         "key-divider": HTMLKeyDividerElement;
         "key-link": HTMLKeyLinkElement;
         "key-list": HTMLKeyListElement;
         "key-list-item": HTMLKeyListItemElement;
+        "key-navbar": HTMLKeyNavbarElement;
     }
 }
 declare namespace LocalJSX {
@@ -86,10 +98,11 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "download"?: string | undefined;
         "expanded"?: boolean;
-        "onKeyBlur"?: (event: CustomEvent<void>) => void;
-        "onKeyFocus"?: (event: CustomEvent<void>) => void;
+        "onKeyBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onKeyFocus"?: (event: CustomEvent<FocusEvent>) => void;
         "rel"?: string | undefined;
-        "size"?: 'small' | 'default' | 'large';
+        "rounded"?: boolean;
+        "size"?: ButtonSize;
         "type"?: 'submit' | 'reset' | 'button';
         "variation"?: ButtonVariation;
     }
@@ -116,12 +129,16 @@ declare namespace LocalJSX {
     interface KeyListItem {
         "labelSize"?: number;
     }
+    interface KeyNavbar {
+        "color"?: string;
+    }
     interface IntrinsicElements {
         "key-button": KeyButton;
         "key-divider": KeyDivider;
         "key-link": KeyLink;
         "key-list": KeyList;
         "key-list-item": KeyListItem;
+        "key-navbar": KeyNavbar;
     }
 }
 export { LocalJSX as JSX };
@@ -133,6 +150,7 @@ declare module "@stencil/core" {
             "key-link": LocalJSX.KeyLink & JSXBase.HTMLAttributes<HTMLKeyLinkElement>;
             "key-list": LocalJSX.KeyList & JSXBase.HTMLAttributes<HTMLKeyListElement>;
             "key-list-item": LocalJSX.KeyListItem & JSXBase.HTMLAttributes<HTMLKeyListItemElement>;
+            "key-navbar": LocalJSX.KeyNavbar & JSXBase.HTMLAttributes<HTMLKeyNavbarElement>;
         }
     }
 }
