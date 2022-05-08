@@ -5,7 +5,7 @@ import tailwindCss from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import autoPrefixer from 'autoprefixer';
 
-import tailwind from 'stencil-tailwind-plugin';
+import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
 
 export const config: Config = {
   namespace: 'key-design-system',
@@ -21,6 +21,9 @@ export const config: Config = {
         ],
       },
       tailwindConf: {
+        plugins: [
+          require('@tailwindcss/forms'),
+        ],
         theme: {
           extend: {
             fontFamily: {
@@ -83,11 +86,12 @@ export const config: Config = {
         }
       }
     }),
+    tailwindHMR()
   ],
   globalStyle: 'src/global.scss',
-  devServer: {
-    reloadStrategy: 'pageReload'
-  },
+  // devServer: {
+  //   reloadStrategy: 'pageReload'
+  // },
   outputTargets: [
     {
       type: 'dist',

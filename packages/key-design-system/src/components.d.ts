@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonVariation } from "./components/button/button-variation";
 import { ButtonSize } from "./components/button/button-size";
 export namespace Components {
+    interface KeyBackdrop {
+    }
     interface KeyButton {
         "autofocus": boolean | undefined;
         "disabled": boolean;
@@ -18,6 +20,10 @@ export namespace Components {
         "size"?: ButtonSize;
         "type": 'submit' | 'reset' | 'button';
         "variation": ButtonVariation;
+    }
+    interface KeyComandPalette {
+        "showing": boolean;
+        "triggerChord": string;
     }
     interface KeyDivider {
         "margin": KeyDividerMargin;
@@ -47,11 +53,23 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLKeyBackdropElement extends Components.KeyBackdrop, HTMLStencilElement {
+    }
+    var HTMLKeyBackdropElement: {
+        prototype: HTMLKeyBackdropElement;
+        new (): HTMLKeyBackdropElement;
+    };
     interface HTMLKeyButtonElement extends Components.KeyButton, HTMLStencilElement {
     }
     var HTMLKeyButtonElement: {
         prototype: HTMLKeyButtonElement;
         new (): HTMLKeyButtonElement;
+    };
+    interface HTMLKeyComandPaletteElement extends Components.KeyComandPalette, HTMLStencilElement {
+    }
+    var HTMLKeyComandPaletteElement: {
+        prototype: HTMLKeyComandPaletteElement;
+        new (): HTMLKeyComandPaletteElement;
     };
     interface HTMLKeyDividerElement extends Components.KeyDivider, HTMLStencilElement {
     }
@@ -84,7 +102,9 @@ declare global {
         new (): HTMLKeyNavbarElement;
     };
     interface HTMLElementTagNameMap {
+        "key-backdrop": HTMLKeyBackdropElement;
         "key-button": HTMLKeyButtonElement;
+        "key-comand-palette": HTMLKeyComandPaletteElement;
         "key-divider": HTMLKeyDividerElement;
         "key-link": HTMLKeyLinkElement;
         "key-list": HTMLKeyListElement;
@@ -93,6 +113,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface KeyBackdrop {
+    }
     interface KeyButton {
         "autofocus"?: boolean | undefined;
         "disabled"?: boolean;
@@ -105,6 +127,10 @@ declare namespace LocalJSX {
         "size"?: ButtonSize;
         "type"?: 'submit' | 'reset' | 'button';
         "variation"?: ButtonVariation;
+    }
+    interface KeyComandPalette {
+        "showing"?: boolean;
+        "triggerChord"?: string;
     }
     interface KeyDivider {
         "margin"?: KeyDividerMargin;
@@ -133,7 +159,9 @@ declare namespace LocalJSX {
         "color"?: string;
     }
     interface IntrinsicElements {
+        "key-backdrop": KeyBackdrop;
         "key-button": KeyButton;
+        "key-comand-palette": KeyComandPalette;
         "key-divider": KeyDivider;
         "key-link": KeyLink;
         "key-list": KeyList;
@@ -145,7 +173,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "key-backdrop": LocalJSX.KeyBackdrop & JSXBase.HTMLAttributes<HTMLKeyBackdropElement>;
             "key-button": LocalJSX.KeyButton & JSXBase.HTMLAttributes<HTMLKeyButtonElement>;
+            "key-comand-palette": LocalJSX.KeyComandPalette & JSXBase.HTMLAttributes<HTMLKeyComandPaletteElement>;
             "key-divider": LocalJSX.KeyDivider & JSXBase.HTMLAttributes<HTMLKeyDividerElement>;
             "key-link": LocalJSX.KeyLink & JSXBase.HTMLAttributes<HTMLKeyLinkElement>;
             "key-list": LocalJSX.KeyList & JSXBase.HTMLAttributes<HTMLKeyListElement>;

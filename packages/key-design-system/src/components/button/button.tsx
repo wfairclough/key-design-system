@@ -18,7 +18,7 @@ import { ButtonVariation } from './button-variation';
   shadow: true,
 })
 export class Button implements ComponentInterface {
-  private inButtonGroup = false;
+  // private inButtonGroup = false;
   private inheritedAttributes: { [k: string]: any } = {};
 
   @Element() el!: HTMLElement;
@@ -46,19 +46,15 @@ export class Button implements ComponentInterface {
   @Event() keyBlur!: EventEmitter<FocusEvent>;
 
   componentWillLoad() {
-    this.inButtonGroup = !!this.el.closest('key-button-group');
+    // this.inButtonGroup = !!this.el.closest('key-button-group');
     this.inheritedAttributes = inheritAttributes(this.el, ['aria-label']);
   }
 
   render() {
-    const {
-      expanded,
-      inButtonGroup,
-    } = this;
-    console.log({
-      expanded,
-      inButtonGroup,
-    });
+    // const {
+    //   expanded,
+    //   inButtonGroup,
+    // } = this;
 
     return (
       <Host
