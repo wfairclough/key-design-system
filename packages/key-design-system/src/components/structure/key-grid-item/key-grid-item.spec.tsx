@@ -1,36 +1,36 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { KeyRow } from './key-row';
+import { KeyGridItem } from './key-grid-item';
 
-describe('key-row', () => {
+describe('key-grid-item', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
-      components: [KeyRow],
-      html: '<key-row></key-row>',
+      components: [KeyGridItem],
+      html: '<key-grid-item></key-grid-item>',
     });
     expect(root).toEqualHtml(`
-      <key-row>
+      <key-grid-item>
         <mock:shadow-root>
           <div>
             Hello, World! I'm
           </div>
         </mock:shadow-root>
-      </key-row>
+      </key-grid-item>
     `);
   });
 
   it('renders with values', async () => {
     const { root } = await newSpecPage({
-      components: [KeyRow],
-      html: `<key-row first="Stencil" last="'Don't call me a framework' JS"></key-row>`,
+      components: [KeyGridItem],
+      html: `<key-grid-item first="Stencil" last="'Don't call me a framework' JS"></key-grid-item>`,
     });
     expect(root).toEqualHtml(`
-      <key-row first="Stencil" last="'Don't call me a framework' JS">
+      <key-grid-item first="Stencil" last="'Don't call me a framework' JS">
         <mock:shadow-root>
           <div>
             Hello, World! I'm Stencil 'Don't call me a framework' JS
           </div>
         </mock:shadow-root>
-      </key-row>
+      </key-grid-item>
     `);
   });
 });

@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonVariation, Color, Size } from "./components/key-button/key-button";
-import { CrossAxisArrangement, MainAxisArrangement } from "./components/structure/key-stack/key-stack";
+import { GridAxis } from "./components/structure/key-grid/grid-axis";
+import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/key-grid/alignments";
+import { Fit } from "./components/structure/key-grid/fit";
 export namespace Components {
     interface KeyAppFrame {
     }
@@ -60,19 +62,15 @@ export namespace Components {
          */
         "middle": string;
     }
-    interface KeyColumn {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface KeyGrid {
+        "axis": GridAxis;
+        "crossAxisAlignment": CrossAxisAlignment;
+        "crossfit": Fit;
+        "fit": Fit;
+        "mainAxisAlignment": MainAxisAlignment;
+        "wrap": boolean;
+    }
+    interface KeyGridItem {
     }
     interface KeyLayout {
         /**
@@ -101,16 +99,6 @@ export namespace Components {
           * The middle name
          */
         "middle": string;
-    }
-    interface KeyRow {
-        "fit"?: 'expand' | 'loose';
-    }
-    interface KeyStack {
-        "axis": 'vertical' | 'horizontal';
-        "crossAxisArrangement": CrossAxisArrangement;
-        "crossfit"?: 'tight' | 'expand';
-        "fit"?: 'tight' | 'expand';
-        "mainAxisArrangement": MainAxisArrangement;
     }
 }
 declare global {
@@ -144,11 +132,17 @@ declare global {
         prototype: HTMLKeyCardSectionElement;
         new (): HTMLKeyCardSectionElement;
     };
-    interface HTMLKeyColumnElement extends Components.KeyColumn, HTMLStencilElement {
+    interface HTMLKeyGridElement extends Components.KeyGrid, HTMLStencilElement {
     }
-    var HTMLKeyColumnElement: {
-        prototype: HTMLKeyColumnElement;
-        new (): HTMLKeyColumnElement;
+    var HTMLKeyGridElement: {
+        prototype: HTMLKeyGridElement;
+        new (): HTMLKeyGridElement;
+    };
+    interface HTMLKeyGridItemElement extends Components.KeyGridItem, HTMLStencilElement {
+    }
+    var HTMLKeyGridItemElement: {
+        prototype: HTMLKeyGridItemElement;
+        new (): HTMLKeyGridItemElement;
     };
     interface HTMLKeyLayoutElement extends Components.KeyLayout, HTMLStencilElement {
     }
@@ -162,29 +156,16 @@ declare global {
         prototype: HTMLKeyPageActionsElement;
         new (): HTMLKeyPageActionsElement;
     };
-    interface HTMLKeyRowElement extends Components.KeyRow, HTMLStencilElement {
-    }
-    var HTMLKeyRowElement: {
-        prototype: HTMLKeyRowElement;
-        new (): HTMLKeyRowElement;
-    };
-    interface HTMLKeyStackElement extends Components.KeyStack, HTMLStencilElement {
-    }
-    var HTMLKeyStackElement: {
-        prototype: HTMLKeyStackElement;
-        new (): HTMLKeyStackElement;
-    };
     interface HTMLElementTagNameMap {
         "key-app-frame": HTMLKeyAppFrameElement;
         "key-app-page": HTMLKeyAppPageElement;
         "key-button": HTMLKeyButtonElement;
         "key-card": HTMLKeyCardElement;
         "key-card-section": HTMLKeyCardSectionElement;
-        "key-column": HTMLKeyColumnElement;
+        "key-grid": HTMLKeyGridElement;
+        "key-grid-item": HTMLKeyGridItemElement;
         "key-layout": HTMLKeyLayoutElement;
         "key-page-actions": HTMLKeyPageActionsElement;
-        "key-row": HTMLKeyRowElement;
-        "key-stack": HTMLKeyStackElement;
     }
 }
 declare namespace LocalJSX {
@@ -242,19 +223,15 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
-    interface KeyColumn {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface KeyGrid {
+        "axis"?: GridAxis;
+        "crossAxisAlignment"?: CrossAxisAlignment;
+        "crossfit"?: Fit;
+        "fit"?: Fit;
+        "mainAxisAlignment"?: MainAxisAlignment;
+        "wrap"?: boolean;
+    }
+    interface KeyGridItem {
     }
     interface KeyLayout {
         /**
@@ -284,27 +261,16 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
-    interface KeyRow {
-        "fit"?: 'expand' | 'loose';
-    }
-    interface KeyStack {
-        "axis"?: 'vertical' | 'horizontal';
-        "crossAxisArrangement"?: CrossAxisArrangement;
-        "crossfit"?: 'tight' | 'expand';
-        "fit"?: 'tight' | 'expand';
-        "mainAxisArrangement"?: MainAxisArrangement;
-    }
     interface IntrinsicElements {
         "key-app-frame": KeyAppFrame;
         "key-app-page": KeyAppPage;
         "key-button": KeyButton;
         "key-card": KeyCard;
         "key-card-section": KeyCardSection;
-        "key-column": KeyColumn;
+        "key-grid": KeyGrid;
+        "key-grid-item": KeyGridItem;
         "key-layout": KeyLayout;
         "key-page-actions": KeyPageActions;
-        "key-row": KeyRow;
-        "key-stack": KeyStack;
     }
 }
 export { LocalJSX as JSX };
@@ -316,11 +282,10 @@ declare module "@stencil/core" {
             "key-button": LocalJSX.KeyButton & JSXBase.HTMLAttributes<HTMLKeyButtonElement>;
             "key-card": LocalJSX.KeyCard & JSXBase.HTMLAttributes<HTMLKeyCardElement>;
             "key-card-section": LocalJSX.KeyCardSection & JSXBase.HTMLAttributes<HTMLKeyCardSectionElement>;
-            "key-column": LocalJSX.KeyColumn & JSXBase.HTMLAttributes<HTMLKeyColumnElement>;
+            "key-grid": LocalJSX.KeyGrid & JSXBase.HTMLAttributes<HTMLKeyGridElement>;
+            "key-grid-item": LocalJSX.KeyGridItem & JSXBase.HTMLAttributes<HTMLKeyGridItemElement>;
             "key-layout": LocalJSX.KeyLayout & JSXBase.HTMLAttributes<HTMLKeyLayoutElement>;
             "key-page-actions": LocalJSX.KeyPageActions & JSXBase.HTMLAttributes<HTMLKeyPageActionsElement>;
-            "key-row": LocalJSX.KeyRow & JSXBase.HTMLAttributes<HTMLKeyRowElement>;
-            "key-stack": LocalJSX.KeyStack & JSXBase.HTMLAttributes<HTMLKeyStackElement>;
         }
     }
 }

@@ -101,3 +101,8 @@ export const inheritAriaAttributes = (el: HTMLElement) => {
 export const hasShadowDom = (el: HTMLElement) => {
   return !!el.shadowRoot && !!(el as any).attachShadow;
 };
+
+export const getAttributes = (el: HTMLElement) => {
+  if (!el) { return {}; }
+  return el.getAttributeNames().reduce((attrs, key) => ({ ...attrs, [key]: el.getAttribute(key) }), {}) as Attributes;
+}

@@ -1,0 +1,13 @@
+:host(.key-grid-item) {
+  display: block;
+}
+
+:host(.key-axis-v) {
+  margin-bottom: var(--grid-margin, 16px) !important;
+}
+:host(.key-axis-h.key-alignment-start) {
+  margin-inline-end: var(--grid-margin, 16px) !important;
+}
+:host(.key-axis-h.key-alignment-end) {
+  margin-inline-start: var(--grid-margin, 16px) !important;
+}

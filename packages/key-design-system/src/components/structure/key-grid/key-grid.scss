@@ -1,0 +1,119 @@
+:host(.key-grid) {
+  display: flex;
+  flex-direction: row;
+}
+
+:host(.key-grid.key-wrap) {
+  flex-wrap: wrap;
+}
+
+:host(.key-axis-v) {
+  flex-direction: column;
+}
+:host(.key-axis-h) {
+  flex-direction: row;
+}
+
+:host(.key-fit-h-tight) {
+  width: fit-content;
+}
+:host(.key-fit-h-expand) {
+  width: 100%;
+  max-width: 100%;
+}
+:host(.key-fit-v-tight) {
+  height: fit-content;
+}
+:host(.key-fit-v-expand) {
+  height: 100%;
+  max-height: 100%;
+}
+
+:host(.key-crossfit-h-tight) {
+  height: fit-content;
+}
+:host(.key-crossfit-h-expand) {
+  height: 100%;
+}
+:host(.key-crossfit-v-tight) {
+  width: fit-content;
+}
+:host(.key-crossfit-v-expand) {
+  width: 100%;
+}
+
+:host(.key-main-axis-arrange-start) {
+  justify-content: flex-start;
+}
+:host(.key-main-axis-arrange-end) {
+  justify-content: flex-end;
+}
+:host(.key-main-axis-arrange-center) {
+  justify-content: center;
+}
+:host(.key-main-axis-arrange-space-between) {
+  justify-content: space-between;
+}
+:host(.key-main-axis-arrange-space-around) {
+  justify-content: space-around;
+}
+:host(.key-main-axis-arrange-space-evenly) {
+  justify-content: space-evenly;
+}
+
+:host(.key-cross-axis-arrange-start) {
+  align-items: flex-start;
+}
+:host(.key-cross-axis-arrange-end) {
+  align-items: flex-end;
+}
+:host(.key-cross-axis-arrange-center) {
+  align-items: center;
+}
+:host(.key-cross-axis-arrange-baseline) {
+  align-items: baseline;
+}
+:host(.key-cross-axis-arrange-stretch) {
+  align-items: stretch;
+}
+
+
+
+
+// :host(.key-expand-full) {
+//   width: 100%;
+// }
+
+// :host(.key-v) {
+//   flex-direction: column;
+// }
+
+// :host(.key-distribution-leading) {
+//   align-items: stretch;
+
+// }
+
+// :host(.key-distribution-trailing) {
+//   align-items: stretch;
+//   justify-content: flex-end;
+// }
+
+// :host(.key-distribution-center) {
+//   align-items: stretch;
+//   justify-content: center;
+// }
+
+// :host(.key-distribution-space-between) {
+//   align-items: stretch;
+//   justify-content: space-around;
+// }
+
+// :host(.key-distribution-space-around) {
+//   align-items: stretch;
+//   justify-content: space-between;
+// }
+
+// :host(.key-distribution-space-evenly) {
+//   align-items: stretch;
+//   justify-content: space-evenly;
+// }

@@ -8,6 +8,12 @@
     />
     <title>Stencil Component Starter</title>
 
+    <!--
+      <script type="module" src="https://cdn.duetds.com/api/components/5.1.3/lib/duet/duet.esm.js" integrity="sha384-8CzCBaoB/AFSpsQH4Vs+mG40KMYjUnGVvVW+rEF64JyChEXZe+fiwGTCmtLWnOxU" crossorigin="anonymous"></script>
+      <script nomodule src="https://cdn.duetds.com/api/components/5.1.3/lib/duet/duet.js" integrity="sha384-fdb0JsOV3MoVa3twj0DSZK8EAwUbkhZO1l/Zu3gSQaKH+MtPk5oyfdaRvF/wbbmO" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.duetds.com/api/css/1.7.27/lib/duet.min.css" integrity="sha384-hZtBvzu0gDMuJSxjcFmXBFV7fsrpsXz8j//RjC5sY6a0pY7QdN3/jDiokZnMcrPV" crossorigin="anonymous" />
+    -->
+
     <script type="module" src="/build/key-design-system.esm.js"></script>
     <script nomodule src="/build/key-design-system.js"></script>
     <link
@@ -21,33 +27,58 @@
       key-button {
         display: inline-block;
       }
+      .box {
+        background: blue;
+        width: 50px;
+        height: 50px;
+      }
     </style>
-    <key-app-frame>
-      <key-stack fit="expand" crossfit="expand" axis="vertical">
-        <key-stack id="outline-stack" fit="expand" crossfit="expand" main-axis-arrangement="space-around" cross-axis-arrangement="end">
+    <!-- <key-app-frame> -->
+      <key-grid id="outline-grid" fit="expand" main-axis-alignment="start" cross-axis-alignment="center" wrap>
+        <key-grid-item>
           <key-button id="plain1" variation="plain">Plain</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button variation="outline" color="destructive">Outline</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button variation="outline" color="primary">Outline</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button variation="outline" color="secondary">Outline</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button variation="outline" color="tertiary">Outline</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button variation="outline">Outline</key-button>
-        </key-stack>
-        <key-stack fit="expand" axis="vertical" main-axis-arrangement="center">
+        </key-grid-item>
+        <key-grid-item>
           <key-button color="primary">Primary</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button color="secondary">Secondary</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button color="tertiary">Tertiary</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button color="destructive">Destructive</key-button>
-        </key-stack>
-        <key-stack fit="expand" axis="vertical">
+        </key-grid-item>
+        <key-grid-item>
           <key-button color="primary" size="small">Small</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button color="primary" size="small" variation="outline">Small</key-button>
-        </key-stack>
-        <key-stack fit="expand" axis="vertical">
+        </key-grid-item>
+        <key-grid-item>
           <key-button color="secondary" size="large">Large</key-button>
+        </key-grid-item>
+        <key-grid-item>
           <key-button color="secondary" size="large" variation="outline">Large</key-button>
-        </key-stack>
-      </key-stack>
-    </key-app-frame>
+        </key-grid-item>
+      </key-grid>
+    <!-- </key-app-frame> -->
     
     <script>
       (() => {
