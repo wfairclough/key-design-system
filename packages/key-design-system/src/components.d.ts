@@ -5,40 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariation } from "./components/button/button-variation";
+import { ButtonVariation, Color, Size } from "./components/key-button/key-button";
 export namespace Components {
     interface KeyButton {
-        "autofocus": boolean | undefined;
-        "disabled": boolean;
-        "download": string | undefined;
-        "expanded": boolean;
-        "rel": string | undefined;
-        "size"?: 'small' | 'default' | 'large';
-        "type": 'submit' | 'reset' | 'button';
+        "color": Color;
+        "size": Size;
         "variation": ButtonVariation;
-    }
-    interface KeyDivider {
-        "margin": KeyDividerMargin;
-    }
-    interface KeyLink {
-        "url": string;
-    }
-    interface KeyList {
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-        /**
-          * The first name
-         */
-        "variation": KeyListVariation;
-    }
-    interface KeyListItem {
-        "labelSize": number;
     }
 }
 declare global {
@@ -48,80 +20,18 @@ declare global {
         prototype: HTMLKeyButtonElement;
         new (): HTMLKeyButtonElement;
     };
-    interface HTMLKeyDividerElement extends Components.KeyDivider, HTMLStencilElement {
-    }
-    var HTMLKeyDividerElement: {
-        prototype: HTMLKeyDividerElement;
-        new (): HTMLKeyDividerElement;
-    };
-    interface HTMLKeyLinkElement extends Components.KeyLink, HTMLStencilElement {
-    }
-    var HTMLKeyLinkElement: {
-        prototype: HTMLKeyLinkElement;
-        new (): HTMLKeyLinkElement;
-    };
-    interface HTMLKeyListElement extends Components.KeyList, HTMLStencilElement {
-    }
-    var HTMLKeyListElement: {
-        prototype: HTMLKeyListElement;
-        new (): HTMLKeyListElement;
-    };
-    interface HTMLKeyListItemElement extends Components.KeyListItem, HTMLStencilElement {
-    }
-    var HTMLKeyListItemElement: {
-        prototype: HTMLKeyListItemElement;
-        new (): HTMLKeyListItemElement;
-    };
     interface HTMLElementTagNameMap {
         "key-button": HTMLKeyButtonElement;
-        "key-divider": HTMLKeyDividerElement;
-        "key-link": HTMLKeyLinkElement;
-        "key-list": HTMLKeyListElement;
-        "key-list-item": HTMLKeyListItemElement;
     }
 }
 declare namespace LocalJSX {
     interface KeyButton {
-        "autofocus"?: boolean | undefined;
-        "disabled"?: boolean;
-        "download"?: string | undefined;
-        "expanded"?: boolean;
-        "onKeyBlur"?: (event: CustomEvent<void>) => void;
-        "onKeyFocus"?: (event: CustomEvent<void>) => void;
-        "rel"?: string | undefined;
-        "size"?: 'small' | 'default' | 'large';
-        "type"?: 'submit' | 'reset' | 'button';
+        "color"?: Color;
+        "size"?: Size;
         "variation"?: ButtonVariation;
-    }
-    interface KeyDivider {
-        "margin"?: KeyDividerMargin;
-    }
-    interface KeyLink {
-        "url"?: string;
-    }
-    interface KeyList {
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-        /**
-          * The first name
-         */
-        "variation"?: KeyListVariation;
-    }
-    interface KeyListItem {
-        "labelSize"?: number;
     }
     interface IntrinsicElements {
         "key-button": KeyButton;
-        "key-divider": KeyDivider;
-        "key-link": KeyLink;
-        "key-list": KeyList;
-        "key-list-item": KeyListItem;
     }
 }
 export { LocalJSX as JSX };
@@ -129,10 +39,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "key-button": LocalJSX.KeyButton & JSXBase.HTMLAttributes<HTMLKeyButtonElement>;
-            "key-divider": LocalJSX.KeyDivider & JSXBase.HTMLAttributes<HTMLKeyDividerElement>;
-            "key-link": LocalJSX.KeyLink & JSXBase.HTMLAttributes<HTMLKeyLinkElement>;
-            "key-list": LocalJSX.KeyList & JSXBase.HTMLAttributes<HTMLKeyListElement>;
-            "key-list-item": LocalJSX.KeyListItem & JSXBase.HTMLAttributes<HTMLKeyListItemElement>;
         }
     }
 }

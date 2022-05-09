@@ -10,12 +10,6 @@
 
     <script type="module" src="/build/key-design-system.esm.js"></script>
     <script nomodule src="/build/key-design-system.js"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       type="text/css"
@@ -23,44 +17,26 @@
     />
   </head>
   <body>
-    <key-button id="plain1" variation="plain">Plain Button</key-button>
-    <key-button variation="primary">Primary Button</key-button>
-    <key-button variation="secondary">Secondary Button</key-button>
-    <key-button variation="tertiary">Tertiary Button</key-button>
-    <key-button variation="destructive">Destructive Button</key-button>
-    <key-divider></key-divider>
-    <key-list>
-      <key-button variation="plain" expanded
-        >Expanded Primary Button</key-button
-      >
-      <key-button variation="primary" expanded
-        >Expanded Primary Button</key-button
-      >
-    </key-list>
-    <key-divider margin="small"></key-divider>
-    <key-link url="https://keyds.design/"
-      >Almost before we knew it, we had left the ground</key-link
-    >
-    <key-divider margin="small"></key-divider>
-    <key-list>
-      <key-list-item label-size="50">
-        <span slot="label">Toronto</span>
-        <span slot="value">Maple Leafs</span>
-      </key-list-item>
-      <key-list-item label-size="80">
-        <span slot="label">Ottawa</span>
-        <span slot="value">Senators</span>
-      </key-list-item>
-      <key-list-item>
-        <span slot="label">Edmonton</span>
-        <span slot="value">Oilers</span>
-      </key-list-item>
-      <key-list-item>
-        <span slot="label">Vancouver</span>
-        <span slot="value">Canucks</span>
-      </key-list-item>
-    </key-list>
-
+    <style>
+      key-button {
+        display: inline-block;
+      }
+    </style>
+    <key-button id="plain1" variation="plain">Plain</key-button>
+    <key-button variation="outline" color="destructive">Outline</key-button>
+    <key-button variation="outline" color="primary">Outline</key-button>
+    <key-button variation="outline" color="secondary">Outline</key-button>
+    <key-button variation="outline" color="tertiary">Outline</key-button>
+    <key-button variation="outline">Outline</key-button>
+    <key-button color="primary">Primary</key-button>
+    <key-button color="secondary">Secondary</key-button>
+    <key-button color="tertiary">Tertiary</key-button>
+    <key-button color="destructive">Destructive</key-button>
+    <key-button color="primary" size="small">Small</key-button>
+    <key-button color="primary" size="small" variation="outline">Small</key-button>
+    <key-button color="secondary" size="large">Large</key-button>
+    <key-button color="secondary" size="large" variation="outline">Large</key-button>
+    
     <script>
       (() => {
         let plainBtn = document.getElementById('plain1');

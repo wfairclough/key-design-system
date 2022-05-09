@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { Button } from './button';
+import { KeyButton } from './key-button';
 
 describe('key-button', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
-      components: [Button],
+      components: [KeyButton],
       html: '<key-button></key-button>',
     });
     expect(root).toEqualHtml(`
@@ -20,7 +20,7 @@ describe('key-button', () => {
 
   it('renders with values', async () => {
     const { root } = await newSpecPage({
-      components: [Button],
+      components: [KeyButton],
       html: `<key-button first="Stencil" last="'Don't call me a framework' JS"></key-button>`,
     });
     expect(root).toEqualHtml(`

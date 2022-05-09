@@ -1,0 +1,44 @@
+.key-color-primary {
+  --key-color-base: var(--key-color-primary, #008989) !important;
+  --key-color-base-rgb: var(--key-color-primary-rgb, 0, 137, 137) !important;
+  --key-color-contrast: var(--key-color-primary-contrast, #fff) !important;
+  --key-color-contrast-rgb: var(--key-color-primary-contrast-rgb, 255, 255, 255) !important;
+  --key-color-shade: var(--key-color-primary-shade, #007070) !important;
+  --key-color-tint: var(--key-color-primary-tint, #00a8a8) !important;
+  --key-color-light: var(--key-color-primary-light, hsl(180, 100%, 92%)) !important;
+  --key-color-lighter: var(--key-color-primary-lighter, hsl(180, 100%, 99%)) !important;
+}
+
+.key-color-secondary {
+  --key-color-base: var(--key-color-secondary, #E66318) !important;
+  --key-color-base-rgb: var(--key-color-secondary-rgb, 230, 99, 24) !important;
+  --key-color-contrast: var(--key-color-secondary-contrast, #fff) !important;
+  --key-color-contrast-rgb: var(--key-color-secondary-contrast-rgb, 255, 255, 255) !important;
+  --key-color-shade: var(--key-color-secondary-shade, #d05a16) !important;
+  --key-color-tint: var(--key-color-secondary-tint, #ea7734) !important;
+  --key-color-light: var(--key-color-secondary-light, hsl(22, 81%, 92%)) !important;
+  --key-color-lighter: var(--key-color-secondary-lighter, hsl(22, 81%, 99%)) !important;
+}
+
+.key-color-tertiary {
+  --key-color-base: var(--key-color-tertiary, #0a4161) !important;
+  --key-color-base-rgb: var(--key-color-tertiary-rgb, 10, 65, 97) !important;
+  --key-color-contrast: var(--key-color-tertiary-contrast, #fff) !important;
+  --key-color-contrast-rgb: var(--key-color-tertiary-contrast-rgb, 255, 255, 255) !important;
+  --key-color-shade: var(--key-color-tertiary-shade, #08324a) !important;
+  --key-color-tint: var(--key-color-tertiary-tint, #0d547d) !important;
+  --key-color-light: var(--key-color-tertiary-light, hsl(202, 81%, 92%)) !important;
+  --key-color-lighter: var(--key-color-tertiary-lighter, hsl(202, 81%, 99%)) !important;
+}
+
+.key-color-destructive {
+  --key-color-base: var(--key-color-destructive, hsl(345, 99%, 38%)) !important;
+  --key-color-base-rgb: var(--key-color-destructive-rgb, 193, 1, 49) !important;
+  --key-color-contrast: var(--key-color-destructive-contrast, #fff) !important;
+  --key-color-contrast-rgb: var(--key-color-destructive-contrast-rgb, 255, 255, 255) !important;
+  --key-color-shade: var(--key-color-destructive-shade, #a7012a) !important;
+  --key-color-tint: var(--key-color-destructive-tint, #df0139) !important;
+  --key-color-light: var(--key-color-destructive-light, hsl(345, 99%, 92%)) !important;
+  --key-color-lighter: var(--key-color-destructive-lighter, hsl(345, 99%, 99%)) !important;
+}
+

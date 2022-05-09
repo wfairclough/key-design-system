@@ -1,0 +1,147 @@
+:host {
+  display: block;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  width: auto;
+
+  .button-native {
+    display: block;
+    border-radius: var(--border-radius, .25rem);
+    -webkit-font-smoothing: antialiased;
+    margin: 0px;
+    padding-left: var(--padding-start);
+    padding-right: var(--padding-end);
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    font-family: var(--key-font-family);
+    font-size: var(--key-font-size, 0.9rem);
+    font-style: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    text-decoration: inherit;
+    text-indent: inherit;
+    text-overflow: inherit;
+    text-transform: inherit;
+    text-align: inherit;
+    white-space: inherit;
+    color: inherit;
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    transition: var(--transition);
+    border-width: var(--border-width, 0px);
+    border-style: var(--border-style, none);
+    border-color: var(--border-color);
+    outline: none;
+    background: var(--background);
+    line-height: 1;
+    box-shadow: var(--box-shadow);
+    contain: layout style;
+    cursor: pointer;
+    opacity: var(--opacity);
+    overflow: var(--overflow);
+    z-index: 0;
+    box-sizing: border-box;
+    appearance: none;
+  }
+
+  .button-inner {
+    display: flex;
+    position: relative;
+    flex-flow: row nowrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+:host(.button-outline) {
+  background: hsl(210, 0%, 100%);
+  .button-native {
+    --border-width: 1px;
+    --border-color: hsl(210 5% 57%);
+    --border-style: solid;
+    --padding-top: 7px;
+    --padding-bottom: 7px;
+  }
+  .button-native:active {
+    background: hsl(210, 8%, 95%);
+  }
+}
+
+:host(.button-outline.key-color) {
+  .button-native {
+    --border-width: 2px;
+    --border-color: var(--key-color-base);
+    --padding-top: 6px;
+    --padding-bottom: 6px;
+    color: var(--key-color-base);
+    background: var(--key-color-lighter);
+  }
+  .button-native:active {
+    --border-color: var(--key-color-shade);
+    background: var(--key-color-light);
+  }
+}
+
+:host(.button-block) {
+  .button-native {
+    display: block;
+    width: 100%;
+    clear: both;
+    contain: content;
+  }
+}
+
+:host(.button-solid.key-color) {
+  .button-native {
+    background: var(--key-color-base);
+    color: var(--key-color-contrast);
+  }
+  .button-native:hover {
+    background: var(--key-color-tint);
+  }
+  .button-native:active {
+    background: var(--key-color-shade);
+  }
+}
+
+:host(.key-size-small) {
+  .button-native {
+    font-size: .8rem;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --padding-top: 6px;
+    --padding-bottom: 6px;
+  }
+}
+
+:host(.key-size-small.button-outline) {
+  .button-native {
+    --padding-top: 4px;
+    --padding-bottom: 4px;
+  }
+}
+
+
+:host(.key-size-large) {
+  .button-native {
+    font-size: 1.2rem;
+    --padding-start: 24px;
+    --padding-end: 24px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+  }
+}
+
+:host(.key-size-large.button-outline) {
+  .button-native {
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  }
+}
