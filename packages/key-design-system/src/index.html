@@ -22,20 +22,32 @@
         display: inline-block;
       }
     </style>
-    <key-button id="plain1" variation="plain">Plain</key-button>
-    <key-button variation="outline" color="destructive">Outline</key-button>
-    <key-button variation="outline" color="primary">Outline</key-button>
-    <key-button variation="outline" color="secondary">Outline</key-button>
-    <key-button variation="outline" color="tertiary">Outline</key-button>
-    <key-button variation="outline">Outline</key-button>
-    <key-button color="primary">Primary</key-button>
-    <key-button color="secondary">Secondary</key-button>
-    <key-button color="tertiary">Tertiary</key-button>
-    <key-button color="destructive">Destructive</key-button>
-    <key-button color="primary" size="small">Small</key-button>
-    <key-button color="primary" size="small" variation="outline">Small</key-button>
-    <key-button color="secondary" size="large">Large</key-button>
-    <key-button color="secondary" size="large" variation="outline">Large</key-button>
+    <key-app-frame>
+      <key-stack fit="expand" crossfit="expand" axis="vertical">
+        <key-stack id="outline-stack" fit="expand" crossfit="expand" main-axis-arrangement="space-around" cross-axis-arrangement="end">
+          <key-button id="plain1" variation="plain">Plain</key-button>
+          <key-button variation="outline" color="destructive">Outline</key-button>
+          <key-button variation="outline" color="primary">Outline</key-button>
+          <key-button variation="outline" color="secondary">Outline</key-button>
+          <key-button variation="outline" color="tertiary">Outline</key-button>
+          <key-button variation="outline">Outline</key-button>
+        </key-stack>
+        <key-stack fit="expand" axis="vertical" main-axis-arrangement="center">
+          <key-button color="primary">Primary</key-button>
+          <key-button color="secondary">Secondary</key-button>
+          <key-button color="tertiary">Tertiary</key-button>
+          <key-button color="destructive">Destructive</key-button>
+        </key-stack>
+        <key-stack fit="expand" axis="vertical">
+          <key-button color="primary" size="small">Small</key-button>
+          <key-button color="primary" size="small" variation="outline">Small</key-button>
+        </key-stack>
+        <key-stack fit="expand" axis="vertical">
+          <key-button color="secondary" size="large">Large</key-button>
+          <key-button color="secondary" size="large" variation="outline">Large</key-button>
+        </key-stack>
+      </key-stack>
+    </key-app-frame>
     
     <script>
       (() => {
