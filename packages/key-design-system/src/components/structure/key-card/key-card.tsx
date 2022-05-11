@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'key-card',
@@ -6,30 +6,26 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class KeyCard {
-  /**
-   * The first name
-   */
-  @Prop() first: string;
-
-  /**
-   * The middle name
-   */
-  @Prop() middle: string;
-
-  /**
-   * The last name
-   */
-  @Prop() last: string;
-
-  private getText(): string {
-    return (
-      (this.first || '') +
-      (this.middle ? ` ${this.middle}` : '') +
-      (this.last ? ` ${this.last}` : '')
-    );
-  }
+  @Prop() header: string;
+  @Prop() content: string;
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    return <Host class={{
+      'key-card': true,
+    }}>
+      <div class="header">
+        <slot name="header">
+          { this.header }
+        </slot>
+      </div>
+      <div class="content">
+        <slot>
+          { this.content }
+        </slot>
+      </div>
+      <div class="footer">
+        <slot name="footer"></slot>
+      </div>
+    </Host>;
   }
 }

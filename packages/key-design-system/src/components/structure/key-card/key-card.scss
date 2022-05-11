@@ -1,3 +1,27 @@
 :host {
   display: block;
+  width: 100%;
+
+  border-radius: var(--key-border-radius-2);
+  background-color: var(--key-surface);
+  box-shadow: var(--key-card-shadow);
+  outline: var(--key-border-width-1) solid transparent;
+
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--key-font-family);
+  font-size: var(--key-font-size, 0.9rem);
+
+  .header {
+    min-height: 1rem;
+    font-weight: 700;
+    padding-top: var(--key-space-5);
+    padding-bottom: var(--key-space-0);
+    padding-inline-start: var(--key-space-5);
+    padding-inline-end: var(--key-space-5);
+  }
+
+  .content {
+    min-height: 1rem;
+    padding: var(--key-space-5);
+  }
 }

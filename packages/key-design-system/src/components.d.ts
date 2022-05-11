@@ -36,18 +36,8 @@ export namespace Components {
         "variant": ButtonVariant;
     }
     interface KeyCard {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "content": string;
+        "header": string;
     }
     interface KeyCardSection {
         /**
@@ -197,18 +187,8 @@ declare namespace LocalJSX {
         "variant"?: ButtonVariant;
     }
     interface KeyCard {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "content"?: string;
+        "header"?: string;
     }
     interface KeyCardSection {
         /**
