@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariation, Color, Size } from "./components/key-button/key-button";
+import { ButtonVariant, Color, Size } from "./components/key-button/key-button";
 import { GridAxis } from "./components/structure/key-grid/grid-axis";
 import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/key-grid/alignments";
 import { Fit } from "./components/structure/key-grid/fit";
@@ -32,7 +32,7 @@ export namespace Components {
         "expand"?: 'full' | 'block';
         "size": Size;
         "type": 'submit' | 'reset' | 'button';
-        "variation": ButtonVariation;
+        "variant": ButtonVariant;
     }
     interface KeyCard {
         /**
@@ -193,7 +193,7 @@ declare namespace LocalJSX {
         "onKeyFocus"?: (event: CustomEvent<void>) => void;
         "size"?: Size;
         "type"?: 'submit' | 'reset' | 'button';
-        "variation"?: ButtonVariation;
+        "variant"?: ButtonVariant;
     }
     interface KeyCard {
         /**

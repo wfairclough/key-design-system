@@ -1,7 +1,7 @@
 import { Component, Event, Element, h, Host, Prop, EventEmitter } from '@stencil/core';
 import { Attributes, inheritAriaAttributes } from '../../utils/helpers';
 
-export type ButtonVariation = 'solid' | 'plain' | 'outline';
+export type ButtonVariant = 'solid' | 'plain' | 'outline';
 export type Color = 'primary' | 'secondary' | 'tertiary' | 'destructive';
 export type Size = 'default' | 'small' | 'large';
 
@@ -15,7 +15,7 @@ export class KeyButton {
 
   @Element() el!: HTMLElement;
 
-  @Prop({ reflect: true }) variation: ButtonVariation = 'solid';
+  @Prop({ reflect: true }) variant: ButtonVariant = 'solid';
   @Prop({ reflect: true }) color: Color;
   @Prop({ reflect: true }) size: Size = 'default';
   @Prop({ reflect: true }) disabled = false;
@@ -43,9 +43,9 @@ export class KeyButton {
   render() {
     return <Host
       class={{
-        'button-plain': this.variation === 'plain',
-        'button-outline': this.variation === 'outline',
-        'button-solid': this.variation === 'solid',
+        'button-plain': this.variant === 'plain',
+        'button-outline': this.variant === 'outline',
+        'button-solid': this.variant === 'solid',
         'key-color': !!this.color,
         [`key-color-${this.color}`]: !!this.color,
         [`key-size-${this.size}`]: this.size !== 'default',
@@ -61,7 +61,7 @@ export class KeyButton {
         <span class="button-inner">
           <slot name="icon"></slot>
           <slot name="start"></slot>
-          <slot></slot>
+          <slot>Button</slot>
           <slot name="end"></slot>
         </span>
       </button>      
