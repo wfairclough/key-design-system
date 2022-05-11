@@ -52,7 +52,7 @@ export class KeyButton {
         ...(this.isCustomColor && { '--key-color-custom': this.color }),
       }}
       class={{
-        'button-plain': this.variant === 'plain',
+        'button-plain': !this.variant || this.variant === 'plain',
         'button-outline': this.variant === 'outline',
         'button-solid': this.variant === 'solid',
         'key-color': !!this.color,

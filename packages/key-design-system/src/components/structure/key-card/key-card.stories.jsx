@@ -1,7 +1,7 @@
 import { h } from "@stencil/core";
 
-export default {
-  title: 'Components/Structure/KeyCard',
+const Story = {
+  title: 'Components/Structure/Card',
   argTypes: {
     variant: {
       description: 'The description',
@@ -11,5 +11,11 @@ export default {
     },
   },
 };
+export default Story;
 
-export const KeyCard = (args) => (<key-card first="Will"></key-card>);
+export const Card = (args) => {
+  return (
+    <key-card first="Will"></key-card>
+  );
+};
+

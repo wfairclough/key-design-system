@@ -4,6 +4,7 @@
   --padding-end: 16px;
   --padding-top: 8px;
   --padding-bottom: 8px;
+  --button-active-bg-color: hsl(210, 8%, 95%);
   width: fit-content;
   height: fit-content;
 
@@ -48,6 +49,11 @@
     appearance: none;
   }
 
+  .button-native:focus-visible {
+    outline: #212121 dotted 1px;
+    outline: -webkit-focus-ring-color auto 2px;
+  }
+
   .button-inner {
     display: flex;
     position: relative;
@@ -62,7 +68,7 @@
 }
 
 :host(.button-outline) {
-  background: hsl(210, 0%, 100%);
+  background: hsl(0, 0%, 100%);
   .button-native {
     --border-width: 1px;
     --border-color: hsl(210 5% 57%);
@@ -71,7 +77,18 @@
     --padding-bottom: 7px;
   }
   .button-native:active {
-    background: hsl(210, 8%, 95%);
+    background: var(--button-active-bg-color);
+  }
+}
+
+:host(.button-plain.key-color) {
+  color: var(--key-color-base);
+  
+  .button-native:hover {
+    color: var(--key-color-shade);
+  }
+  .button-native:active {
+    background: var(--button-active-bg-color);
   }
 }
 

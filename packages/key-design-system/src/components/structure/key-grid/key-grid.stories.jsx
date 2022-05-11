@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 
 const Story = {
-  title: 'Components/Structure/KeyGrid',
+  title: 'Components/Structure/Grid',
   decorators: [(story) => <div style={{ margin: '1em' }}>{story()}</div>],
   argTypes: {
     axis: {
@@ -44,7 +44,7 @@ const Story = {
 };
 export default Story;
 
-export const KeyGrid = (args) => {
+export const Grid = (args) => {
   return (
   <key-grid
     axis={args.axis}

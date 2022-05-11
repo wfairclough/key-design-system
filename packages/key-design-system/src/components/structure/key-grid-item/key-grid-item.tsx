@@ -28,6 +28,9 @@ export class KeyGridItem {
 
   componentWillRender(): void | Promise<void> {
     this.keyGrid = this.el.closest('key-grid');
+    if (!this.keyGrid) {
+      return;
+    }
     this.keyGridAttributes = getAttributes(this.keyGrid);
     log.debug('componentWillLoad', this.keyGrid, {
       attrs: this.keyGrid.getAttributeNames(),
