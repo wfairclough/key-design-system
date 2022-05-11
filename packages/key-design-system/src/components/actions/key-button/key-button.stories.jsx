@@ -1,24 +1,23 @@
+import { h } from '@stencil/core';
 
 const Story = {
-  title: 'Components/Button',
-  decorators: [(story) => `<div style="margin: 1em">${story()}</div>`],
+  title: 'Components/Actions/Button',
+  decorators: [(story) => <div style={{ margin: '1em' }}>{story()}</div>],
   argTypes: {
     variant: {
       description: 'The type of button',
       options: ['solid', 'outline', 'plain'],
-      defaultValue: 'solid',
       control: { type: 'select' },
     },
     color: {
       description: 'Color type',
       options: ['primary', 'secondary', 'tertiary', 'destructive'],
-      defaultValue: 'primary',
       control: { type: 'select' },
+      // control: { type: 'color' },
     },
     size: {
       description: 'Size',
       options: ['default', 'small', 'large'],
-      defaultValue: 'default',
       control: { type: 'select' },
     },
   },
@@ -26,13 +25,17 @@ const Story = {
 export default Story;
 
 
-const ButtonTemplate = ({ content, variant, color, size }) => `
-<key-button variant="${variant}" color="${color}" size="${size}">
-  ${content}
-</key-button>
-`;
 
-export const Button = ButtonTemplate.bind({});
+export const Button = (args) => {
+  console.log(`args`, args);
+  return <key-button 
+      variant={args.variant}
+      color={args.color}
+      size={args.size}
+    >
+    { args.content }
+  </key-button>;
+}
 
 Button.args = {
   content: 'Button',

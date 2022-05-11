@@ -1,8 +1,9 @@
 import { Component, Event, Element, h, Host, Prop, EventEmitter } from '@stencil/core';
-import { Attributes, inheritAriaAttributes } from '../../utils/helpers';
+import { Attributes, inheritAriaAttributes } from '../../../utils/helpers';
+import { Color } from '../../../types/color';
 
 export type ButtonVariant = 'solid' | 'plain' | 'outline';
-export type Color = 'primary' | 'secondary' | 'tertiary' | 'destructive';
+
 export type Size = 'default' | 'small' | 'large';
 
 @Component({
@@ -11,8 +12,6 @@ export type Size = 'default' | 'small' | 'large';
   shadow: true,
 })
 export class KeyButton {
-  private inheritedAttributes: Attributes = {};
-
   @Element() el!: HTMLElement;
 
   @Prop({ reflect: true }) variant: ButtonVariant = 'solid';
@@ -27,8 +26,15 @@ export class KeyButton {
 
   @Event() keyBlur!: EventEmitter<void>;
 
+  private inheritedAttributes: Attributes = {};
+  private isCustomColor: boolean = false;
+
   componentWillLoad() {
     this.inheritedAttributes = inheritAriaAttributes(this.el);
+  }
+
+  componentWillRender() {
+    this.isCustomColor = Color.isCustomColor(this.color);
   }
 
   private onFocus = () => {
@@ -42,12 +48,15 @@ export class KeyButton {
 
   render() {
     return <Host
+      style={{
+        ...(this.isCustomColor && { '--key-color-custom': this.color }),
+      }}
       class={{
         'button-plain': this.variant === 'plain',
         'button-outline': this.variant === 'outline',
         'button-solid': this.variant === 'solid',
         'key-color': !!this.color,
-        [`key-color-${this.color}`]: !!this.color,
+        [Color.classForColor(this.color)]: !!this.color,
         [`key-size-${this.size}`]: this.size !== 'default',
         'button-disabled': this.disabled,
       }}
