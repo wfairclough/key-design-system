@@ -10,6 +10,7 @@ import { Color } from "./types/color";
 import { GridAxis } from "./components/structure/key-grid/grid-axis";
 import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/key-grid/alignments";
 import { Fit } from "./components/structure/key-grid/fit";
+import { FaWeight } from "./components/graphics/key-icon/key-icon";
 export namespace Components {
     interface KeyAppFrame {
     }
@@ -82,6 +83,10 @@ export namespace Components {
         "wrap": boolean;
     }
     interface KeyGridItem {
+    }
+    interface KeyIcon {
+        "faIcon": string;
+        "faWeight": FaWeight;
     }
     interface KeyLayout {
         /**
@@ -161,6 +166,12 @@ declare global {
         prototype: HTMLKeyGridItemElement;
         new (): HTMLKeyGridItemElement;
     };
+    interface HTMLKeyIconElement extends Components.KeyIcon, HTMLStencilElement {
+    }
+    var HTMLKeyIconElement: {
+        prototype: HTMLKeyIconElement;
+        new (): HTMLKeyIconElement;
+    };
     interface HTMLKeyLayoutElement extends Components.KeyLayout, HTMLStencilElement {
     }
     var HTMLKeyLayoutElement: {
@@ -182,6 +193,7 @@ declare global {
         "key-flex": HTMLKeyFlexElement;
         "key-grid": HTMLKeyGridElement;
         "key-grid-item": HTMLKeyGridItemElement;
+        "key-icon": HTMLKeyIconElement;
         "key-layout": HTMLKeyLayoutElement;
         "key-page-actions": HTMLKeyPageActionsElement;
     }
@@ -261,6 +273,10 @@ declare namespace LocalJSX {
     }
     interface KeyGridItem {
     }
+    interface KeyIcon {
+        "faIcon"?: string;
+        "faWeight"?: FaWeight;
+    }
     interface KeyLayout {
         /**
           * The first name
@@ -298,6 +314,7 @@ declare namespace LocalJSX {
         "key-flex": KeyFlex;
         "key-grid": KeyGrid;
         "key-grid-item": KeyGridItem;
+        "key-icon": KeyIcon;
         "key-layout": KeyLayout;
         "key-page-actions": KeyPageActions;
     }
@@ -314,6 +331,7 @@ declare module "@stencil/core" {
             "key-flex": LocalJSX.KeyFlex & JSXBase.HTMLAttributes<HTMLKeyFlexElement>;
             "key-grid": LocalJSX.KeyGrid & JSXBase.HTMLAttributes<HTMLKeyGridElement>;
             "key-grid-item": LocalJSX.KeyGridItem & JSXBase.HTMLAttributes<HTMLKeyGridItemElement>;
+            "key-icon": LocalJSX.KeyIcon & JSXBase.HTMLAttributes<HTMLKeyIconElement>;
             "key-layout": LocalJSX.KeyLayout & JSXBase.HTMLAttributes<HTMLKeyLayoutElement>;
             "key-page-actions": LocalJSX.KeyPageActions & JSXBase.HTMLAttributes<HTMLKeyPageActionsElement>;
         }

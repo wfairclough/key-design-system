@@ -1,0 +1,13 @@
+// No Shadow Root for key-icon so we use the tag name to select instead
+key-icon {
+  display: block;
+  width: var(--size, auto);
+  height: var(--size, auto);
+  font-size: var(--size, initial);
+}
+
+key-icon .key-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
