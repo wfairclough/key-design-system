@@ -53,6 +53,26 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface KeyFlex {
+        "column": boolean;
+        "columnReverse": boolean;
+        "itemsBaseline": boolean;
+        "itemsCenter": boolean;
+        "itemsEnd": boolean;
+        "itemsStart": boolean;
+        "itemsStretch": boolean;
+        "justifyCenter": boolean;
+        "justifyEnd": boolean;
+        "justifySpaceAround": boolean;
+        "justifySpaceBetween": boolean;
+        "justifySpaceEvenly": boolean;
+        "justifyStart": boolean;
+        "nowrap": boolean;
+        "row": boolean;
+        "rowReverse": boolean;
+        "wrap": boolean;
+        "wrapReverse": boolean;
+    }
     interface KeyGrid {
         "axis": GridAxis;
         "crossAxisAlignment": CrossAxisAlignment;
@@ -123,6 +143,12 @@ declare global {
         prototype: HTMLKeyCardSectionElement;
         new (): HTMLKeyCardSectionElement;
     };
+    interface HTMLKeyFlexElement extends Components.KeyFlex, HTMLStencilElement {
+    }
+    var HTMLKeyFlexElement: {
+        prototype: HTMLKeyFlexElement;
+        new (): HTMLKeyFlexElement;
+    };
     interface HTMLKeyGridElement extends Components.KeyGrid, HTMLStencilElement {
     }
     var HTMLKeyGridElement: {
@@ -153,6 +179,7 @@ declare global {
         "key-button": HTMLKeyButtonElement;
         "key-card": HTMLKeyCardElement;
         "key-card-section": HTMLKeyCardSectionElement;
+        "key-flex": HTMLKeyFlexElement;
         "key-grid": HTMLKeyGridElement;
         "key-grid-item": HTMLKeyGridItemElement;
         "key-layout": HTMLKeyLayoutElement;
@@ -204,6 +231,26 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface KeyFlex {
+        "column"?: boolean;
+        "columnReverse"?: boolean;
+        "itemsBaseline"?: boolean;
+        "itemsCenter"?: boolean;
+        "itemsEnd"?: boolean;
+        "itemsStart"?: boolean;
+        "itemsStretch"?: boolean;
+        "justifyCenter"?: boolean;
+        "justifyEnd"?: boolean;
+        "justifySpaceAround"?: boolean;
+        "justifySpaceBetween"?: boolean;
+        "justifySpaceEvenly"?: boolean;
+        "justifyStart"?: boolean;
+        "nowrap"?: boolean;
+        "row"?: boolean;
+        "rowReverse"?: boolean;
+        "wrap"?: boolean;
+        "wrapReverse"?: boolean;
+    }
     interface KeyGrid {
         "axis"?: GridAxis;
         "crossAxisAlignment"?: CrossAxisAlignment;
@@ -248,6 +295,7 @@ declare namespace LocalJSX {
         "key-button": KeyButton;
         "key-card": KeyCard;
         "key-card-section": KeyCardSection;
+        "key-flex": KeyFlex;
         "key-grid": KeyGrid;
         "key-grid-item": KeyGridItem;
         "key-layout": KeyLayout;
@@ -263,6 +311,7 @@ declare module "@stencil/core" {
             "key-button": LocalJSX.KeyButton & JSXBase.HTMLAttributes<HTMLKeyButtonElement>;
             "key-card": LocalJSX.KeyCard & JSXBase.HTMLAttributes<HTMLKeyCardElement>;
             "key-card-section": LocalJSX.KeyCardSection & JSXBase.HTMLAttributes<HTMLKeyCardSectionElement>;
+            "key-flex": LocalJSX.KeyFlex & JSXBase.HTMLAttributes<HTMLKeyFlexElement>;
             "key-grid": LocalJSX.KeyGrid & JSXBase.HTMLAttributes<HTMLKeyGridElement>;
             "key-grid-item": LocalJSX.KeyGridItem & JSXBase.HTMLAttributes<HTMLKeyGridItemElement>;
             "key-layout": LocalJSX.KeyLayout & JSXBase.HTMLAttributes<HTMLKeyLayoutElement>;

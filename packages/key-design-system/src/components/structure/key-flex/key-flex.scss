@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  .key-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+:host .key-justify-start {
+  justify-content: flex-start;
+}
+:host .key-justify-end {
+  justify-content: flex-end;
+}
+:host .key-justify-center {
+  justify-content: center;
+}
+:host .key-justify-space-around {
+  justify-content: space-around;
+}
+:host .key-justify-space-between {
+  justify-content: space-between;
+}
+:host .key-justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+:host .key-items-start {
+  align-items: flex-start;
+}
+:host .key-items-end {
+  align-items: flex-end;
+}
+:host .key-items-center {
+  align-items: center;
+}
+:host .key-items-stretch {
+  align-items: stretch;
+}
+:host .key-items-baseline {
+  align-items: baseline;
+}
+
+:host .key-flex-wrap {
+  flex-wrap: wrap;
+}
+:host .key-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+:host .key-flex-row {
+  flex-direction: row;
+}
+:host .key-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+:host .key-flex-column {
+  flex-direction: column;
+}
+:host .key-flex-column-reverse {
+  flex-direction: column-reverse;
+}

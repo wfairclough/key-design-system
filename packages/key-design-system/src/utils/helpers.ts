@@ -106,3 +106,23 @@ export const getAttributes = (el: HTMLElement) => {
   if (!el) { return {}; }
   return el.getAttributeNames().reduce((attrs, key) => ({ ...attrs, [key]: el.getAttribute(key) }), {}) as Attributes;
 }
+
+export type PropClassTuples = Array<[string, string]>;
+
+export namespace PropClassTuples {
+  /**
+   * Find the className in a given PropClassTuple on a target
+   * @param target The target class to check for the value of a Prop on
+   * @param propClassTup The array of tuples containing the propName key and className value
+   * @param matchValue The value the prop must match
+   * @returns Return the first className for the Prop that matches the matchValue
+   */
+  export function classForPropMatching(target: any, propClassTup: PropClassTuples, matchValue: any): string {
+    for (const [prop, className] of propClassTup) {
+      if (target[prop] === matchValue) {
+        return className;
+      }
+    }
+    return null;
+  }
+}
