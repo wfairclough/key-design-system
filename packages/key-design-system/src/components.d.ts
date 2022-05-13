@@ -32,6 +32,7 @@ export namespace Components {
         "color": Color;
         "disabled": boolean;
         "expand"?: 'full' | 'block';
+        "rounded": boolean;
         "size": Size;
         "type": 'submit' | 'reset' | 'button';
         "variant": ButtonVariant;
@@ -73,6 +74,9 @@ export namespace Components {
         "rowReverse": boolean;
         "wrap": boolean;
         "wrapReverse": boolean;
+    }
+    interface KeyFontAwesomeKit {
+        "faKitUrl": string;
     }
     interface KeyGrid {
         "axis": GridAxis;
@@ -154,6 +158,12 @@ declare global {
         prototype: HTMLKeyFlexElement;
         new (): HTMLKeyFlexElement;
     };
+    interface HTMLKeyFontAwesomeKitElement extends Components.KeyFontAwesomeKit, HTMLStencilElement {
+    }
+    var HTMLKeyFontAwesomeKitElement: {
+        prototype: HTMLKeyFontAwesomeKitElement;
+        new (): HTMLKeyFontAwesomeKitElement;
+    };
     interface HTMLKeyGridElement extends Components.KeyGrid, HTMLStencilElement {
     }
     var HTMLKeyGridElement: {
@@ -191,6 +201,7 @@ declare global {
         "key-card": HTMLKeyCardElement;
         "key-card-section": HTMLKeyCardSectionElement;
         "key-flex": HTMLKeyFlexElement;
+        "key-font-awesome-kit": HTMLKeyFontAwesomeKitElement;
         "key-grid": HTMLKeyGridElement;
         "key-grid-item": HTMLKeyGridItemElement;
         "key-icon": HTMLKeyIconElement;
@@ -221,6 +232,7 @@ declare namespace LocalJSX {
         "expand"?: 'full' | 'block';
         "onKeyBlur"?: (event: CustomEvent<void>) => void;
         "onKeyFocus"?: (event: CustomEvent<void>) => void;
+        "rounded"?: boolean;
         "size"?: Size;
         "type"?: 'submit' | 'reset' | 'button';
         "variant"?: ButtonVariant;
@@ -262,6 +274,9 @@ declare namespace LocalJSX {
         "rowReverse"?: boolean;
         "wrap"?: boolean;
         "wrapReverse"?: boolean;
+    }
+    interface KeyFontAwesomeKit {
+        "faKitUrl"?: string;
     }
     interface KeyGrid {
         "axis"?: GridAxis;
@@ -312,6 +327,7 @@ declare namespace LocalJSX {
         "key-card": KeyCard;
         "key-card-section": KeyCardSection;
         "key-flex": KeyFlex;
+        "key-font-awesome-kit": KeyFontAwesomeKit;
         "key-grid": KeyGrid;
         "key-grid-item": KeyGridItem;
         "key-icon": KeyIcon;
@@ -329,6 +345,7 @@ declare module "@stencil/core" {
             "key-card": LocalJSX.KeyCard & JSXBase.HTMLAttributes<HTMLKeyCardElement>;
             "key-card-section": LocalJSX.KeyCardSection & JSXBase.HTMLAttributes<HTMLKeyCardSectionElement>;
             "key-flex": LocalJSX.KeyFlex & JSXBase.HTMLAttributes<HTMLKeyFlexElement>;
+            "key-font-awesome-kit": LocalJSX.KeyFontAwesomeKit & JSXBase.HTMLAttributes<HTMLKeyFontAwesomeKitElement>;
             "key-grid": LocalJSX.KeyGrid & JSXBase.HTMLAttributes<HTMLKeyGridElement>;
             "key-grid-item": LocalJSX.KeyGridItem & JSXBase.HTMLAttributes<HTMLKeyGridItemElement>;
             "key-icon": LocalJSX.KeyIcon & JSXBase.HTMLAttributes<HTMLKeyIconElement>;

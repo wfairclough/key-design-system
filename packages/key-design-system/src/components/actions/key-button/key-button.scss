@@ -1,16 +1,16 @@
 :host {
   display: block;
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --padding-top: 8px;
-  --padding-bottom: 8px;
+  --padding-start: var(--key-space-4, 1rem);
+  --padding-end: var(--key-space-4, 1rem);
+  --padding-top: var(--key-space-2, 0.5rem);
+  --padding-bottom: var(--key-space-2, 0.5rem);
   --button-active-bg-color: hsl(210, 8%, 95%);
   width: fit-content;
   height: fit-content;
 
   .button-native {
     display: block;
-    border-radius: var(--border-radius, .25rem);
+    border-radius: var(--border-radius, var(--key-border-radius-1, .25rem));
     -webkit-font-smoothing: antialiased;
     margin: 0px;
     padding-left: var(--padding-start);
@@ -64,6 +64,26 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+
+    .button-start,
+    .button-end,
+    .button-content {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+:host(.key-button) {
+  ::slotted(key-icon[slot="start"]),
+  &::slotted(key-icon[slot="start"]) {
+      margin-inline-end: var(--key-space-2, 0.5rem) !important;
+  }
+
+  ::slotted(key-icon[slot="end"]),
+  &::slotted(key-icon[slot="end"]) {
+      margin-inline-start: var(--key-space-2, 0.5rem) !important;
   }
 }
 
@@ -81,14 +101,19 @@
   }
 }
 
-:host(.button-plain.key-color) {
-  color: var(--key-color-base);
-  
+:host(.button-plain) {
   .button-native:hover {
-    color: var(--key-color-shade);
+    color: hsl(0 0% 32%);
   }
   .button-native:active {
     background: var(--button-active-bg-color);
+  }
+}
+
+:host(.button-plain) {
+  color: var(--key-color-base);
+  .button-native:hover {
+    color: var(--key-color-shade);
   }
 }
 
@@ -102,6 +127,10 @@
     background: var(--key-color-lighter);
   }
   .button-native:active {
+    --border-color: var(--key-color-shade);
+    background: var(--key-color-tint);
+  }
+  .button-native:hover {
     --border-color: var(--key-color-shade);
     background: var(--key-color-light);
   }
@@ -132,6 +161,7 @@
 :host(.key-size-small) {
   .button-native {
     font-size: .8rem;
+    --size: .8rem;
     --padding-start: 12px;
     --padding-end: 12px;
     --padding-top: 6px;
@@ -149,7 +179,8 @@
 
 :host(.key-size-large) {
   .button-native {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    --size: 1.4rem;
     --padding-start: 24px;
     --padding-end: 24px;
     --padding-top: 12px;
@@ -175,4 +206,28 @@
   .button-native:active {
     background: var(--key-color-shade);
   }
+}
+
+:host(.button-rounded) {
+  --border-radius: var(--key-border-radius-half, 5rem);
+  .button-native {
+    --padding-start: var(--key-space-4, 1rem);
+    --padding-end: var(--key-space-4, 1rem);
+    --padding-top: var(--key-space-4, 1rem);
+    --padding-bottom: var(--key-space-4, 1rem);
+  }
+}
+
+:host(.key-size-small.button-rounded) .button-native {
+  --padding-start: var(--key-space-2, 0.5rem);
+  --padding-end: var(--key-space-2, 0.5rem);
+  --padding-top: var(--key-space-2, 0.5rem);
+  --padding-bottom: var(--key-space-2, 0.5rem);
+}
+
+:host(.key-size-large.button-rounded) .button-native {
+  --padding-start: var(--key-space-6, 1.5rem);
+  --padding-end: var(--key-space-6, 1.5rem);
+  --padding-top: var(--key-space-6, 1.5rem);
+  --padding-bottom: var(--key-space-6, 1.5rem);
 }

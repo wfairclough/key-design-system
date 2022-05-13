@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
 import { faIcons } from './fa-icons';
+import { v4 as uuid } from 'uuid'
 
 export default {
   title: 'Components/Graphics/Icon',
@@ -14,29 +15,31 @@ export default {
       options: ['fa-solid', 'fa-regular', 'fa-light', 'fa-thin', 'fa-duotone', 'fa-brands'],
       control: { type: 'select' },
     },
-    fontSize: {
+    size: {
       description: 'Size for icon',
+      defaultValue: '8rem',
       control: { type: 'text' },
     },
     color: {
       description: 'Color for icon',
+      defaultValue: 'hsl(180deg 100% 27%)',
       control: { type: 'color' },
     },
   },
 };
 
 export const FontAwesomeIcon = (args, { loaded }) => {
-  const { fontSize, color, iconRange, faIcon, faWeight } = args;
+  const id = uuid();
+  const { size, color, faIcon, faWeight } = args;
   const iconArgs = {
     faIcon: faIcon ?? 'fa-user',
     faWeight: faWeight ?? 'fa-duotone',
   }
   const iconStyle = {
-    '--size': fontSize ?? '6rem',
-    // fontSize: fontSize ?? '6rem',
-    color: color ?? 'hsl(180deg 100% 27%)',
+    ...(size && { '--size': size }),
+    ...(color && { '--color': color }),
   };
-  return <key-flex row justify-center items-center wrap>
+  return <key-flex row justify-center items-center wrap key={id}>
     <key-icon style={iconStyle} {...iconArgs}></key-icon>
   </key-flex>;
 };

@@ -107,6 +107,15 @@ export const getAttributes = (el: HTMLElement) => {
   return el.getAttributeNames().reduce((attrs, key) => ({ ...attrs, [key]: el.getAttribute(key) }), {}) as Attributes;
 }
 
+export type AddScriptOptions = Partial<{ id: string } & Pick<HTMLScriptElement, 'async' | 'charset' | 'crossOrigin' | 'defer' | 'src' | 'text' | 'type' | 'noModule' | 'referrerPolicy' | 'integrity'>>;
+
+export function addHeadScript(opts: AddScriptOptions, doc = document) {
+  const [headEl] = doc.getElementsByTagName('head') as any;
+  const scriptEl = Object.assign(doc.createElement('script'), opts ?? {});
+  opts?.id && scriptEl.setAttribute('id', opts?.id);
+  headEl.appendChild(scriptEl);
+}
+
 export type PropClassTuples = Array<[string, string]>;
 
 export namespace PropClassTuples {

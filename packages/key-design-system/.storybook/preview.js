@@ -19,7 +19,11 @@ function addHeadScript(src, crossorigin = 'anonymous') {
 }
 
 addHeadLink('/key-design-system/key-design-system.css');
-addHeadScript('https://kit.fontawesome.com/a30ba47e78.js');
+// addHeadScript('https://kit.fontawesome.com/a30ba47e78.js');
+
+const faKit = document.createElement('key-font-awesome-kit');
+faKit.faKitUrl = 'https://kit.fontawesome.com/a30ba47e78.js';
+document.body.appendChild(faKit);
 
 const rootElement = document.getElementById('root');
 const storyRoot = document.createElement('div');
