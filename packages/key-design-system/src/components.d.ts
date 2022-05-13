@@ -11,6 +11,8 @@ import { GridAxis } from "./components/structure/key-grid/grid-axis";
 import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/key-grid/alignments";
 import { Fit } from "./components/structure/key-grid/fit";
 import { FaWeight } from "./components/graphics/key-icon/key-icon";
+import { InputVariant } from "./components/form/key-input/key-input";
+import { AutocompleteTypes, TextFieldTypes } from "./interface";
 import { ParagraphSize, ParagraphVariant } from "./components/text/key-paragraph/key-paragraph";
 import { SpacerDirection, SpacerSize } from "./components/structure/key-spacer/key-spacer";
 import { SpinnerSize } from "./components/indicators/key-spinner/key-spinner";
@@ -95,6 +97,36 @@ export namespace Components {
         "faIcon": string;
         "faWeight": FaWeight;
     }
+    interface KeyInput {
+        "accept"?: string;
+        "autocapitalize": string;
+        "autocomplete": AutocompleteTypes;
+        "autocorrect": 'on' | 'off';
+        "autofocus": boolean;
+        "clearInput": boolean;
+        "clearOnEdit"?: boolean;
+        "debounce": number;
+        "disabled": boolean;
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "max"?: string | number;
+        "maxlength"?: number;
+        "min"?: string | number;
+        "minlength"?: number;
+        "multiple"?: boolean;
+        "name": string;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly": boolean;
+        "required": boolean;
+        "size"?: number;
+        "spellcheck": boolean;
+        "step"?: string;
+        "type": TextFieldTypes;
+        "variant": InputVariant;
+    }
+    interface KeyLabel {
+    }
     interface KeyLayout {
     }
     interface KeyPageActions {
@@ -121,6 +153,8 @@ export namespace Components {
     }
     interface KeySpinner {
         "size": SpinnerSize;
+    }
+    interface KeyVisuallyHidden {
     }
 }
 declare global {
@@ -184,6 +218,18 @@ declare global {
         prototype: HTMLKeyIconElement;
         new (): HTMLKeyIconElement;
     };
+    interface HTMLKeyInputElement extends Components.KeyInput, HTMLStencilElement {
+    }
+    var HTMLKeyInputElement: {
+        prototype: HTMLKeyInputElement;
+        new (): HTMLKeyInputElement;
+    };
+    interface HTMLKeyLabelElement extends Components.KeyLabel, HTMLStencilElement {
+    }
+    var HTMLKeyLabelElement: {
+        prototype: HTMLKeyLabelElement;
+        new (): HTMLKeyLabelElement;
+    };
     interface HTMLKeyLayoutElement extends Components.KeyLayout, HTMLStencilElement {
     }
     var HTMLKeyLayoutElement: {
@@ -214,6 +260,12 @@ declare global {
         prototype: HTMLKeySpinnerElement;
         new (): HTMLKeySpinnerElement;
     };
+    interface HTMLKeyVisuallyHiddenElement extends Components.KeyVisuallyHidden, HTMLStencilElement {
+    }
+    var HTMLKeyVisuallyHiddenElement: {
+        prototype: HTMLKeyVisuallyHiddenElement;
+        new (): HTMLKeyVisuallyHiddenElement;
+    };
     interface HTMLElementTagNameMap {
         "key-app-frame": HTMLKeyAppFrameElement;
         "key-app-page": HTMLKeyAppPageElement;
@@ -225,11 +277,14 @@ declare global {
         "key-grid": HTMLKeyGridElement;
         "key-grid-item": HTMLKeyGridItemElement;
         "key-icon": HTMLKeyIconElement;
+        "key-input": HTMLKeyInputElement;
+        "key-label": HTMLKeyLabelElement;
         "key-layout": HTMLKeyLayoutElement;
         "key-page-actions": HTMLKeyPageActionsElement;
         "key-paragraph": HTMLKeyParagraphElement;
         "key-spacer": HTMLKeySpacerElement;
         "key-spinner": HTMLKeySpinnerElement;
+        "key-visually-hidden": HTMLKeyVisuallyHiddenElement;
     }
 }
 declare namespace LocalJSX {
@@ -315,6 +370,36 @@ declare namespace LocalJSX {
         "faIcon"?: string;
         "faWeight"?: FaWeight;
     }
+    interface KeyInput {
+        "accept"?: string;
+        "autocapitalize"?: string;
+        "autocomplete"?: AutocompleteTypes;
+        "autocorrect"?: 'on' | 'off';
+        "autofocus"?: boolean;
+        "clearInput"?: boolean;
+        "clearOnEdit"?: boolean;
+        "debounce"?: number;
+        "disabled"?: boolean;
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "max"?: string | number;
+        "maxlength"?: number;
+        "min"?: string | number;
+        "minlength"?: number;
+        "multiple"?: boolean;
+        "name"?: string;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "required"?: boolean;
+        "size"?: number;
+        "spellcheck"?: boolean;
+        "step"?: string;
+        "type"?: TextFieldTypes;
+        "variant"?: InputVariant;
+    }
+    interface KeyLabel {
+    }
     interface KeyLayout {
     }
     interface KeyPageActions {
@@ -342,6 +427,8 @@ declare namespace LocalJSX {
     interface KeySpinner {
         "size"?: SpinnerSize;
     }
+    interface KeyVisuallyHidden {
+    }
     interface IntrinsicElements {
         "key-app-frame": KeyAppFrame;
         "key-app-page": KeyAppPage;
@@ -353,11 +440,14 @@ declare namespace LocalJSX {
         "key-grid": KeyGrid;
         "key-grid-item": KeyGridItem;
         "key-icon": KeyIcon;
+        "key-input": KeyInput;
+        "key-label": KeyLabel;
         "key-layout": KeyLayout;
         "key-page-actions": KeyPageActions;
         "key-paragraph": KeyParagraph;
         "key-spacer": KeySpacer;
         "key-spinner": KeySpinner;
+        "key-visually-hidden": KeyVisuallyHidden;
     }
 }
 export { LocalJSX as JSX };
@@ -374,11 +464,14 @@ declare module "@stencil/core" {
             "key-grid": LocalJSX.KeyGrid & JSXBase.HTMLAttributes<HTMLKeyGridElement>;
             "key-grid-item": LocalJSX.KeyGridItem & JSXBase.HTMLAttributes<HTMLKeyGridItemElement>;
             "key-icon": LocalJSX.KeyIcon & JSXBase.HTMLAttributes<HTMLKeyIconElement>;
+            "key-input": LocalJSX.KeyInput & JSXBase.HTMLAttributes<HTMLKeyInputElement>;
+            "key-label": LocalJSX.KeyLabel & JSXBase.HTMLAttributes<HTMLKeyLabelElement>;
             "key-layout": LocalJSX.KeyLayout & JSXBase.HTMLAttributes<HTMLKeyLayoutElement>;
             "key-page-actions": LocalJSX.KeyPageActions & JSXBase.HTMLAttributes<HTMLKeyPageActionsElement>;
             "key-paragraph": LocalJSX.KeyParagraph & JSXBase.HTMLAttributes<HTMLKeyParagraphElement>;
             "key-spacer": LocalJSX.KeySpacer & JSXBase.HTMLAttributes<HTMLKeySpacerElement>;
             "key-spinner": LocalJSX.KeySpinner & JSXBase.HTMLAttributes<HTMLKeySpinnerElement>;
+            "key-visually-hidden": LocalJSX.KeyVisuallyHidden & JSXBase.HTMLAttributes<HTMLKeyVisuallyHiddenElement>;
         }
     }
 }
