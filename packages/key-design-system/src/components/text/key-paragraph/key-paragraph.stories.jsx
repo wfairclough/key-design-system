@@ -8,6 +8,10 @@ export default {
       options: ['default', 'intro'],
       control: { type: 'select' },
     },
+    size: {
+      options: ['small', 'large'],
+      control: { type: 'radio' },
+    },
   },
 };
 
@@ -25,6 +29,8 @@ export const Paragraph = (args) => {
 
   return <div>
     <key-paragraph {...{...args, variant: 'intro'}}>{lorem.generateParagraphs(1)}</key-paragraph>
+
+    <key-paragraph {...args}>{lorem.generateParagraphs(1)}</key-paragraph>
 
     <key-paragraph {...args}>{lorem.generateParagraphs(1)}</key-paragraph>
   </div>

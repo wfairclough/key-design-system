@@ -4,11 +4,21 @@
   p.key-paragraph {
     margin: 0;
     padding: 0;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
   p.key-paragraph.intro {
     font-size: 1.25rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  p.key-paragraph.size-small {
+    font-size: 0.625rem;
+  }
+
+  p.key-paragraph.size-large {
+    font-size: 1.875rem;
   }
 }
 

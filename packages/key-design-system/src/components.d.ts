@@ -11,7 +11,8 @@ import { GridAxis } from "./components/structure/key-grid/grid-axis";
 import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/key-grid/alignments";
 import { Fit } from "./components/structure/key-grid/fit";
 import { FaWeight } from "./components/graphics/key-icon/key-icon";
-import { ParagraphVariant } from "./components/text/key-paragraph/key-paragraph";
+import { ParagraphSize, ParagraphVariant } from "./components/text/key-paragraph/key-paragraph";
+import { SpacerDirection, SpacerSize } from "./components/structure/key-spacer/key-spacer";
 export namespace Components {
     interface KeyAppFrame {
     }
@@ -110,7 +111,12 @@ export namespace Components {
         "middle": string;
     }
     interface KeyParagraph {
+        "size": ParagraphSize;
         "variant": ParagraphVariant;
+    }
+    interface KeySpacer {
+        "direction": SpacerDirection;
+        "size": SpacerSize;
     }
 }
 declare global {
@@ -192,6 +198,12 @@ declare global {
         prototype: HTMLKeyParagraphElement;
         new (): HTMLKeyParagraphElement;
     };
+    interface HTMLKeySpacerElement extends Components.KeySpacer, HTMLStencilElement {
+    }
+    var HTMLKeySpacerElement: {
+        prototype: HTMLKeySpacerElement;
+        new (): HTMLKeySpacerElement;
+    };
     interface HTMLElementTagNameMap {
         "key-app-frame": HTMLKeyAppFrameElement;
         "key-app-page": HTMLKeyAppPageElement;
@@ -206,6 +218,7 @@ declare global {
         "key-layout": HTMLKeyLayoutElement;
         "key-page-actions": HTMLKeyPageActionsElement;
         "key-paragraph": HTMLKeyParagraphElement;
+        "key-spacer": HTMLKeySpacerElement;
     }
 }
 declare namespace LocalJSX {
@@ -308,7 +321,12 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface KeyParagraph {
+        "size"?: ParagraphSize;
         "variant"?: ParagraphVariant;
+    }
+    interface KeySpacer {
+        "direction"?: SpacerDirection;
+        "size"?: SpacerSize;
     }
     interface IntrinsicElements {
         "key-app-frame": KeyAppFrame;
@@ -324,6 +342,7 @@ declare namespace LocalJSX {
         "key-layout": KeyLayout;
         "key-page-actions": KeyPageActions;
         "key-paragraph": KeyParagraph;
+        "key-spacer": KeySpacer;
     }
 }
 export { LocalJSX as JSX };
@@ -343,6 +362,7 @@ declare module "@stencil/core" {
             "key-layout": LocalJSX.KeyLayout & JSXBase.HTMLAttributes<HTMLKeyLayoutElement>;
             "key-page-actions": LocalJSX.KeyPageActions & JSXBase.HTMLAttributes<HTMLKeyPageActionsElement>;
             "key-paragraph": LocalJSX.KeyParagraph & JSXBase.HTMLAttributes<HTMLKeyParagraphElement>;
+            "key-spacer": LocalJSX.KeySpacer & JSXBase.HTMLAttributes<HTMLKeySpacerElement>;
         }
     }
 }

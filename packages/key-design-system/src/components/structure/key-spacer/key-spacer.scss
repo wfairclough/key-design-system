@@ -1,0 +1,82 @@
+:host(.direction-horizontal) {
+  display: inline-block;
+  height: 100%;
+}
+
+:host(.direction-horizontal.size-zero) {
+  width: var(--key-space-0);
+}
+:host(.direction-horizontal.size-xxxx-small) {
+  width: var(--key-space-05);
+}
+:host(.direction-horizontal.size-xxx-small) {
+  width: var(--key-space-1);
+}
+:host(.direction-horizontal.size-xx-small) {
+  width: var(--key-space-2);
+}
+:host(.direction-horizontal.size-x-small) {
+  width: var(--key-space-3);
+}
+:host(.direction-horizontal.size-small) {
+  width: var(--key-space-4);
+}
+:host(.direction-horizontal.size-medium) {
+  width: var(--key-space-5);
+}
+:host(.direction-horizontal.size-large) {
+  width: var(--key-space-6);
+}
+:host(.direction-horizontal.size-x-large) {
+  width: var(--key-space-8);
+}
+:host(.direction-horizontal.size-xx-large) {
+  width: var(--key-space-12);
+}
+:host(.direction-horizontal.size-xxx-large) {
+  width: var(--key-space-20);
+}
+:host(.direction-horizontal.size-xxxx-large) {
+  width: var(--key-space-32);
+}
+
+:host(.direction-vertical) {
+  display: block;
+  width: auto;
+}
+:host(.direction-vertical.size-zero) {
+  height: var(--key-space-0);
+}
+:host(.direction-vertical.size-xxxx-small) {
+  height: var(--key-space-05);
+}
+:host(.direction-vertical.size-xxx-small) {
+  height: var(--key-space-1);
+}
+:host(.direction-vertical.size-xx-small) {
+  height: var(--key-space-2);
+}
+:host(.direction-vertical.size-x-small) {
+  height: var(--key-space-3);
+}
+:host(.direction-vertical.size-small) {
+  height: var(--key-space-4);
+}
+:host(.direction-vertical.size-medium) {
+  height: var(--key-space-5);
+}
+:host(.direction-vertical.size-large) {
+  height: var(--key-space-6);
+}
+:host(.direction-vertical.size-x-large) {
+  height: var(--key-space-8);
+}
+:host(.direction-vertical.size-xx-large) {
+  height: var(--key-space-12);
+}
+:host(.direction-vertical.size-xxx-large) {
+  height: var(--key-space-20);
+}
+:host(.direction-vertical.size-xxxx-large) {
+  height: var(--key-space-32);
+}
