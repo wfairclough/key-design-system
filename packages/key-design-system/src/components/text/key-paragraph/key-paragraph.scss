@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  font-family: var(--key-font-family);
+  p.key-paragraph {
+    margin: 0;
+    padding: 0;
+  }
+
+  p.key-paragraph.intro {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+}
+

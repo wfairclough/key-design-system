@@ -43,6 +43,7 @@
     "jest": "26.6.3",
     "jest-cli": "^26.6.3",
     "lit-html": "^2.2.3",
+    "lorem-ipsum": "^2.0.4",
     "nx": "13.10.4",
     "prettier": "2.6.2",
     "pretty-quick": "^3.1.1",

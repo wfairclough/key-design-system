@@ -11,6 +11,7 @@ import { GridAxis } from "./components/structure/key-grid/grid-axis";
 import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/key-grid/alignments";
 import { Fit } from "./components/structure/key-grid/fit";
 import { FaWeight } from "./components/graphics/key-icon/key-icon";
+import { ParagraphVariant } from "./components/text/key-paragraph/key-paragraph";
 export namespace Components {
     interface KeyAppFrame {
     }
@@ -93,18 +94,6 @@ export namespace Components {
         "faWeight": FaWeight;
     }
     interface KeyLayout {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
     interface KeyPageActions {
         /**
@@ -119,6 +108,9 @@ export namespace Components {
           * The middle name
          */
         "middle": string;
+    }
+    interface KeyParagraph {
+        "variant": ParagraphVariant;
     }
 }
 declare global {
@@ -194,6 +186,12 @@ declare global {
         prototype: HTMLKeyPageActionsElement;
         new (): HTMLKeyPageActionsElement;
     };
+    interface HTMLKeyParagraphElement extends Components.KeyParagraph, HTMLStencilElement {
+    }
+    var HTMLKeyParagraphElement: {
+        prototype: HTMLKeyParagraphElement;
+        new (): HTMLKeyParagraphElement;
+    };
     interface HTMLElementTagNameMap {
         "key-app-frame": HTMLKeyAppFrameElement;
         "key-app-page": HTMLKeyAppPageElement;
@@ -207,6 +205,7 @@ declare global {
         "key-icon": HTMLKeyIconElement;
         "key-layout": HTMLKeyLayoutElement;
         "key-page-actions": HTMLKeyPageActionsElement;
+        "key-paragraph": HTMLKeyParagraphElement;
     }
 }
 declare namespace LocalJSX {
@@ -293,18 +292,6 @@ declare namespace LocalJSX {
         "faWeight"?: FaWeight;
     }
     interface KeyLayout {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
     }
     interface KeyPageActions {
         /**
@@ -320,6 +307,9 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface KeyParagraph {
+        "variant"?: ParagraphVariant;
+    }
     interface IntrinsicElements {
         "key-app-frame": KeyAppFrame;
         "key-app-page": KeyAppPage;
@@ -333,6 +323,7 @@ declare namespace LocalJSX {
         "key-icon": KeyIcon;
         "key-layout": KeyLayout;
         "key-page-actions": KeyPageActions;
+        "key-paragraph": KeyParagraph;
     }
 }
 export { LocalJSX as JSX };
@@ -351,6 +342,7 @@ declare module "@stencil/core" {
             "key-icon": LocalJSX.KeyIcon & JSXBase.HTMLAttributes<HTMLKeyIconElement>;
             "key-layout": LocalJSX.KeyLayout & JSXBase.HTMLAttributes<HTMLKeyLayoutElement>;
             "key-page-actions": LocalJSX.KeyPageActions & JSXBase.HTMLAttributes<HTMLKeyPageActionsElement>;
+            "key-paragraph": LocalJSX.KeyParagraph & JSXBase.HTMLAttributes<HTMLKeyParagraphElement>;
         }
     }
 }

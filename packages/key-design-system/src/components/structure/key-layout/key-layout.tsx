@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'key-layout',
@@ -6,30 +6,10 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class KeyLayout {
-  /**
-   * The first name
-   */
-  @Prop() first: string;
-
-  /**
-   * The middle name
-   */
-  @Prop() middle: string;
-
-  /**
-   * The last name
-   */
-  @Prop() last: string;
-
-  private getText(): string {
-    return (
-      (this.first || '') +
-      (this.middle ? ` ${this.middle}` : '') +
-      (this.last ? ` ${this.last}` : '')
-    );
-  }
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    return <Host>
+      <slot></slot>
+    </Host>;
   }
 }
