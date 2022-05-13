@@ -13,6 +13,7 @@ import { Fit } from "./components/structure/key-grid/fit";
 import { FaWeight } from "./components/graphics/key-icon/key-icon";
 import { ParagraphSize, ParagraphVariant } from "./components/text/key-paragraph/key-paragraph";
 import { SpacerDirection, SpacerSize } from "./components/structure/key-spacer/key-spacer";
+import { SpinnerSize } from "./components/indicators/key-spinner/key-spinner";
 export namespace Components {
     interface KeyAppFrame {
     }
@@ -118,6 +119,9 @@ export namespace Components {
         "direction": SpacerDirection;
         "size": SpacerSize;
     }
+    interface KeySpinner {
+        "size": SpinnerSize;
+    }
 }
 declare global {
     interface HTMLKeyAppFrameElement extends Components.KeyAppFrame, HTMLStencilElement {
@@ -204,6 +208,12 @@ declare global {
         prototype: HTMLKeySpacerElement;
         new (): HTMLKeySpacerElement;
     };
+    interface HTMLKeySpinnerElement extends Components.KeySpinner, HTMLStencilElement {
+    }
+    var HTMLKeySpinnerElement: {
+        prototype: HTMLKeySpinnerElement;
+        new (): HTMLKeySpinnerElement;
+    };
     interface HTMLElementTagNameMap {
         "key-app-frame": HTMLKeyAppFrameElement;
         "key-app-page": HTMLKeyAppPageElement;
@@ -219,6 +229,7 @@ declare global {
         "key-page-actions": HTMLKeyPageActionsElement;
         "key-paragraph": HTMLKeyParagraphElement;
         "key-spacer": HTMLKeySpacerElement;
+        "key-spinner": HTMLKeySpinnerElement;
     }
 }
 declare namespace LocalJSX {
@@ -328,6 +339,9 @@ declare namespace LocalJSX {
         "direction"?: SpacerDirection;
         "size"?: SpacerSize;
     }
+    interface KeySpinner {
+        "size"?: SpinnerSize;
+    }
     interface IntrinsicElements {
         "key-app-frame": KeyAppFrame;
         "key-app-page": KeyAppPage;
@@ -343,6 +357,7 @@ declare namespace LocalJSX {
         "key-page-actions": KeyPageActions;
         "key-paragraph": KeyParagraph;
         "key-spacer": KeySpacer;
+        "key-spinner": KeySpinner;
     }
 }
 export { LocalJSX as JSX };
@@ -363,6 +378,7 @@ declare module "@stencil/core" {
             "key-page-actions": LocalJSX.KeyPageActions & JSXBase.HTMLAttributes<HTMLKeyPageActionsElement>;
             "key-paragraph": LocalJSX.KeyParagraph & JSXBase.HTMLAttributes<HTMLKeyParagraphElement>;
             "key-spacer": LocalJSX.KeySpacer & JSXBase.HTMLAttributes<HTMLKeySpacerElement>;
+            "key-spinner": LocalJSX.KeySpinner & JSXBase.HTMLAttributes<HTMLKeySpinnerElement>;
         }
     }
 }
