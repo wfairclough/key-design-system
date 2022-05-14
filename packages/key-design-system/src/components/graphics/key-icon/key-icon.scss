@@ -1,5 +1,5 @@
 // No Shadow Root for key-icon so we use the tag name to select instead
-key-icon {
+:host(.key-icon) {
   display: block;
   width: var(--size, 1rem);
   font-size: var(--size, 1rem);
@@ -7,7 +7,7 @@ key-icon {
   // outline: 1px dotted grey;
 }
 
-key-icon .key-icon-wrapper {
+:host(.key-icon) .key-icon-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,11 +21,14 @@ key-icon .key-icon-wrapper {
   }
 }
 
-key-icon.key-fa {
-  height: var(--size, 1rem);
+:host(.key-icon.key-fa) {
+  .key-icon-wrapper svg {
+    height: var(--size, 1rem);
+    fill: var(--icon-color, var(--key-color-contrast, inherit));
+  }
 }
 
-key-icon.key-icon-custom {
+:host(.key-icon.key-icon-custom) {
   fill: var(--icon-color, var(--key-color-contrast, inherit));
   svg {
     max-height: var(--size, 1rem);

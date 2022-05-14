@@ -43,8 +43,8 @@ export class KeyBanner {
           <slot name="actions"></slot>
         </div>
         <div class="dismiss">
-          <key-button onClick={this.dismiss} variant="plain">
-            <key-icon slot="icon" fa-icon='fa-child'></key-icon>
+          <key-button rounded onClick={this.dismiss} variant="plain">
+            <key-icon slot="icon" faIcon={'fa-xmark'}></key-icon>
           </key-button>
         </div>
       </div>

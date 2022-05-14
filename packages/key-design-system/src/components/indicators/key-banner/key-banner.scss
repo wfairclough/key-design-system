@@ -29,7 +29,12 @@
   }
 
   .dismiss {
-
+    key-button::part(native) {
+      --padding-start: var(--key-space-1);
+      --padding-end: var(--key-space-1);
+      --padding-top: var(--key-space-1);
+      --padding-bottom: var(--key-space-1);
+    }
   }
 
   .content key-heading,
