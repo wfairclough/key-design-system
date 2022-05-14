@@ -334,6 +334,7 @@ declare namespace LocalJSX {
         "content"?: string;
         "expanded"?: boolean;
         "header"?: string;
+        "onKeyDismiss"?: (event: CustomEvent<void>) => void;
     }
     interface KeyButton {
         "color"?: Color;

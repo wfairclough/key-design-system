@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
 import { Logger } from '../../../utils/logger';
 import { Color } from '../../../types/color';
 
@@ -10,6 +10,8 @@ const log = Logger.create('KeyBanner');
   shadow: true,
 })
 export class KeyBanner {
+
+  @Element() el!: HTMLElement;
   
   @Prop() header: string;
   
@@ -19,8 +21,12 @@ export class KeyBanner {
   
   @Prop() color: Color = 'banner-default';
 
+  @Event() keyDismiss: EventEmitter<void>;
+
   private dismiss = () => {
     log.debug(`Dismiss`);
+    this.el?.parentElement?.removeChild(this.el);
+    this.keyDismiss.emit();
   };
 
   render() {

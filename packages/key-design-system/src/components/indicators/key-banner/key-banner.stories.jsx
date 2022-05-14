@@ -25,10 +25,17 @@ export const Banner = (args) => {
     content: 'This job has been archived. You can still find this job by search through all inactive jobs',
     ...args,
   };
-  return <key-banner {...bannerArgs} key={uuid()}>
-    <key-icon slot="icon" faIcon='fa-check-circle' faWeight='fa-solid' color={args.color}></key-icon>
-    { actions }
-  </key-banner>;
+  return <div key={uuid()}>
+    <key-banner id="demo-banner" {...bannerArgs}>
+      <key-icon slot="icon" faIcon='fa-check-circle' faWeight='fa-solid' color={args.color}></key-icon>
+      { actions }
+    </key-banner>
+    <script innerHTML={`
+      document.querySelector('#demo-banner').addEventListener('keyDismiss', () => {
+        console.log('Banner was dismissed');
+      });
+    `}></script>
+  </div>;
 };
 
 export const BannerWithActions = (args) => {
