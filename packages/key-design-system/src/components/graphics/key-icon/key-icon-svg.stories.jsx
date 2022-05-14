@@ -29,7 +29,7 @@ export const CustomSVGIcon = (args, { loaded }) => {
   const { size, color } = args;
   const iconStyle = {
     ...(size && { '--size': size }),
-    ...(color && { '--color': color }),
+    ...(color && { '--icon-color': color }),
   };
   return <key-flex row justify-center items-center wrap key={id}>
     <key-icon style={iconStyle} innerHTML={args.svgSource}>

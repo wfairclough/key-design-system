@@ -21,16 +21,17 @@ function addHeadScript(src, crossorigin = 'anonymous') {
 addHeadLink('/key-design-system/key-design-system.css');
 // addHeadScript('https://kit.fontawesome.com/a30ba47e78.js');
 
-const faKit = document.createElement('key-font-awesome-kit');
-faKit.faKitUrl = 'https://kit.fontawesome.com/a30ba47e78.js';
-document.body.appendChild(faKit);
-
 const rootElement = document.getElementById('root');
 const storyRoot = document.createElement('div');
 storyRoot.className = 'story-root';
 storyRoot.style.width = '100%';
 storyRoot.style.height = '100%';
-rootElement.parentElement.appendChild(storyRoot);
+const faKit = document.createElement('key-font-awesome-kit-provider');
+// faKit.faKitUrl = 'https://kit.fontawesome.com/a30ba47e78.js';
+faKit.faVersion = 'v6.1.1';
+faKit.faKitToken = 'a30ba47e78';
+faKit.appendChild(storyRoot);
+rootElement.parentElement.appendChild(faKit);
 
 registerHost(storyRoot, { $flags$: 0, $tagName$: 'story-root' })
 const hostRef = getHostRef(storyRoot);
