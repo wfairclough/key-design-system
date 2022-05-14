@@ -37,7 +37,7 @@ export const FontAwesomeIcon = (args, { loaded }) => {
   }
   const iconStyle = {
     ...(size && { '--size': size }),
-    ...(color && { '--color': color }),
+    ...(color && { '--icon-color': color }),
   };
   return <key-flex row justify-center items-center wrap key={id}>
     <key-icon style={iconStyle} {...iconArgs}></key-icon>
