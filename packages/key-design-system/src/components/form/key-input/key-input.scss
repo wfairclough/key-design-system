@@ -1,3 +1,51 @@
 :host {
-  display: block;
+  display: flex;
+  margin-bottom: var(--key-space-4, 1rem);
+
+  .key-input-pos-relative {
+    position: relative;
+  }
+
+  input.key-native-input {
+    position: relative;
+    z-index: 100;
+    display: block;
+    width: 100%;
+    min-width: 8rem;
+    max-width: initial;
+    height: auto;
+    padding: 12px 14px;
+    margin: initial;
+    margin-bottom: initial;
+    font-family: var(--key-font-family);
+    font-size: 1rem;
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.5;
+    color: var(--key-text-color, black);
+    cursor: initial;
+    background: white;
+    background-clip: initial;
+    border: var(--key-border-width-1, 1px) solid #909599;
+    border-radius: var(--key-border-radius-1, 0.25rem);
+    box-shadow: initial;
+    transition: box-shadow 150ms ease, border 150ms ease;
+  }
+
+  input.key-native-input:hover:not(:disabled) {
+    box-shadow: 0 0 0 1px #909599 !important;
+  }
+
+  input.key-native-input:focus-visible:not(:disabled),
+  input.key-native-input:focus:not(:disabled) {
+    border-color: #0077b3 !important;
+    outline: 0;
+    box-shadow: 0 0 0 1px #0077b3 !important;
+    transition: none;
+  }
+
+  input.key-native-input::-webkit-search-cancel-button {
+    cursor: pointer;
+  }
+
 }

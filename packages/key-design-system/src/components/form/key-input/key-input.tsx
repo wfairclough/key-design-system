@@ -61,12 +61,35 @@ export class KeyInput {
       [`${this.variant}`]: !!this.variant,
     }}>
       <div class="key-input-container">
-        <input 
-          type={this.type}
-          name={this.name}
-          placeholder={this.placeholder}
-          {...this.inheritedAttributes}>
-        </input>
+        <div class="key-input-pos-relative">
+          <input 
+            class="key-native-input"
+            part="native-input"
+            accept={this.accept}
+            autocapitalize={this.autocapitalize}
+            autocomplete={this.autocomplete}
+            autocorrect={this.autocorrect}
+            autofocus={this.autofocus}
+            disabled={this.disabled}
+            enterkeyhint={this.enterkeyhint}
+            inputmode={this.inputmode}
+            max={this.max}
+            maxlength={this.maxlength}
+            min={this.min}
+            minlength={this.minlength}
+            multiple={this.multiple}
+            name={this.name}
+            pattern={this.pattern}
+            placeholder={this.placeholder}
+            readonly={this.readonly}
+            required={this.required}
+            spellcheck={this.spellcheck}
+            step={this.step}
+            size={this.size}
+            type={this.type}
+            {...this.inheritedAttributes}>
+          </input>
+        </div>
       </div>
     </Host>;
   }
