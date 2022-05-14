@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 
 export default {
-  title: 'Components/Text/VisuallyHidden',
+  title: 'Components/Text/Visually Hidden',
   args: {
   },
 };

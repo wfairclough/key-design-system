@@ -1,0 +1,123 @@
+:root {
+  --key-text-color: hsl(220, 81%, 12%);
+
+  --key-color-primary: #008989 !important;
+  --key-color-primary-rgb: 0, 137, 137 !important;
+  --key-color-primary-contrast: #fff !important;
+  --key-color-primary-contrast-rgb: 255, 255, 255 !important;
+  --key-color-primary-shade: #007070 !important;
+  --key-color-primary-tint: #00a8a8 !important;
+  --key-color-primary-light: hsl(180, 100%, 92%) !important;
+  --key-color-primary-lighter: hsl(180, 100%, 98%) !important;
+
+  --key-color-secondary: #E66318 !important;
+  --key-color-secondary-rgb: 230, 99, 24 !important;
+  --key-color-secondary-contrast: #fff !important;
+  --key-color-secondary-contrast-rgb: 255, 255, 255 !important;
+  --key-color-secondary-shade: #d05a16 !important;
+  --key-color-secondary-tint: #ea7734 !important;
+  --key-color-secondary-light: hsl(22, 81%, 92%) !important;
+  --key-color-secondary-lighter: hsl(22, 81%, 98%) !important;
+  
+  --key-color-tertiary: hsl(202, 81%, 21%) !important;
+  --key-color-tertiary-rgb: 10, 65, 97 !important;
+  --key-color-tertiary-contrast: #fff !important;
+  --key-color-tertiary-contrast-rgb: 255, 255, 255 !important;
+  --key-color-tertiary-shade: #08324a !important;
+  --key-color-tertiary-tint: #0d547d !important;
+  --key-color-tertiary-light: hsl(202, 81%, 92%) !important;
+  --key-color-tertiary-lighter: hsl(202, 81%, 98%) !important;
+  
+  --key-color-critical: hsl(345, 99%, 38%) !important;
+  --key-color-critical-rgb: 193, 1, 49 !important;
+  --key-color-critical-contrast: #fff !important;
+  --key-color-critical-contrast-rgb: 255, 255, 255 !important;
+  --key-color-critical-shade: #a7012a !important;
+  --key-color-critical-tint: #df0139 !important;
+  --key-color-critical-light: hsl(345, 99%, 92%) !important;
+  --key-color-critical-lighter: hsl(345, 99%, 98%) !important;
+  
+  --key-color-warning: #eacb2e !important;;
+  --key-color-warning-rgb: 234,203,46 !important;;
+  --key-color-warning-contrast: #000000 !important;;
+  --key-color-warning-contrast-rgb: 0,0,0 !important;;
+  --key-color-warning-shade: #ceb328 !important;;
+  --key-color-warning-tint: #ecd043 !important;;
+  --key-color-warning-light: hsl(50, 82%, 92%) !important;;
+  --key-color-warning-lighter: hsl(50, 82%, 98%) !important;;
+  
+  --key-color-success: #079d77 !important;;
+  --key-color-success-rgb: 7,157,119 !important;;
+  --key-color-success-contrast: #ffffff !important;;
+  --key-color-success-contrast-rgb: 255,255,255 !important;;
+  --key-color-success-shade: #068a69 !important;;
+  --key-color-success-tint: #20a785 !important;;
+  --key-color-success-light: hsl(165, 68%, 92%) !important;;
+  --key-color-success-lighter: hsl(165, 68%, 98%) !important;;
+}
+
+.key-color-primary {
+  --key-color-base: var(--key-color-primary);
+  --key-color-base-rgb: var(--key-color-primary-rgb);
+  --key-color-contrast: var(--key-color-primary-contrast);
+  --key-color-contrast-rgb: var(--key-color-primary-contrast-rgb);
+  --key-color-shade: var(--key-color-primary-shade);
+  --key-color-tint: var(--key-color-primary-tint);
+  --key-color-light: var(--key-color-primary-light);
+  --key-color-lighter: var(--key-color-primary-lighter);
+}
+
+.key-color-secondary {
+  --key-color-base: var(--key-color-secondary);
+  --key-color-base-rgb: var(--key-color-secondary-rgb);
+  --key-color-contrast: var(--key-color-secondary-contrast);
+  --key-color-contrast-rgb: var(--key-color-secondary-contrast-rgb);
+  --key-color-shade: var(--key-color-secondary-shade);
+  --key-color-tint: var(--key-color-secondary-tint);
+  --key-color-light: var(--key-color-secondary-light);
+  --key-color-lighter: var(--key-color-secondary-lighter);
+}
+
+.key-color-tertiary {
+  --key-color-base: var(--key-color-tertiary);
+  --key-color-base-rgb: var(--key-color-tertiary-rgb);
+  --key-color-contrast: var(--key-color-tertiary-contrast);
+  --key-color-contrast-rgb: var(--key-color-tertiary-contrast-rgb);
+  --key-color-shade: var(--key-color-tertiary-shade);
+  --key-color-tint: var(--key-color-tertiary-tint);
+  --key-color-light: var(--key-color-tertiary-light);
+  --key-color-lighter: var(--key-color-tertiary-lighter);
+}
+
+.key-color-critical {
+  --key-color-base: var(--key-color-critical);
+  --key-color-base-rgb: var(--key-color-critical-rgb);
+  --key-color-contrast: var(--key-color-critical-contrast);
+  --key-color-contrast-rgb: var(--key-color-critical-contrast-rgb);
+  --key-color-shade: var(--key-color-critical-shade);
+  --key-color-tint: var(--key-color-critical-tint);
+  --key-color-light: var(--key-color-critical-light);
+  --key-color-lighter: var(--key-color-critical-lighter);
+}
+
+.key-color-warning {
+  --key-color-base: var(--key-color-warning);
+  --key-color-base-rgb: var(--key-color-warning-rgb);
+  --key-color-contrast: var(--key-color-warning-contrast);
+  --key-color-contrast-rgb: var(--key-color-warning-contrast-rgb);
+  --key-color-shade: var(--key-color-warning-shade);
+  --key-color-tint: var(--key-color-warning-tint);
+  --key-color-light: var(--key-color-warning-light);
+  --key-color-lighter: var(--key-color-warning-lighter);
+}
+
+.key-color-success {
+  --key-color-base: var(--key-color-success);
+  --key-color-base-rgb: var(--key-color-success-rgb);
+  --key-color-contrast: var(--key-color-success-contrast);
+  --key-color-contrast-rgb: var(--key-color-success-contrast-rgb);
+  --key-color-shade: var(--key-color-success-shade);
+  --key-color-tint: var(--key-color-success-tint);
+  --key-color-light: var(--key-color-success-light);
+  --key-color-lighter: var(--key-color-success-lighter);
+}

@@ -1,0 +1,37 @@
+// Key Colors
+// --------------------------------------------------
+// Generates the color classes and variables based on the
+// colors map
+
+@mixin generate-color($color-name) {
+  $value: map-get($colors, $color-name);
+
+  $base: map-get($value, base);
+  $contrast: map-get($value, contrast);
+  $shade: map-get($value, shade);
+  $tint: map-get($value, tint);
+
+  --key-color-base: var(--key-color-#{$color-name}, #{$base}) !important;
+  --key-color-base-rgb: var(--key-color-#{$color-name}-rgb, #{color-to-rgb-list($base)}) !important;
+  --key-color-contrast: var(--key-color-#{$color-name}-contrast, #{$contrast}) !important;
+  --key-color-contrast-rgb: var(--key-color-#{$color-name}-contrast-rgb, #{color-to-rgb-list($contrast)}) !important;
+  --key-color-shade: var(--key-color-#{$color-name}-shade, #{$shade}) !important;
+  --key-color-tint: var(--key-color-#{$color-name}-tint, #{$tint}) !important;
+}
+
+@each $color-name, $value in $colors {
+  .ion-color-#{$color-name} {
+    @include generate-color($color-name);
+  }
+}
+
+
+
+// Accordion Styles
+@media (prefers-reduced-motion: reduce) {
+  key-accordion .key-accordion-toggle-icon {
+    /* stylelint-disable declaration-no-important */
+    transition: none !important;
+  }
+}
+ 

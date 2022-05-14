@@ -1,4 +1,5 @@
-import { Component, h, Host } from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
+import { Color } from '../../../types/color';
 
 @Component({
   tag: 'key-label',
@@ -6,8 +7,14 @@ import { Component, h, Host } from '@stencil/core';
   shadow: false,
 })
 export class KeyLabel {
+
+  @Prop() color: Color;
+
   render() {
-    return <Host class="key-label">
+    return <Host class={{
+      'key-label': true,
+      [Color.classForColor(this.color)]: !!this.color,
+    }}>
       <label>
         <slot></slot>
       </label>

@@ -1,4 +1,4 @@
-export type Color = 'primary' | 'secondary' | 'tertiary' | 'destructive' | string;
+export type Color = 'primary' | 'secondary' | 'tertiary' | 'critical' | string;
 export namespace Color {
   export function isCustomColor(color: Color): boolean {
     const customColorPrefixes = [

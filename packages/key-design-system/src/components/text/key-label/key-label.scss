@@ -1,3 +1,5 @@
-:host {
+.key-label {
   display: block;
+  font-family: var(--key-font-family);
+  color: var(--key-color-base, inherit);
 }

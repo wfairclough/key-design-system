@@ -16,7 +16,7 @@ const Story = {
     },
     color: {
       description: 'Color type',
-      options: ['primary', 'secondary', 'tertiary', 'destructive'],
+      options: ['primary', 'secondary', 'tertiary', 'critical'],
       control: { type: 'select' },
       // control: { type: 'color' },
     },

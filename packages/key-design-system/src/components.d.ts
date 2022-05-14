@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariant, Size } from "./components/actions/key-button/key-button";
 import { Color } from "./types/color";
+import { ButtonVariant, Size } from "./components/actions/key-button/key-button";
 import { GridAxis } from "./components/structure/key-grid/grid-axis";
 import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/key-grid/alignments";
 import { Fit } from "./components/structure/key-grid/fit";
@@ -32,6 +32,12 @@ export namespace Components {
           * The middle name
          */
         "middle": string;
+    }
+    interface KeyBanner {
+        "color": Color;
+        "content": string;
+        "expanded": boolean;
+        "header": string;
     }
     interface KeyButton {
         "color": Color;
@@ -93,7 +99,11 @@ export namespace Components {
     }
     interface KeyGridItem {
     }
+    interface KeyHeading {
+        "level": string;
+    }
     interface KeyIcon {
+        "color": Color;
         "faIcon": string;
         "faWeight": FaWeight;
     }
@@ -126,6 +136,7 @@ export namespace Components {
         "variant": InputVariant;
     }
     interface KeyLabel {
+        "color": Color;
     }
     interface KeyLayout {
     }
@@ -170,6 +181,12 @@ declare global {
         prototype: HTMLKeyAppPageElement;
         new (): HTMLKeyAppPageElement;
     };
+    interface HTMLKeyBannerElement extends Components.KeyBanner, HTMLStencilElement {
+    }
+    var HTMLKeyBannerElement: {
+        prototype: HTMLKeyBannerElement;
+        new (): HTMLKeyBannerElement;
+    };
     interface HTMLKeyButtonElement extends Components.KeyButton, HTMLStencilElement {
     }
     var HTMLKeyButtonElement: {
@@ -211,6 +228,12 @@ declare global {
     var HTMLKeyGridItemElement: {
         prototype: HTMLKeyGridItemElement;
         new (): HTMLKeyGridItemElement;
+    };
+    interface HTMLKeyHeadingElement extends Components.KeyHeading, HTMLStencilElement {
+    }
+    var HTMLKeyHeadingElement: {
+        prototype: HTMLKeyHeadingElement;
+        new (): HTMLKeyHeadingElement;
     };
     interface HTMLKeyIconElement extends Components.KeyIcon, HTMLStencilElement {
     }
@@ -269,6 +292,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "key-app-frame": HTMLKeyAppFrameElement;
         "key-app-page": HTMLKeyAppPageElement;
+        "key-banner": HTMLKeyBannerElement;
         "key-button": HTMLKeyButtonElement;
         "key-card": HTMLKeyCardElement;
         "key-card-section": HTMLKeyCardSectionElement;
@@ -276,6 +300,7 @@ declare global {
         "key-font-awesome-kit": HTMLKeyFontAwesomeKitElement;
         "key-grid": HTMLKeyGridElement;
         "key-grid-item": HTMLKeyGridItemElement;
+        "key-heading": HTMLKeyHeadingElement;
         "key-icon": HTMLKeyIconElement;
         "key-input": HTMLKeyInputElement;
         "key-label": HTMLKeyLabelElement;
@@ -303,6 +328,12 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+    }
+    interface KeyBanner {
+        "color"?: Color;
+        "content"?: string;
+        "expanded"?: boolean;
+        "header"?: string;
     }
     interface KeyButton {
         "color"?: Color;
@@ -366,7 +397,11 @@ declare namespace LocalJSX {
     }
     interface KeyGridItem {
     }
+    interface KeyHeading {
+        "level"?: string;
+    }
     interface KeyIcon {
+        "color"?: Color;
         "faIcon"?: string;
         "faWeight"?: FaWeight;
     }
@@ -399,6 +434,7 @@ declare namespace LocalJSX {
         "variant"?: InputVariant;
     }
     interface KeyLabel {
+        "color"?: Color;
     }
     interface KeyLayout {
     }
@@ -432,6 +468,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "key-app-frame": KeyAppFrame;
         "key-app-page": KeyAppPage;
+        "key-banner": KeyBanner;
         "key-button": KeyButton;
         "key-card": KeyCard;
         "key-card-section": KeyCardSection;
@@ -439,6 +476,7 @@ declare namespace LocalJSX {
         "key-font-awesome-kit": KeyFontAwesomeKit;
         "key-grid": KeyGrid;
         "key-grid-item": KeyGridItem;
+        "key-heading": KeyHeading;
         "key-icon": KeyIcon;
         "key-input": KeyInput;
         "key-label": KeyLabel;
@@ -456,6 +494,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "key-app-frame": LocalJSX.KeyAppFrame & JSXBase.HTMLAttributes<HTMLKeyAppFrameElement>;
             "key-app-page": LocalJSX.KeyAppPage & JSXBase.HTMLAttributes<HTMLKeyAppPageElement>;
+            "key-banner": LocalJSX.KeyBanner & JSXBase.HTMLAttributes<HTMLKeyBannerElement>;
             "key-button": LocalJSX.KeyButton & JSXBase.HTMLAttributes<HTMLKeyButtonElement>;
             "key-card": LocalJSX.KeyCard & JSXBase.HTMLAttributes<HTMLKeyCardElement>;
             "key-card-section": LocalJSX.KeyCardSection & JSXBase.HTMLAttributes<HTMLKeyCardSectionElement>;
@@ -463,6 +502,7 @@ declare module "@stencil/core" {
             "key-font-awesome-kit": LocalJSX.KeyFontAwesomeKit & JSXBase.HTMLAttributes<HTMLKeyFontAwesomeKitElement>;
             "key-grid": LocalJSX.KeyGrid & JSXBase.HTMLAttributes<HTMLKeyGridElement>;
             "key-grid-item": LocalJSX.KeyGridItem & JSXBase.HTMLAttributes<HTMLKeyGridItemElement>;
+            "key-heading": LocalJSX.KeyHeading & JSXBase.HTMLAttributes<HTMLKeyHeadingElement>;
             "key-icon": LocalJSX.KeyIcon & JSXBase.HTMLAttributes<HTMLKeyIconElement>;
             "key-input": LocalJSX.KeyInput & JSXBase.HTMLAttributes<HTMLKeyInputElement>;
             "key-label": LocalJSX.KeyLabel & JSXBase.HTMLAttributes<HTMLKeyLabelElement>;

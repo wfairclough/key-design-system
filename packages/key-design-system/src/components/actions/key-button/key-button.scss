@@ -7,6 +7,7 @@
   --button-active-bg-color: hsl(210, 8%, 95%);
   width: fit-content;
   height: fit-content;
+  border-radius: var(--border-radius, var(--key-border-radius-1, .25rem));
 
   .button-native {
     display: block;
@@ -117,6 +118,10 @@
   }
 }
 
+:host(.button-plain) {
+  --icon-color: var(--key-color-base, inherit);
+}
+
 :host(.button-outline.key-color) {
   .button-native {
     --border-width: 2px;
@@ -126,13 +131,13 @@
     color: var(--key-color-base);
     background: var(--key-color-lighter);
   }
-  .button-native:active {
-    --border-color: var(--key-color-shade);
-    background: var(--key-color-tint);
-  }
   .button-native:hover {
     --border-color: var(--key-color-shade);
-    background: var(--key-color-light);
+    background: rgba(var(--key-color-base-rgb), 0.05);
+  }
+  .button-native:active {
+    --border-color: var(--key-color-shade);
+    background: rgba(var(--key-color-base-rgb), 0.3);
   }
 }
 

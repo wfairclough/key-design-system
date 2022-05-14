@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    margin: 0 0 var(--key-heading-margin-bottom, 0) 0;
+    font-family: var(--key-font-family);
+    color: var(--heading-color, var(--key-color-base, inherit));
+  }
+}

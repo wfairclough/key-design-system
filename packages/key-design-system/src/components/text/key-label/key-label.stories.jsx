@@ -2,10 +2,19 @@ import { h } from '@stencil/core';
 
 export default {
   title: 'Components/Text/Label',
-  args: {
+  argTypes: {
+    text: {
+      control: { type: 'text' },
+    },
+    color: {
+      control: { type: 'text' },
+    },
   },
 };
 
-export const Primary = (args) => {
-  return <key-label {...args}></key-label>;
+export const Label = (args) => {
+  const { text, ...labelArgs } = args;
+  return <key-label {...labelArgs}>
+    { text }
+  </key-label>;
 };

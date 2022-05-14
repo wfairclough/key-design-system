@@ -1,0 +1,86 @@
+:host(.key-banner) {
+  display: flex;
+  --key-banner-background: var(--key-color-light, initial);
+  --key-banner-border-color: var(--key-color-base, initial);
+  --key-banner-border-radius: 0.5rem;
+  --heading-color: var(--key-color-shade);
+  --paragraph-color: var(--key-color-shade);
+  
+  .banner-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 18rem;
+    padding: var(--key-space-4);
+    background: var(--key-banner-background);
+    border: 1px solid var(--key-banner-border-color);
+    border-radius: var(--key-banner-border-radius);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(var(--key-space-05)*-1);
+  }
+
+  .ribbon {
+    flex: 0 0 var(--key-space-8);
+    --icon-color: var(--key-color-base, initial);
+  }
+
+  .dismiss {
+
+  }
+
+  .content key-heading,
+  ::slotted(key-heading[slot="header"]),
+  &::slotted(key-heading[slot="header"]) {
+    line-height: var(--key-line-height-3);
+  }
+  .content key-paragraph,
+  ::slotted([slot="content"]),
+  &::slotted([slot="content"]) {
+    --paragraph-margin-bottom: 0;
+    --key-paragraph-margin-top: 1rem;
+  }
+
+  ::slotted([slot="actions"]),
+  &::slotted([slot="actions"]) {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    flex: 1;
+    margin-top: 1rem;
+  }
+}
+
+:host(.key-banner.expanded) {
+  width: auto;
+  .banner-container {
+    flex: 1;
+  }
+}
+
+:host {
+	--key-color-banner-default: hsl(231, 8%, 50%);
+	--key-color-banner-default-rgb: 117,120,138;
+	--key-color-banner-default-contrast: #ffffff;
+	--key-color-banner-default-contrast-rgb: 255,255,255;
+	--key-color-banner-default-shade: #676a79;
+	--key-color-banner-default-tint: #838696;
+	--key-color-banner-default-light: hsl(231, 8%, 92%);
+	--key-color-banner-default-lighter: hsl(231, 8%, 98%);
+}
+
+:host(.key-color-banner-default) {
+--key-color-base: var(--key-color-banner-default);
+--key-color-base-rgb: var(--key-color-banner-default-rgb);
+--key-color-contrast: var(--key-color-banner-default-contrast);
+--key-color-contrast-rgb: var(--key-color-banner-default-contrast-rgb);
+--key-color-shade: var(--key-color-banner-default-shade);
+--key-color-tint: var(--key-color-banner-default-tint);
+--key-color-light: var(--key-color-banner-default-light);
+--key-color-lighter: var(--key-color-banner-default-lighter);
+}
+

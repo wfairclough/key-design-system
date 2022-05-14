@@ -1,0 +1,55 @@
+:root {
+  --key-border-radius-05: 0.125rem;
+  --key-border-radius-1: 0.25rem;
+  --key-border-radius-2: 0.5rem;
+  --key-border-radius-3: 0.75rem;
+  --key-border-radius-4: 1rem;
+  --key-border-radius-5: 1.25rem;
+  --key-border-radius-6: 1.875rem;
+  --key-border-radius-base: 0.1875rem;
+  --key-border-radius-large: 0.375rem;
+  --key-border-radius-half: 50%;
+
+  --key-border-width-1: 1px;
+  --key-border-width-2: 2px;
+  --key-border-width-3: 3px;
+  --key-border-width-4: 4px;
+
+  --key-border: hsl(210, 5%, 57%);
+  --key-border-neutral-subdued: hsl(207, 7%, 75%);
+  --key-border-hovered: hsl(213, 6%, 62%);
+  --key-border-disabled: hsl(210, 7%, 84%);
+  --key-border-subdued: hsl(210, 6%, 80%);
+  --key-border-depressed: hsl(180, 1%, 35%);
+  --key-border-shadow: hsl(207, 7%, 70%);
+  --key-border-shadow-subdued: hsl(210, 8%, 75%);
+  --key-border-critical: hsl(5, 98%, 64%);
+  --key-border-critical-subdued: hsl(1, 43%, 79%);
+  --key-border-critical-disabled: hsl(3, 100%, 82%);
+  --key-border-warning: hsl(44, 100%, 36%);
+  --key-border-warning-subdued: hsl(37, 64%, 68%);
+  --key-border-highlight: hsl(186, 42%, 46%);
+  --key-border-highlight-subdued: hsl(188, 35%, 70%);
+  --key-border-success: hsl(165, 100%, 32%);
+  --key-border-success-subdued: hsl(156, 32%, 69%);
+
+  --key-text-field-focus-ring-border-radius: 0.7rem;
+  --key-thin-border-subdued: 0.1rem solid var(--key-border-subdued);
+
+  --key-control-border-width: 0.2rem;
+  --key-banner-border-default: inset 0 0.1rem 0 0
+      var(--key-border-neutral-subdued),
+    inset 0 0 0 0.1rem var(--key-border-neutral-subdued);
+  --key-banner-border-success: inset 0 0.1rem 0 0
+      var(--key-border-success-subdued),
+    inset 0 0 0 0.1rem var(--key-border-success-subdued);
+  --key-banner-border-highlight: inset 0 0.1rem 0 0
+      var(--key-border-highlight-subdued),
+    inset 0 0 0 0.1rem var(--key-border-highlight-subdued);
+  --key-banner-border-warning: inset 0 0.1rem 0 0
+      var(--key-border-warning-subdued),
+    inset 0 0 0 0.1rem var(--key-border-warning-subdued);
+  --key-banner-border-critical: inset 0 0.1rem 0 0
+      var(--key-border-critical-subdued),
+    inset 0 0 0 0.1rem var(--key-border-critical-subdued);
+}

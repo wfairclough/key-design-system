@@ -58,6 +58,7 @@ export class KeyInput {
 
   render() {
     return <Host class={{
+      'key-input': true,
       [`${this.variant}`]: !!this.variant,
     }}>
       <div class="key-input-container">

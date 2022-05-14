@@ -49,3 +49,9 @@
   }
 
 }
+
+@media (min-width: 36em) {
+  .key-input {
+      width: calc(50% - 16px - 3px);
+  }
+}
