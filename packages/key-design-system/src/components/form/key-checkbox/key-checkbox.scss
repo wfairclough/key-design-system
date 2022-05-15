@@ -5,6 +5,7 @@
   padding: 0;
   isolation: isolate;
   --key-checkbox-color: var(--color, var(--key-color-base, inherit));
+  --key-checkbox-color-disabled: #657787;
 
   .key-checkbox-container {
     position: relative;
@@ -80,5 +81,20 @@
     content: "";
     background: var(--key-checkbox-checked-bg, transparent url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22white%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Pro%206.1.1%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%20%28Commercial%20License%29%20Copyright%202022%20Fonticons%2C%20Inc.%20--%3E%3Cpath%20d%3D%22M438.6%20105.4C451.1%20117.9%20451.1%20138.1%20438.6%20150.6L182.6%20406.6C170.1%20419.1%20149.9%20419.1%20137.4%20406.6L9.372%20278.6C-3.124%20266.1-3.124%20245.9%209.372%20233.4C21.87%20220.9%2042.13%20220.9%2054.63%20233.4L159.1%20338.7L393.4%20105.4C405.9%2092.88%20426.1%2092.88%20438.6%20105.4H438.6z%22%2F%3E%3C%2Fsvg%3E) no-repeat 0 0);
     background-size: 100% auto;
+  }
+}
+
+:host(.key-checkbox-disabled) {
+  input,
+  label {
+    cursor: default;
+  }
+  label {
+    color: var(--key-checkbox-color-disabled);
+  }
+  label::before {
+    opacity: 0.6;
+    background: var(--key-checkbox-color-disabled);
+    border: 1px solid var(--key-checkbox-color-disabled);
   }
 }

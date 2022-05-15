@@ -22,7 +22,7 @@ export class KeyCheckbox {
 
   @Element() el!: HTMLElement;
 
-  @Prop({ reflect: true }) color: Color;
+  @Prop({ reflect: true }) color: Color = 'tertiary';
   @Prop({ reflect: true }) checked: boolean;
   @Prop({ reflect: true }) disabled: boolean;
   @Prop({ reflect: true }) autofocus = false;
@@ -55,6 +55,7 @@ export class KeyCheckbox {
       class={{
         'key-checkbox': true,
         'key-checkbox-checked': this.checked,
+        'key-checkbox-disabled': this.disabled,
         ...Color.classesForColor(this.color),
       }}
       style={{
