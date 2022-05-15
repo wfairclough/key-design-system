@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color } from "./types/color";
 import { ButtonVariant, Size } from "./components/actions/key-button/key-button";
+import { KeyChangeDetail } from "./components/form/key-checkbox/key-checkbox";
 import { GridAxis } from "./components/structure/key-grid/grid-axis";
 import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/key-grid/alignments";
 import { Fit } from "./components/structure/key-grid/fit";
@@ -65,6 +66,15 @@ export namespace Components {
           * The middle name
          */
         "middle": string;
+    }
+    interface KeyCheckbox {
+        "autofocus": boolean;
+        "checked": boolean;
+        "color": Color;
+        "disabled": boolean;
+        "name": string;
+        "readonly": boolean;
+        "required": boolean;
     }
     interface KeyFlex {
         "column": boolean;
@@ -207,6 +217,12 @@ declare global {
         prototype: HTMLKeyCardSectionElement;
         new (): HTMLKeyCardSectionElement;
     };
+    interface HTMLKeyCheckboxElement extends Components.KeyCheckbox, HTMLStencilElement {
+    }
+    var HTMLKeyCheckboxElement: {
+        prototype: HTMLKeyCheckboxElement;
+        new (): HTMLKeyCheckboxElement;
+    };
     interface HTMLKeyFlexElement extends Components.KeyFlex, HTMLStencilElement {
     }
     var HTMLKeyFlexElement: {
@@ -298,6 +314,7 @@ declare global {
         "key-button": HTMLKeyButtonElement;
         "key-card": HTMLKeyCardElement;
         "key-card-section": HTMLKeyCardSectionElement;
+        "key-checkbox": HTMLKeyCheckboxElement;
         "key-flex": HTMLKeyFlexElement;
         "key-font-awesome-kit-provider": HTMLKeyFontAwesomeKitProviderElement;
         "key-grid": HTMLKeyGridElement;
@@ -366,6 +383,16 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+    }
+    interface KeyCheckbox {
+        "autofocus"?: boolean;
+        "checked"?: boolean;
+        "color"?: Color;
+        "disabled"?: boolean;
+        "name"?: string;
+        "onKeyChanged"?: (event: CustomEvent<KeyChangeDetail>) => void;
+        "readonly"?: boolean;
+        "required"?: boolean;
     }
     interface KeyFlex {
         "column"?: boolean;
@@ -477,6 +504,7 @@ declare namespace LocalJSX {
         "key-button": KeyButton;
         "key-card": KeyCard;
         "key-card-section": KeyCardSection;
+        "key-checkbox": KeyCheckbox;
         "key-flex": KeyFlex;
         "key-font-awesome-kit-provider": KeyFontAwesomeKitProvider;
         "key-grid": KeyGrid;
@@ -503,6 +531,7 @@ declare module "@stencil/core" {
             "key-button": LocalJSX.KeyButton & JSXBase.HTMLAttributes<HTMLKeyButtonElement>;
             "key-card": LocalJSX.KeyCard & JSXBase.HTMLAttributes<HTMLKeyCardElement>;
             "key-card-section": LocalJSX.KeyCardSection & JSXBase.HTMLAttributes<HTMLKeyCardSectionElement>;
+            "key-checkbox": LocalJSX.KeyCheckbox & JSXBase.HTMLAttributes<HTMLKeyCheckboxElement>;
             "key-flex": LocalJSX.KeyFlex & JSXBase.HTMLAttributes<HTMLKeyFlexElement>;
             "key-font-awesome-kit-provider": LocalJSX.KeyFontAwesomeKitProvider & JSXBase.HTMLAttributes<HTMLKeyFontAwesomeKitProviderElement>;
             "key-grid": LocalJSX.KeyGrid & JSXBase.HTMLAttributes<HTMLKeyGridElement>;

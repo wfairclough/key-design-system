@@ -17,4 +17,20 @@ export namespace Color {
     }
     return `key-color-${color}`;
   }
+
+  export function classesForColor(color: Color): { [className: string]: boolean } {
+    return {
+      'key-color': !!color,
+      [Color.classForColor(color)]: !!color,
+    };
+  }
+
+  export function stylesForColor(color: Color): { [styleProp: string]: string } {
+    if (Color.isCustomColor(color)) {
+      return {
+        '--color': color,
+      };
+    }
+    return {};
+  }
 }
