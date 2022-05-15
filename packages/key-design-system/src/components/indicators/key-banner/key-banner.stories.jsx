@@ -31,7 +31,7 @@ export default {
 };
 
 export const Banner = (args) => {
-  const { actions, icon, iconWeight, ...bannerArgs } = {
+  const { actions, icon, iconWeight, customContent, ...bannerArgs } = {
     header: 'Job has been archived',
     content: 'This job has been archived. You can still find this job by search through all inactive jobs',
     icon: 'fa-check-circle',
@@ -41,6 +41,7 @@ export const Banner = (args) => {
   return <div key={uuid()}>
     <key-banner id="demo-banner" {...bannerArgs}>
       <key-icon slot="icon" faIcon={icon} faWeight={iconWeight}></key-icon>
+      { customContent }
       { actions }
     </key-banner>
     <script innerHTML={`
@@ -57,4 +58,17 @@ export const BannerWithActions = (args) => {
     <key-button variant="outline" color="banner-default">See job details</key-button>
   </div>;
   return Banner({ ...args, actions });
+};
+
+export const BannerCustomContent = (args) => {
+  const customContent = <div slot="content">
+    <key-icon faIcon='fa-user'></key-icon>
+    <key-label>User</key-label>
+    <key-input type="search"></key-input>
+  </div>
+  return Banner({ ...args, content: null, customContent });
+};
+
+export const BannerJustHeader = (args) => {
+  return Banner({ ...args, content: null });
 };

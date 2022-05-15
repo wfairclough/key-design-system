@@ -1,4 +1,9 @@
 import { createStore } from "@stencil/store";
+import { Logger } from "packages/key-design-system/src/utils/logger";
+
+const DEBUG = false;
+
+const log = Logger.create('FaStore');
 
 export interface FaKitConfig {
   version?: string;
@@ -29,16 +34,19 @@ const { state: rawState, onChange } = createStore<FaStore>({
   'iconSvgCache-duotone': {},
 });
 
-onChange('config', value => {
-  console.log(`config`, value);
-});
+if (DEBUG) {
+  onChange('config', value => {
+    log.debug(`config`, value);
+  });
+  
+  onChange('iconSvgCache-solid', value => log.debug(`iconSvgCache-solid`, value));
+  onChange('iconSvgCache-regular', value => log.debug(`iconSvgCache-regular`, value));
+  onChange('iconSvgCache-light', value => log.debug(`iconSvgCache-light`, value));
+  onChange('iconSvgCache-thin', value => log.debug(`iconSvgCache-thin`, value));
+  onChange('iconSvgCache-brands', value => log.debug(`iconSvgCache-brands`, value));
+  onChange('iconSvgCache-duotone', value => log.debug(`iconSvgCache-duotone`, value));
+}
 
-onChange('iconSvgCache-solid', value => console.log(`iconSvgCache-solid`, value));
-onChange('iconSvgCache-regular', value => console.log(`iconSvgCache-regular`, value));
-onChange('iconSvgCache-light', value => console.log(`iconSvgCache-light`, value));
-onChange('iconSvgCache-thin', value => console.log(`iconSvgCache-thin`, value));
-onChange('iconSvgCache-brands', value => console.log(`iconSvgCache-brands`, value));
-onChange('iconSvgCache-duotone', value => console.log(`iconSvgCache-duotone`, value));
 
 export function getSvgIconFromCache(weight: string, icon: string): string {
   return rawState["iconSvgCache-" + weight][icon];

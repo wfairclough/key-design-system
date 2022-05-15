@@ -32,7 +32,6 @@ export class KeyButton {
   @Event() keyBlur!: EventEmitter<void>;
 
   private inheritedAttributes: Attributes = {};
-  private isCustomColor: boolean = false;
 
   connectedCallback() {
     this.checkSlottedSlots();
@@ -42,10 +41,6 @@ export class KeyButton {
     this.inheritedAttributes = inheritAriaAttributes(this.el);
   }
 
-  componentWillRender() {
-    this.isCustomColor = Color.isCustomColor(this.color);
-  }
-  
   componentDidRender() {
     log.debug('componentDidRender');
     // const btnIcon = this.el?.querySelector('[slot="icon"]');
@@ -66,9 +61,10 @@ export class KeyButton {
 
 
   render() {
+    const customColor = Color.isCustomColor(this.color);
     return <Host
       style={{
-        ...(this.isCustomColor && { '--key-color-custom': this.color }),
+        ...(customColor && { '--key-color-custom': this.color }),
       }}
       class={{
         'key-button': true,

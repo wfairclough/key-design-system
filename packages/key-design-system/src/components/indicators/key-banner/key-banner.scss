@@ -15,17 +15,18 @@
     background: var(--key-banner-background);
     border: 1px solid var(--key-banner-border-color);
     border-radius: var(--key-banner-border-radius);
+    --icon-color: var(--key-color-base, initial);
   }
 
   .content {
     display: flex;
     flex-direction: column;
+    flex: 1;
     margin-top: calc(var(--key-space-05)*-1);
   }
 
   .ribbon {
     flex: 0 0 var(--key-space-8);
-    --icon-color: var(--key-color-base, initial);
   }
 
   .dismiss {
@@ -35,6 +36,10 @@
       --padding-top: var(--key-space-1);
       --padding-bottom: var(--key-space-1);
     }
+    // --size: 1.5rem;
+    position: relative;
+    top: 0;
+    right: 0;
   }
 
   .content key-heading,
@@ -57,6 +62,12 @@
     width: 100%;
     flex: 1;
     margin-top: 1rem;
+  }
+}
+
+:host(.banner-no-content:not(.banner-with-actions)) {
+  .banner-container {
+    align-items: center;
   }
 }
 
