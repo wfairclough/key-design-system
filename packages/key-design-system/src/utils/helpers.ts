@@ -1,4 +1,4 @@
-import { EventEmitter } from "@stencil/core";
+import { EventEmitter } from '@stencil/core';
 
 export type Attributes = { [key: string]: any };
 
@@ -36,7 +36,7 @@ export const inheritAttributes = (
  * Removed deprecated attributes.
  * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes
  */
- const ariaAttributes = [
+const ariaAttributes = [
   'role',
   'aria-activedescendant',
   'aria-atomic',
@@ -104,11 +104,32 @@ export const hasShadowDom = (el: HTMLElement) => {
 };
 
 export const getAttributes = (el: HTMLElement) => {
-  if (!el) { return {}; }
-  return el.getAttributeNames().reduce((attrs, key) => ({ ...attrs, [key]: el.getAttribute(key) }), {}) as Attributes;
-}
+  if (!el) {
+    return {};
+  }
+  return el
+    .getAttributeNames()
+    .reduce(
+      (attrs, key) => ({ ...attrs, [key]: el.getAttribute(key) }),
+      {}
+    ) as Attributes;
+};
 
-export type AddScriptOptions = Partial<{ id: string } & Pick<HTMLScriptElement, 'async' | 'charset' | 'crossOrigin' | 'defer' | 'src' | 'text' | 'type' | 'noModule' | 'referrerPolicy' | 'integrity'>>;
+export type AddScriptOptions = Partial<
+  { id: string } & Pick<
+    HTMLScriptElement,
+    | 'async'
+    | 'charset'
+    | 'crossOrigin'
+    | 'defer'
+    | 'src'
+    | 'text'
+    | 'type'
+    | 'noModule'
+    | 'referrerPolicy'
+    | 'integrity'
+  >
+>;
 
 export function addHeadScript(opts: AddScriptOptions, doc = document) {
   const [headEl] = doc.getElementsByTagName('head') as any;
@@ -127,7 +148,11 @@ export namespace PropClassTuples {
    * @param matchValue The value the prop must match
    * @returns Return the first className for the Prop that matches the matchValue
    */
-  export function classForPropMatching(target: any, propClassTup: PropClassTuples, matchValue: any): string {
+  export function classForPropMatching(
+    target: any,
+    propClassTup: PropClassTuples,
+    matchValue: any
+  ): string {
     for (const [prop, className] of propClassTup) {
       if (target[prop] === matchValue) {
         return className;
@@ -157,7 +182,10 @@ export const deferEvent = (event: EventEmitter): EventEmitter => {
   return debounceEvent(event, 0);
 };
 
-export const debounceEvent = (event: EventEmitter, wait: number): EventEmitter => {
+export const debounceEvent = (
+  event: EventEmitter,
+  wait: number
+): EventEmitter => {
   const original = (event as any)._original || event;
   return {
     _original: event,

@@ -10,7 +10,6 @@ let id = 1;
   shadow: true,
 })
 export class KeyFontAwesomeKitProvider implements ComponentWillLoad {
-  
   @Prop({ reflect: true }) faKitUrl: string;
 
   @Prop() faVersion: string = 'v6.1.1';
@@ -34,6 +33,10 @@ export class KeyFontAwesomeKitProvider implements ComponentWillLoad {
   }
 
   render() {
-    return <Host><slot></slot></Host>;
+    return (
+      <Host>
+        <slot></slot>
+      </Host>
+    );
   }
 }

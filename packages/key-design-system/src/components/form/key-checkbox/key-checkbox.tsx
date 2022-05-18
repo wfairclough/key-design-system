@@ -1,9 +1,21 @@
-import { Component, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core';
 import { Color } from '../../../types/color';
 import { v4 as uuid } from 'uuid';
 
 import { Logger } from '../../../utils/logger';
-import { Attributes, inheritAriaAttributes, inheritAttributes } from '../../../utils/helpers';
+import {
+  Attributes,
+  inheritAriaAttributes,
+  inheritAttributes,
+} from '../../../utils/helpers';
 
 const log = Logger.create('KeyCheckbox');
 
@@ -17,7 +29,6 @@ export interface KeyChangeDetail {
   shadow: true,
 })
 export class KeyCheckbox {
-
   id = `KeyCheckbox-${uuid()}`;
 
   @Element() el!: HTMLElement;
@@ -31,7 +42,7 @@ export class KeyCheckbox {
   @Prop() name: string = this.id;
 
   @Event() keyChanged: EventEmitter<KeyChangeDetail>;
-  
+
   private nativeInput: HTMLInputElement;
 
   private inheritedAttributes: Attributes;
@@ -45,43 +56,51 @@ export class KeyCheckbox {
   }
 
   private onNativeInputChange = (evt: Event) => {
-    log.debug(`onNativeInputChange`, evt, this.nativeInput.value );
+    log.debug(`onNativeInputChange`, evt, this.nativeInput.value);
     this.keyChanged.emit({ value: this.nativeInput.checked });
     this.checked = this.nativeInput.checked;
-  }
+  };
 
   render() {
-    return <Host
-      class={{
-        'key-checkbox': true,
-        'key-checkbox-checked': this.checked,
-        'key-checkbox-disabled': this.disabled,
-        ...Color.classesForColor(this.color),
-      }}
-      style={{
-        ...Color.stylesForColor(this.color),
-      }}>
-      <div class="key-checkbox-container">
-        <input ref={ref => this.nativeInput = ref} 
-          class="key-checkbox-input"
-          part="native"
-          type="checkbox"
-          id={this.id}
-          onChange={this.onNativeInputChange}
-          autofocus={this.autofocus}
-          name={this.name}
-          readonly={this.readonly}
-          required={this.required}
-          checked={this.checked}
-          disabled={this.disabled}
-          {...this.inheritedAttributes}
-        ></input>
-        <label part="native-label" data-for={this.id} class="key-checkbox-label">
-          <span>
-            <slot></slot>
-          </span>
-        </label>
-      </div>
-    </Host>;
+    return (
+      <Host
+        class={{
+          'key-checkbox': true,
+          'key-checkbox-checked': this.checked,
+          'key-checkbox-disabled': this.disabled,
+          ...Color.classesForColor(this.color),
+        }}
+        style={{
+          ...Color.stylesForColor(this.color),
+        }}
+      >
+        <div class="key-checkbox-container">
+          <input
+            ref={(ref) => (this.nativeInput = ref)}
+            class="key-checkbox-input"
+            part="native"
+            type="checkbox"
+            id={this.id}
+            onChange={this.onNativeInputChange}
+            autofocus={this.autofocus}
+            name={this.name}
+            readonly={this.readonly}
+            required={this.required}
+            checked={this.checked}
+            disabled={this.disabled}
+            {...this.inheritedAttributes}
+          ></input>
+          <label
+            part="native-label"
+            data-for={this.id}
+            class="key-checkbox-label"
+          >
+            <span>
+              <slot></slot>
+            </span>
+          </label>
+        </div>
+      </Host>
+    );
   }
 }

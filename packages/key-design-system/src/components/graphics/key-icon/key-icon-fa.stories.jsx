@@ -1,18 +1,27 @@
 import { h } from '@stencil/core';
 import { faIcons } from './fa-icons';
-import { v4 as uuid } from 'uuid'
+import { v4 as uuid } from 'uuid';
 
 export default {
   title: 'Components/Graphics/Icon',
   argTypes: {
     faIcon: {
       // control: { type: 'text' },
-      options: faIcons?.data?.release?.icons?.map(icon => `fa-${icon.id}`)?.sort(),
+      options: faIcons?.data?.release?.icons
+        ?.map((icon) => `fa-${icon.id}`)
+        ?.sort(),
       control: { type: 'select' },
     },
     faWeight: {
       description: 'Font Awesome Weight',
-      options: ['fa-solid', 'fa-regular', 'fa-light', 'fa-thin', 'fa-duotone', 'fa-brands'],
+      options: [
+        'fa-solid',
+        'fa-regular',
+        'fa-light',
+        'fa-thin',
+        'fa-duotone',
+        'fa-brands',
+      ],
       control: { type: 'select' },
     },
     size: {
@@ -34,14 +43,16 @@ export const FontAwesomeIcon = (args, { loaded }) => {
   const iconArgs = {
     faIcon: faIcon ?? 'fa-user',
     faWeight: faWeight ?? 'fa-duotone',
-  }
+  };
   const iconStyle = {
     ...(size && { '--size': size }),
     ...(color && { '--icon-color': color }),
   };
-  return <key-flex row justify-center items-center wrap key={id}>
-    <key-icon style={iconStyle} {...iconArgs}></key-icon>
-  </key-flex>;
+  return (
+    <key-flex row justify-center items-center wrap key={id}>
+      <key-icon style={iconStyle} {...iconArgs}></key-icon>
+    </key-flex>
+  );
 };
 
 // let cachedIcons = null;

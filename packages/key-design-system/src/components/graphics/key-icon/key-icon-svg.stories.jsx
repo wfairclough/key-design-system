@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { v4 as uuid } from 'uuid'
+import { v4 as uuid } from 'uuid';
 
 export default {
   title: 'Components/Graphics/Icon',
@@ -31,8 +31,9 @@ export const CustomSVGIcon = (args, { loaded }) => {
     ...(size && { '--size': size }),
     ...(color && { '--icon-color': color }),
   };
-  return <key-flex row justify-center items-center wrap key={id}>
-    <key-icon style={iconStyle} innerHTML={args.svgSource}>
-    </key-icon>
-  </key-flex>;
+  return (
+    <key-flex row justify-center items-center wrap key={id}>
+      <key-icon style={iconStyle} innerHTML={args.svgSource}></key-icon>
+    </key-flex>
+  );
 };

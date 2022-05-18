@@ -14,7 +14,5 @@ export default {
 
 export const Label = (args) => {
   const { text, ...labelArgs } = args;
-  return <key-label {...labelArgs}>
-    { text }
-  </key-label>;
+  return <key-label {...labelArgs}>{text}</key-label>;
 };

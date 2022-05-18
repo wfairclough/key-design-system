@@ -19,19 +19,23 @@ export const Paragraph = (args) => {
   const lorem = new LoremIpsum({
     sentencesPerParagraph: {
       max: 8,
-      min: 4
+      min: 4,
     },
     wordsPerSentence: {
       max: 16,
-      min: 4
-    }
+      min: 4,
+    },
   });
 
-  return <div>
-    <key-paragraph {...{...args, variant: 'intro'}}>{lorem.generateParagraphs(1)}</key-paragraph>
+  return (
+    <div>
+      <key-paragraph {...{ ...args, variant: 'intro' }}>
+        {lorem.generateParagraphs(1)}
+      </key-paragraph>
 
-    <key-paragraph {...args}>{lorem.generateParagraphs(1)}</key-paragraph>
+      <key-paragraph {...args}>{lorem.generateParagraphs(1)}</key-paragraph>
 
-    <key-paragraph {...args}>{lorem.generateParagraphs(1)}</key-paragraph>
-  </div>
+      <key-paragraph {...args}>{lorem.generateParagraphs(1)}</key-paragraph>
+    </div>
+  );
 };

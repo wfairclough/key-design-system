@@ -1,4 +1,12 @@
-import { Component, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core';
 import { Logger } from 'packages/key-design-system/src/utils/logger';
 
 import { Color } from '../../../types/color';
@@ -59,43 +67,47 @@ export class KeyButton {
     this.keyBlur.emit();
   };
 
-
   render() {
     const customColor = Color.isCustomColor(this.color);
-    return <Host
-      style={{
-        ...(customColor && { '--key-color-custom': this.color }),
-      }}
-      class={{
-        'key-button': true,
-        'button-plain': !this.variant || this.variant === 'plain',
-        'button-outline': this.variant === 'outline',
-        'button-solid': this.variant === 'solid',
-        'key-color': !!this.color,
-        [Color.classForColor(this.color)]: !!this.color,
-        [`key-size-${this.size}`]: this.size !== 'default',
-        'button-disabled': this.disabled,
-        'button-rounded': this.rounded,
-      }}
-      aria-disabled={this.disabled ? 'true' : null}>
-      <button class="button-native"
+    return (
+      <Host
+        style={{
+          ...(customColor && { '--key-color-custom': this.color }),
+        }}
+        class={{
+          'key-button': true,
+          'button-plain': !this.variant || this.variant === 'plain',
+          'button-outline': this.variant === 'outline',
+          'button-solid': this.variant === 'solid',
+          'key-color': !!this.color,
+          [Color.classForColor(this.color)]: !!this.color,
+          [`key-size-${this.size}`]: this.size !== 'default',
+          'button-disabled': this.disabled,
+          'button-rounded': this.rounded,
+        }}
+        aria-disabled={this.disabled ? 'true' : null}
+      >
+        <button
+          class="button-native"
           part="native"
           disabled={this.disabled}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
-          {...this.inheritedAttributes}>
-        <span class="button-inner">
-          <span class={'button-icon'}>
-            <slot name="icon"></slot>
+          {...this.inheritedAttributes}
+        >
+          <span class="button-inner">
+            <span class={'button-icon'}>
+              <slot name="icon"></slot>
+            </span>
+            <slot name="start"></slot>
+            <span class={'button-content'}>
+              <slot></slot>
+            </span>
+            <slot name="end"></slot>
           </span>
-          <slot name="start"></slot>
-          <span class={'button-content'}>
-            <slot></slot>
-          </span>
-          <slot name="end"></slot>
-        </span>
-      </button>      
-    </Host>;
+        </button>
+      </Host>
+    );
   }
 
   private checkSlottedSlots() {

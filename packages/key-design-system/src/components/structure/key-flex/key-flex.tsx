@@ -64,33 +64,49 @@ export class KeyFlex {
     const justifyClass = this.justifyClass();
     const alignItemsClass = this.alignItemsClass();
     const wrapClass = this.wrapClass();
-    return <Host>
-      <div part="flexbox" class={{
-        'key-flex': true,
-        [directionClass]: !!directionClass,
-        [justifyClass]: !!justifyClass,
-        [alignItemsClass]: !!justifyClass,
-        [wrapClass]: !!wrapClass,
-      }}>
-        <slot></slot>
-      </div>
-    </Host>;
+    return (
+      <Host>
+        <div
+          part="flexbox"
+          class={{
+            'key-flex': true,
+            [directionClass]: !!directionClass,
+            [justifyClass]: !!justifyClass,
+            [alignItemsClass]: !!justifyClass,
+            [wrapClass]: !!wrapClass,
+          }}
+        >
+          <slot></slot>
+        </div>
+      </Host>
+    );
   }
 
   private justifyClass(): string {
-    return PropClassTuples.classForPropMatching(this, justifyClasses, true) ?? justifyClasses[0][1];
+    return (
+      PropClassTuples.classForPropMatching(this, justifyClasses, true) ??
+      justifyClasses[0][1]
+    );
   }
 
   private alignItemsClass(): string {
-    return PropClassTuples.classForPropMatching(this, alignItemsClasses, true) ?? alignItemsClasses[0][1];
+    return (
+      PropClassTuples.classForPropMatching(this, alignItemsClasses, true) ??
+      alignItemsClasses[0][1]
+    );
   }
 
   private wrapClass(): string {
-    return PropClassTuples.classForPropMatching(this, wrapClasses, true) ?? wrapClasses[0][1];
+    return (
+      PropClassTuples.classForPropMatching(this, wrapClasses, true) ??
+      wrapClasses[0][1]
+    );
   }
 
   private directionClass(): string {
-    return PropClassTuples.classForPropMatching(this, directionClasses, true) ?? directionClasses[0][1];
+    return (
+      PropClassTuples.classForPropMatching(this, directionClasses, true) ??
+      directionClasses[0][1]
+    );
   }
-
 }

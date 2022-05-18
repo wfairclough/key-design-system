@@ -12,7 +12,14 @@ const Story = {
     },
     mainAxisAlignment: {
       description: 'MainAxisAlignment',
-      options: ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly'],
+      options: [
+        'start',
+        'end',
+        'center',
+        'space-between',
+        'space-around',
+        'space-evenly',
+      ],
       defaultValue: '',
       control: { type: 'select' },
     },
@@ -46,15 +53,15 @@ export default Story;
 
 export const Grid = (args) => {
   return (
-  <key-grid
-    axis={args.axis}
-    mainAxisAlignment={args.mainAxisAlignment}
-    crossAxisAlignment={args.crossAxisAlignment}
-    fit={args.fit}
-    crossfit={args.crossfit}
-    wrap={args.wrap}
-  >
-    {args.content}
-  </key-grid>);
+    <key-grid
+      axis={args.axis}
+      mainAxisAlignment={args.mainAxisAlignment}
+      crossAxisAlignment={args.crossAxisAlignment}
+      fit={args.fit}
+      crossfit={args.crossfit}
+      wrap={args.wrap}
+    >
+      {args.content}
+    </key-grid>
+  );
 };
-

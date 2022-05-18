@@ -6,10 +6,11 @@ import { Component, h, Host } from '@stencil/core';
   shadow: true,
 })
 export class KeyLayout {
-
   render() {
-    return <Host>
-      <slot></slot>
-    </Host>;
+    return (
+      <Host>
+        <slot></slot>
+      </Host>
+    );
   }
 }

@@ -15,7 +15,7 @@ export default {
 
 export const Spinner = (args) => {
   const spinnerStyle = {
-    ...(args.spinnerColor && {'--key-spinner-color': args.spinnerColor}),
+    ...(args.spinnerColor && { '--key-spinner-color': args.spinnerColor }),
   };
   return <key-spinner style={spinnerStyle} {...args}></key-spinner>;
 };

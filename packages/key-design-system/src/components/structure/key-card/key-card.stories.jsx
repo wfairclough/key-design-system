@@ -1,4 +1,4 @@
-import { h } from "@stencil/core";
+import { h } from '@stencil/core';
 
 const Story = {
   title: 'Components/Structure/Card',
@@ -20,8 +20,7 @@ export default Story;
 export const Card = (args) => {
   return (
     <key-card header={args.header}>
-      {args.content && <div>{ args.content }</div>}
+      {args.content && <div>{args.content}</div>}
     </key-card>
   );
 };
-

@@ -11,7 +11,7 @@ import { GridAxis } from './grid-axis';
 })
 export class KeyGrid {
   @Element() host!: HTMLElement;
-  
+
   @Prop({ reflect: true }) axis: GridAxis = 'horizontal';
   @Prop({ reflect: true }) mainAxisAlignment: MainAxisAlignment = 'start';
   @Prop({ reflect: true }) crossAxisAlignment: CrossAxisAlignment = 'start';
@@ -20,16 +20,20 @@ export class KeyGrid {
   @Prop({ reflect: true }) wrap: boolean = false;
 
   render() {
-    return <Host class={{
-      'key-grid': true,
-      'key-wrap': this.wrap,
-      [`key-axis-${this.axis.substring(0, 1)}`]: true,
-      [`key-fit-${this.axis.substring(0, 1)}-${this.fit}`]: true,
-      [`key-crossfit-${this.axis.substring(0, 1)}-${this.crossfit}`]: true,
-      [`key-main-axis-arrange-${this.mainAxisAlignment}`]: true,
-      [`key-cross-axis-arrange-${this.crossAxisAlignment}`]: true,
-    }}>
-      <slot></slot>
-    </Host>
+    return (
+      <Host
+        class={{
+          'key-grid': true,
+          'key-wrap': this.wrap,
+          [`key-axis-${this.axis.substring(0, 1)}`]: true,
+          [`key-fit-${this.axis.substring(0, 1)}-${this.fit}`]: true,
+          [`key-crossfit-${this.axis.substring(0, 1)}-${this.crossfit}`]: true,
+          [`key-main-axis-arrange-${this.mainAxisAlignment}`]: true,
+          [`key-cross-axis-arrange-${this.crossAxisAlignment}`]: true,
+        }}
+      >
+        <slot></slot>
+      </Host>
+    );
   }
 }

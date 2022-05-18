@@ -21,12 +21,15 @@ const flagProps = [
   'column',
   'columnReverse',
 ];
-const flagArgs = flagProps.reduce((argTypes, flag) => ({
-  ...argTypes,
-  [flag]: {
-    control: { type: 'boolean' },
-  },
-}), {});
+const flagArgs = flagProps.reduce(
+  (argTypes, flag) => ({
+    ...argTypes,
+    [flag]: {
+      control: { type: 'boolean' },
+    },
+  }),
+  {}
+);
 
 const Story = {
   title: 'Components/Structure/Flex',
@@ -51,9 +54,20 @@ export const Flex = (args) => {
     // alignItems: 'center',
     // borderRadius: '3px',
   };
-  return <div style={{ display: 'block', height: '90vh', width: '90vw', border: '1px solid #aaa' }}>
-    <key-flex {...inheritArgs}>
-      { range(numberOfChildren || 5).map((val, index) => (<key-card style={childStyle} header={`Item ${index + 1}`}></key-card>))}
-    </key-flex>
-  </div>;
+  return (
+    <div
+      style={{
+        display: 'block',
+        height: '90vh',
+        width: '90vw',
+        border: '1px solid #aaa',
+      }}
+    >
+      <key-flex {...inheritArgs}>
+        {range(numberOfChildren || 5).map((val, index) => (
+          <key-card style={childStyle} header={`Item ${index + 1}`}></key-card>
+        ))}
+      </key-flex>
+    </div>
+  );
 };

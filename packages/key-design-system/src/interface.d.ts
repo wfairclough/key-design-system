@@ -69,3 +69,23 @@ export type TextFieldTypes =
   | 'week'
   | 'month'
   | 'datetime-local';
+
+  export type EnterKeyHints =
+  | 'enter'
+  | 'done'
+  | 'go'
+  | 'next'
+  | 'previous'
+  | 'search'
+  | 'send';
+
+export type InputModes = 
+| 'none'
+    | 'text'
+    | 'tel'
+    | 'url'
+    | 'email'
+    | 'numeric'
+    | 'decimal'
+    | 'search';
+    

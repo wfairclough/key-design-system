@@ -13,14 +13,18 @@ export class KeyParagraph {
   @Prop({ reflect: true }) size: ParagraphSize = 'default';
 
   render() {
-    return <Host>
-      <p class={{
-        'key-paragraph': true,
-        [this.variant]: !!this.variant,
-        [`size-${this.size}`]: !!this.size,
-      }}>
-        <slot></slot>
-      </p>
-    </Host>;
+    return (
+      <Host>
+        <p
+          class={{
+            'key-paragraph': true,
+            [this.variant]: !!this.variant,
+            [`size-${this.size}`]: !!this.size,
+          }}
+        >
+          <slot></slot>
+        </p>
+      </Host>
+    );
   }
 }

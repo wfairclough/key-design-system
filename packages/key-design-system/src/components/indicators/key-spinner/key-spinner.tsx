@@ -11,8 +11,12 @@ export class KeySpinner {
   @Prop({ reflect: true }) size: SpinnerSize = 'medium';
 
   render() {
-    return <Host>
-      <div class={{ 'key-spinner': true, [`size-${this.size}`]: !!this.size }}></div>
-    </Host>;
+    return (
+      <Host>
+        <div
+          class={{ 'key-spinner': true, [`size-${this.size}`]: !!this.size }}
+        ></div>
+      </Host>
+    );
   }
 }

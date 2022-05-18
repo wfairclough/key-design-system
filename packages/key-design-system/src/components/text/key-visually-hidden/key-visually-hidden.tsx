@@ -6,10 +6,11 @@ import { Component, h, Host } from '@stencil/core';
   shadow: true,
 })
 export class KeyVisuallyHidden {
-
   render() {
-    return <Host>
-      <slot></slot>
-    </Host>;
+    return (
+      <Host>
+        <slot></slot>
+      </Host>
+    );
   }
 }

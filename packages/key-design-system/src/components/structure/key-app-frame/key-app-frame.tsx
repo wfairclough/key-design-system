@@ -6,12 +6,15 @@ import { Component, h, Host } from '@stencil/core';
   shadow: true,
 })
 export class KeyAppFrame {
-
   render() {
-    return <Host class={{
-      'key-app-frame': true,
-    }}>
-      <slot></slot>
-    </Host>
+    return (
+      <Host
+        class={{
+          'key-app-frame': true,
+        }}
+      >
+        <slot></slot>
+      </Host>
+    );
   }
 }

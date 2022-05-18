@@ -13,7 +13,7 @@ import { CrossAxisAlignment, MainAxisAlignment } from "./components/structure/ke
 import { Fit } from "./components/structure/key-grid/fit";
 import { FaWeight } from "./components/graphics/key-icon/key-icon";
 import { InputVariant } from "./components/form/key-input/key-input";
-import { AutocompleteTypes, TextFieldTypes } from "./interface";
+import { AutocompleteTypes, EnterKeyHints, InputModes, TextFieldTypes } from "./interface";
 import { ParagraphSize, ParagraphVariant } from "./components/text/key-paragraph/key-paragraph";
 import { SpacerDirection, SpacerSize } from "./components/structure/key-spacer/key-spacer";
 import { SpinnerSize } from "./components/indicators/key-spinner/key-spinner";
@@ -129,9 +129,9 @@ export namespace Components {
         "clearOnEdit"?: boolean;
         "debounce": number;
         "disabled": boolean;
-        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        "enterkeyhint"?: EnterKeyHints;
         "getInputElement": () => Promise<HTMLInputElement>;
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "inputmode"?: InputModes;
         "max"?: string | number;
         "maxlength"?: number;
         "min"?: string | number;
@@ -451,8 +451,8 @@ declare namespace LocalJSX {
         "clearOnEdit"?: boolean;
         "debounce"?: number;
         "disabled"?: boolean;
-        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "enterkeyhint"?: EnterKeyHints;
+        "inputmode"?: InputModes;
         "max"?: string | number;
         "maxlength"?: number;
         "min"?: string | number;

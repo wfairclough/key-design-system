@@ -7,17 +7,20 @@ import { Color } from '../../../types/color';
   shadow: false,
 })
 export class KeyLabel {
-
   @Prop() color: Color;
 
   render() {
-    return <Host class={{
-      'key-label': true,
-      [Color.classForColor(this.color)]: !!this.color,
-    }}>
-      <label>
-        <slot></slot>
-      </label>
-    </Host>
+    return (
+      <Host
+        class={{
+          'key-label': true,
+          [Color.classForColor(this.color)]: !!this.color,
+        }}
+      >
+        <label>
+          <slot></slot>
+        </label>
+      </Host>
+    );
   }
 }

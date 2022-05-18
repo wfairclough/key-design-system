@@ -17,20 +17,20 @@ const Story = {
 };
 export default Story;
 
-
 export const GridItem = (args) => {
-  return (<key-grid-item>Item</key-grid-item>);
+  return <key-grid-item>Item</key-grid-item>;
 };
-
 
 export const ItemsInGrid = (args) => {
   const styles = {
     margin: args.margin ?? '1rem',
-  }
-  return (<key-grid axis={args.parentGridAxis ?? 'horizontal'}>
-    <key-grid-item style={styles}>1</key-grid-item>
-    <key-grid-item style={styles}>2</key-grid-item>
-    <key-grid-item style={styles}>3</key-grid-item>
-    <key-grid-item style={styles}>4</key-grid-item>
-  </key-grid>);
+  };
+  return (
+    <key-grid axis={args.parentGridAxis ?? 'horizontal'}>
+      <key-grid-item style={styles}>1</key-grid-item>
+      <key-grid-item style={styles}>2</key-grid-item>
+      <key-grid-item style={styles}>3</key-grid-item>
+      <key-grid-item style={styles}>4</key-grid-item>
+    </key-grid>
+  );
 };

@@ -12,7 +12,6 @@ const log = Logger.create('KeyGridItem');
   shadow: true,
 })
 export class KeyGridItem {
-  
   @Element() el!: HTMLElement;
 
   private keyGrid?: HTMLElement;
@@ -39,13 +38,17 @@ export class KeyGridItem {
   }
 
   render() {
-    return <Host class={{
-      'key-grid-item': true,
-      'key-axis-h': this.axis === 'horizontal',
-      'key-axis-v': this.axis === 'vertical',
-      [`key-alignment-${this.axisAlignment}`]: true,
-    }}>
-      <slot></slot>
-    </Host>
+    return (
+      <Host
+        class={{
+          'key-grid-item': true,
+          'key-axis-h': this.axis === 'horizontal',
+          'key-axis-v': this.axis === 'vertical',
+          [`key-alignment-${this.axisAlignment}`]: true,
+        }}
+      >
+        <slot></slot>
+      </Host>
+    );
   }
 }

@@ -5,7 +5,7 @@ export default {
   argTypes: {
     faKitUrl: {
       control: { type: 'text' },
-    }
+    },
   },
 };
 

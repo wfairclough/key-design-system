@@ -10,8 +10,10 @@ export class KeyHeading {
 
   render() {
     const HTag = `h${this.level}`;
-    return <HTag>
+    return (
+      <HTag>
         <slot></slot>
-      </HTag>;
+      </HTag>
+    );
   }
 }

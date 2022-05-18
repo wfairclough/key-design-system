@@ -11,7 +11,9 @@ export default {
 };
 
 export const Heading = (args) => {
-  return <key-heading {...args}>
-    This is a heading level {args.level ?? '1'}
-  </key-heading>;
+  return (
+    <key-heading {...args}>
+      This is a heading level {args.level ?? '1'}
+    </key-heading>
+  );
 };

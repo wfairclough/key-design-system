@@ -1,12 +1,28 @@
-import { Build, Component, Element, Event, EventEmitter, h, Host, Method, Prop, Watch } from '@stencil/core';
-import { AutocompleteTypes, TextFieldTypes } from '../../../interface';
+import {
+  Build,
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  Watch,
+} from '@stencil/core';
+import { AutocompleteTypes, EnterKeyHints, InputModes, TextFieldTypes } from '../../../interface';
 
-import { Attributes, debounceEvent, inheritAriaAttributes, inheritAttributes } from '../../../utils/helpers';
+import {
+  Attributes,
+  debounceEvent,
+  inheritAriaAttributes,
+  inheritAttributes,
+} from '../../../utils/helpers';
 import { Logger } from '../../../utils/logger';
 
 const log = Logger.create('KeyInput');
 
-export type InputVariant = 'default' | 'search' | 'email' | 'password' | 'tel'
+export type InputVariant = 'default' | 'search' | 'email' | 'password' | 'tel';
 
 @Component({
   tag: 'key-input',
@@ -14,7 +30,6 @@ export type InputVariant = 'default' | 'search' | 'email' | 'password' | 'tel'
   shadow: true,
 })
 export class KeyInput {
-
   @Element() el!: HTMLElement;
   private nativeInput!: HTMLInputElement;
   private inputId = `key-input-${inputIds++}`;
@@ -23,7 +38,7 @@ export class KeyInput {
   private inheritedAttributes: Attributes;
 
   @Prop({ reflect: true }) variant: InputVariant = 'default';
-  
+
   @Prop() accept?: string;
   @Prop() autocapitalize = 'off';
   @Prop() autocomplete: AutocompleteTypes = 'off';
@@ -32,8 +47,8 @@ export class KeyInput {
   @Prop() clearInput = false;
   @Prop() clearOnEdit?: boolean;
   @Prop() disabled = false;
-  @Prop() enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
-  @Prop() inputmode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+  @Prop() enterkeyhint?: EnterKeyHints;
+  @Prop() inputmode?: InputModes;
   @Prop() max?: string | number;
   @Prop() maxlength?: number;
   @Prop() min?: string | number;
@@ -49,12 +64,12 @@ export class KeyInput {
   @Prop() size?: number;
   @Prop() type: TextFieldTypes = 'text';
   @Prop({ mutable: true }) value?: string | number | null = '';
-  
+
   @Prop() debounce = 0;
-  
+
   @Watch('debounce')
   protected debounceChanged() {
-    this.keyValueChange = debounceEvent(this.keyChange, this.debounce);
+this.keyValueChange = debounceEvent(this.keyChange, this.debounce);
   }
 
   @Watch('value')
@@ -72,7 +87,9 @@ export class KeyInput {
        */
       nativeInput.value = value;
     }
-    this.keyValueChange.emit({ value: this.value == null ? this.value : this.value.toString() });
+    this.keyValueChange.emit({
+      value: this.value == null ? this.value : this.value.toString(),
+    });
   }
 
   @Event() keyChange: EventEmitter<any>;
@@ -80,24 +97,24 @@ export class KeyInput {
   @Event() keyBlur: EventEmitter<any>;
   @Event() keyFocus: EventEmitter<any>;
 
-   @Method()
-   async setFocus() {
-     if (this.nativeInput) {
-       this.nativeInput.focus();
-     }
-   }
- 
-   @Method()
-   async setBlur() {
-     if (this.nativeInput) {
-       this.nativeInput.blur();
-     }
-   }
- 
-   @Method()
-   getInputElement(): Promise<HTMLInputElement> {
-     return Promise.resolve(this.nativeInput!);
-   }
+  @Method()
+  async setFocus() {
+    if (this.nativeInput) {
+      this.nativeInput.focus();
+    }
+  }
+
+  @Method()
+  async setBlur() {
+    if (this.nativeInput) {
+      this.nativeInput.blur();
+    }
+  }
+
+  @Method()
+  getInputElement(): Promise<HTMLInputElement> {
+    return Promise.resolve(this.nativeInput!);
+  }
 
   componentWillLoad() {
     this.inheritedAttributes = {
@@ -131,59 +148,65 @@ export class KeyInput {
     }
     const nativeInput = this.nativeInput;
     if (nativeInput) {
-      nativeInput.removeEventListener('compositionstart', this.onCompositionStart);
+      nativeInput.removeEventListener(
+        'compositionstart',
+        this.onCompositionStart
+      );
       nativeInput.removeEventListener('compositionEnd', this.onCompositionEnd);
     }
   }
-  
 
   render() {
-    return <Host class={{
-      'key-input': true,
-      [`${this.variant}`]: !!this.variant,
-    }}>
-      <div class="key-input-container">
-        <div class="key-input-pos-relative">
-          <input 
-            ref={ref => this.nativeInput = ref}
-            class="key-native-input"
-            part="native-input"
-            onChange={this.onKeyChange}
-            onBlur={this.onKeyBlur}
-            onFocus={this.onKeyFocus}
-            onKeyDown={this.onKeydown}
-            accept={this.accept}
-            autocapitalize={this.autocapitalize}
-            autocomplete={this.autocomplete}
-            autocorrect={this.autocorrect}
-            autofocus={this.autofocus}
-            disabled={this.disabled}
-            enterkeyhint={this.enterkeyhint}
-            inputmode={this.inputmode}
-            max={this.max}
-            maxlength={this.maxlength}
-            min={this.min}
-            minlength={this.minlength}
-            multiple={this.multiple}
-            name={this.name}
-            pattern={this.pattern}
-            placeholder={this.placeholder}
-            readonly={this.readonly}
-            required={this.required}
-            spellcheck={this.spellcheck}
-            step={this.step}
-            size={this.size}
-            type={this.type}
-            {...this.inheritedAttributes}>
-          </input>
-          <div class="key-input-end">
-            <slot name="end">
-              <key-icon faWeight='fa-light' faIcon='fa-search'></key-icon>
-            </slot>
+    return (
+      <Host
+        class={{
+          'key-input': true,
+          [`${this.variant}`]: !!this.variant,
+        }}
+      >
+        <div class="key-input-container">
+          <div class="key-input-pos-relative">
+            <input
+              ref={(ref) => (this.nativeInput = ref)}
+              class="key-native-input"
+              part="native-input"
+              onChange={this.onKeyChange}
+              onBlur={this.onKeyBlur}
+              onFocus={this.onKeyFocus}
+              onKeyDown={this.onKeydown}
+              accept={this.accept}
+              autocapitalize={this.autocapitalize}
+              autocomplete={this.autocomplete}
+              autocorrect={this.autocorrect}
+              autofocus={this.autofocus}
+              disabled={this.disabled}
+              enterkeyhint={this.enterkeyhint}
+              inputmode={this.inputmode}
+              max={this.max}
+              maxlength={this.maxlength}
+              min={this.min}
+              minlength={this.minlength}
+              multiple={this.multiple}
+              name={this.name}
+              pattern={this.pattern}
+              placeholder={this.placeholder}
+              readonly={this.readonly}
+              required={this.required}
+              spellcheck={this.spellcheck}
+              step={this.step}
+              size={this.size}
+              type={this.type}
+              {...this.inheritedAttributes}
+            ></input>
+            <div class="key-input-end">
+              <slot name="end">
+                <key-icon faWeight="fa-light" faIcon="fa-search"></key-icon>
+              </slot>
+            </div>
           </div>
         </div>
-      </div>
-    </Host>;
+      </Host>
+    );
   }
 
   private shouldClearOnEdit() {
@@ -192,7 +215,9 @@ export class KeyInput {
   }
 
   private getValue(): string {
-    return typeof this.value === 'number' ? this.value.toString() : (this.value || '').toString();
+    return typeof this.value === 'number'
+      ? this.value.toString()
+      : (this.value || '').toString();
   }
 
   private hasValue(): boolean {
@@ -256,7 +281,6 @@ export class KeyInput {
       this.nativeInput.value = '';
     }
   };
-
 }
 
 let inputIds = 0;

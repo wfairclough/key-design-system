@@ -35,14 +35,20 @@ const customIconStyles = `
 
 export const Checkbox = (args) => {
   const { customIcon, ...checkboxArgs } = args;
-  return <div>
+  return (
+    <div>
       <style innerHTML={customIconStyles}></style>
-      <key-checkbox id="demo-checkbox" class={{ customIcon }} {...checkboxArgs}>Enabled</key-checkbox>
-      <script innerHTML={`
+      <key-checkbox id="demo-checkbox" class={{ customIcon }} {...checkboxArgs}>
+        Enabled
+      </key-checkbox>
+      <script
+        innerHTML={`
       var checkEl = document.getElementById('demo-checkbox');
       checkEl.addEventListener('keyChanged', (evt) => {
         console.log('keyChanged', evt);
       });
-      `}></script>
+      `}
+      ></script>
     </div>
+  );
 };

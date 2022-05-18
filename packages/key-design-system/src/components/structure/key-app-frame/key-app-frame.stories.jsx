@@ -14,5 +14,5 @@ const Story = {
 export default Story;
 
 export const AppFrame = (args) => {
-  return (<key-app-frame></key-app-frame>);
+  return <key-app-frame></key-app-frame>;
 };

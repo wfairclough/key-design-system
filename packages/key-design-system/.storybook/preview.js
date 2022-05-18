@@ -1,4 +1,8 @@
-import { renderVdom, registerHost, getHostRef } from '@stencil/core/internal/client';
+import {
+  renderVdom,
+  registerHost,
+  getHostRef,
+} from '@stencil/core/internal/client';
 
 import { defineCustomElements } from '../../../dist/packages/key-design-system/loader';
 
@@ -33,12 +37,12 @@ faKit.faKitToken = 'a30ba47e78';
 faKit.appendChild(storyRoot);
 rootElement.parentElement.appendChild(faKit);
 
-registerHost(storyRoot, { $flags$: 0, $tagName$: 'story-root' })
+registerHost(storyRoot, { $flags$: 0, $tagName$: 'story-root' });
 const hostRef = getHostRef(storyRoot);
 
 export const decorators = [
   (Story) => {
     renderVdom(hostRef, Story());
     return '<div />';
-  }
+  },
 ];

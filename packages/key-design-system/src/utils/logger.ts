@@ -6,7 +6,7 @@ export namespace Logger {
     const handler: ProxyHandler<Console> = {
       get: function (target: Console, p: string | symbol, receiver: any) {
         receiver = receiver;
-        if (['log',  'error',  'warn',  'debug'].some(fn => fn === p)) {
+        if (['log', 'error', 'warn', 'debug'].some((fn) => fn === p)) {
           if (!window?.logOn) {
             return () => {};
           }
@@ -15,11 +15,10 @@ export namespace Logger {
           };
         }
         return target[p];
-      }
+      },
     };
-    
+
     const logger = new Proxy(console, handler);
     return logger;
   }
 }
-
