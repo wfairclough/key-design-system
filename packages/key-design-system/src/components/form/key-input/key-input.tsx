@@ -10,7 +10,13 @@ import {
   Prop,
   Watch,
 } from '@stencil/core';
-import { AutocompleteTypes, EnterKeyHints, InputModes, TextFieldTypes } from '../../../interface';
+import {
+  AutocompleteTypes,
+  AutoCorrectTypes,
+  EnterKeyHints,
+  InputModes,
+  TextFieldTypes,
+} from '../../../interface';
 
 import {
   Attributes,
@@ -42,7 +48,7 @@ export class KeyInput {
   @Prop() accept?: string;
   @Prop() autocapitalize = 'off';
   @Prop() autocomplete: AutocompleteTypes = 'off';
-  @Prop() autocorrect: 'on' | 'off' = 'off';
+  @Prop() autocorrect: AutoCorrectTypes = 'off';
   @Prop() autofocus = false;
   @Prop() clearInput = false;
   @Prop() clearOnEdit?: boolean;
@@ -69,7 +75,7 @@ export class KeyInput {
 
   @Watch('debounce')
   protected debounceChanged() {
-this.keyValueChange = debounceEvent(this.keyChange, this.debounce);
+    this.keyValueChange = debounceEvent(this.keyChange, this.debounce);
   }
 
   @Watch('value')

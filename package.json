@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write \"**/*.(js|ts|jsx|tsx)\"",
-    "hooks:pre-commit": "node tools/hooks/pre-commit.mjs"
+    "hooks:pre-commit": "node tools/hooks/pre-commit.mjs",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -40,7 +41,7 @@
     "eslint": "~8.12.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
-    "husky": "^7.0.4",
+    "husky": "^8.0.1",
     "jest": "26.6.3",
     "jest-cli": "^26.6.3",
     "lit-html": "^2.2.3",

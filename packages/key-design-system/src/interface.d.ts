@@ -56,6 +56,8 @@ export type AutocompleteTypes =
   | 'url'
   | 'photo';
 
+export type AutoCorrectTypes = 'on' | 'off';
+
 export type TextFieldTypes =
   | 'date'
   | 'email'
@@ -70,7 +72,7 @@ export type TextFieldTypes =
   | 'month'
   | 'datetime-local';
 
-  export type EnterKeyHints =
+export type EnterKeyHints =
   | 'enter'
   | 'done'
   | 'go'
@@ -79,13 +81,12 @@ export type TextFieldTypes =
   | 'search'
   | 'send';
 
-export type InputModes = 
-| 'none'
-    | 'text'
-    | 'tel'
-    | 'url'
-    | 'email'
-    | 'numeric'
-    | 'decimal'
-    | 'search';
-    
+export type InputModes =
+  | 'none'
+  | 'text'
+  | 'tel'
+  | 'url'
+  | 'email'
+  | 'numeric'
+  | 'decimal'
+  | 'search';
