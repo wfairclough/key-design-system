@@ -1,6 +1,7 @@
 :host {
   display: flex;
   margin-bottom: var(--key-space-4, 1rem);
+  isolation: isolate;
 
   .key-input-pos-relative {
     position: relative;
@@ -26,7 +27,7 @@
     cursor: initial;
     background: white;
     background-clip: initial;
-    border: var(--key-border-width-1, 1px) solid #909599;
+    border: var(--key-border-width-1, 1px) solid var(--key-border-color, #909599);
     border-radius: var(--key-border-radius-1, 0.25rem);
     box-shadow: initial;
     transition: box-shadow 150ms ease, border 150ms ease;
@@ -46,6 +47,20 @@
 
   input.key-native-input::-webkit-search-cancel-button {
     cursor: pointer;
+  }
+
+  .key-input-end {
+    --icon-color: var(--key-icon-color, #909599);
+    position: absolute;
+    top: 55%;
+    right: 0.8rem;
+    z-index: 200;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+    line-height: normal;
+    pointer-events: none;
+    transform: translateY(-50%);
   }
 
 }

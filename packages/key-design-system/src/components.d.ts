@@ -130,6 +130,7 @@ export namespace Components {
         "debounce": number;
         "disabled": boolean;
         "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        "getInputElement": () => Promise<HTMLInputElement>;
         "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
         "max"?: string | number;
         "maxlength"?: number;
@@ -141,10 +142,13 @@ export namespace Components {
         "placeholder"?: string;
         "readonly": boolean;
         "required": boolean;
+        "setBlur": () => Promise<void>;
+        "setFocus": () => Promise<void>;
         "size"?: number;
         "spellcheck": boolean;
         "step"?: string;
         "type": TextFieldTypes;
+        "value"?: string | number | null;
         "variant": InputVariant;
     }
     interface KeyLabel {
@@ -455,6 +459,10 @@ declare namespace LocalJSX {
         "minlength"?: number;
         "multiple"?: boolean;
         "name"?: string;
+        "onKeyBlur"?: (event: CustomEvent<any>) => void;
+        "onKeyChange"?: (event: CustomEvent<any>) => void;
+        "onKeyFocus"?: (event: CustomEvent<any>) => void;
+        "onKeyValueChange"?: (event: CustomEvent<any>) => void;
         "pattern"?: string;
         "placeholder"?: string;
         "readonly"?: boolean;
@@ -463,6 +471,7 @@ declare namespace LocalJSX {
         "spellcheck"?: boolean;
         "step"?: string;
         "type"?: TextFieldTypes;
+        "value"?: string | number | null;
         "variant"?: InputVariant;
     }
     interface KeyLabel {
